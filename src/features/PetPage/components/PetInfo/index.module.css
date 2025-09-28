@@ -1,0 +1,54 @@
+.petInfo {
+    background-color: rgba(137, 196, 196, 0.065);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.section {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.avatar {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 12px;
+}
+
+.petName {
+    margin: 0;
+    color: var(--text-color-primary);
+    font-size: 28px;
+    text-align: center;
+}
+
+.infoParagraph {
+    color: var(--text-color-secondary);
+    margin: 0 0 8px 0;
+    font-size: 18px;
+}
+
+.input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.5px solid var(--text-color-secondary);
+    font-size: 18px;
+    color: var(--text-color-secondary);
+}
+
+.input:focus {
+    border-bottom: 1px solid;
+    outline: none;
+}
+
+.label {
+    font-size: 18px;
+}
+
+.isEdit {
+  margin-bottom: 8px;
+}

@@ -1,0 +1,41 @@
+.card {
+    border-radius: 8px;
+    /* background-color: #6D4886; */
+    background-color: rgba(137, 196, 196, 0.065);
+    width: 200px;
+    padding: 12px;
+    text-align: center;
+   
+}
+
+.petAvatar {
+    /* background-color: #C09DA7; */
+    background-color: #6D4886;
+    margin: 0 auto;
+}
+
+.petName {
+    margin: 12px 0 8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: var(--text-color-primary);
+}
+
+.petInfo {
+    margin: 8px;
+    color: var(--text-color-secondary);
+}
+
+.petInfo:last-of-type {
+    margin-bottom: 18px;
+}
+
+.button {
+    font-size: 22px;
+    width: 100%;
+    /* background-color: #C09DA7; */
+    background-color: #6D4886;
+    border-color: #6D4886;
+    padding: 6px;
+}
+

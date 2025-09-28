@@ -1,0 +1,32 @@
+.petPage {
+    border-radius: 8px;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 20px 40px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.petName {
+    color: var(--text-color-primary);
+    font-weight: bold;
+}
+
+.paragraph {
+    margin: 0;
+    color: var(--text-color-secondary);
+}
+
+.heading {
+    margin: 0;
+    color: var(--text-color-primary);
+}
+
+.container {
+    display: flex;
+    gap: 8px;
+    margin: 0 0 16px;
+}

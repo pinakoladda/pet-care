@@ -1,0 +1,19 @@
+.pets {
+    padding: 0;
+}
+
+.cardsContainer {
+     display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.addButton {
+    background-color: unset;
+    border-color: transparent;
+}
+
+.header {
+    color: var(--text-color-primary);
+    margin: 0 0 12px;
+}
