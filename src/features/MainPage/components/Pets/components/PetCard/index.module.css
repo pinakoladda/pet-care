@@ -1,6 +1,5 @@
 .card {
     border-radius: 8px;
-    /* background-color: #6D4886; */
     background-color: rgba(137, 196, 196, 0.065);
     width: 200px;
     padding: 12px;
@@ -31,11 +30,13 @@
 }
 
 .button {
-    font-size: 22px;
+    font-size: 18px;
     width: 100%;
-    /* background-color: #C09DA7; */
     background-color: #6D4886;
     border-color: #6D4886;
     padding: 6px;
+    text-decoration: none;
+    display: block;
+    box-sizing: border-box;
 }
 

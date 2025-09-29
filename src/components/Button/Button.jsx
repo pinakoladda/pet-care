@@ -1,10 +1,11 @@
 import styles from './index.module.css'
 import cn from 'classnames'
 
-export const Button = ({children, className, ...props}) => {
+export const Button = ({children, className, as, ...props}) => {
+    const Component = as || 'button';
     return (
         <>
-        <button className={cn(styles.button, className)} {...props}>{children}</button>
+        <Component className={cn(styles.button, className)} {...props}>{children}</Component>
         </>
     )
 }
