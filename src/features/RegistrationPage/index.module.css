@@ -1,0 +1,36 @@
+.form {
+    max-width: 425px;
+    margin: 0 auto;
+
+}
+
+.input {
+    height: 28px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid var(--text-color-secondary);
+    border-radius: 4px;
+    padding: 6px;
+    font-size: 18px;
+    color: var(--text-color-primary);
+}
+
+.input:first-of-type {
+    text-transform: capitalize;
+}
+
+.label {
+    color: var(--text-color-primary);
+}
+
+.submitButton {
+    height: 40px;
+    border-radius: 4px;
+    margin: 18px 0;
+    font-size: 18px;
+    background-color: var(--color-primary);
+}
+
+.paragraph {
+    margin: 0;
+}

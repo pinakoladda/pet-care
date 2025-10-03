@@ -2,9 +2,13 @@ import React from "react";
 import { MainPage } from "./features/MainPage/MainPage"
 import { PetPage } from "./features/PetPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { LoginPage } from "./features/LoginPage";
+import { RegistrationPage } from "./features/RegistrationPage";
 
 const ROUTES = [
   { component: PetPage, path: /\/pet\/*/ },
+  { component: LoginPage, path: /\/login/},
+  { component: RegistrationPage, path: /\/registration/},
 ]
 
 const queryClient = new QueryClient();
