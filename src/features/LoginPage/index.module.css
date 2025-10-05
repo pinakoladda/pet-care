@@ -25,4 +25,7 @@
     background-color: var(--color-primary);
 }
 
-/* make colors var */
+.errorMessage {
+    color: var(--text-color-error);
+    margin: 0;
+}

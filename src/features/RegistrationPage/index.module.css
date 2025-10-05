@@ -34,3 +34,8 @@
 .paragraph {
     margin: 0;
 }
+
+.errorMessage {
+    color: var(--text-color-error);
+    margin: 0;
+}
