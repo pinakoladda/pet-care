@@ -8,7 +8,6 @@
 }
 
 .petAvatar {
-    /* background-color: #C09DA7; */
     background-color: #6D4886;
     margin: 0 auto;
 }
@@ -18,11 +17,13 @@
     text-overflow: ellipsis;
     overflow: hidden;
     color: var(--text-color-primary);
+    font-size: 18px;
 }
 
 .petInfo {
     margin: 8px;
     color: var(--text-color-secondary);
+    font-size: 16px;
 }
 
 .petInfo:last-of-type {

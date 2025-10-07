@@ -16,4 +16,5 @@
 .header {
     margin: 0 0 18px;
     color: var(--text-color-primary);
+    font-size: 18px;
 }

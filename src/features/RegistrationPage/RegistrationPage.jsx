@@ -1,10 +1,13 @@
 import React from 'react';
 import { Form } from '@/components/Form'
 import { Button } from '@/components/Button'
-import styles from './index.module.css'
 import { useRegistration } from '@/lib/api';
+import { Input } from '@/components/Input';
+import { useTokenCheck } from '@/hooks/useTokenCheck';
+import styles from './index.module.css'
 
 export const RegistrationPage = () => {
+    useTokenCheck()
     const { mutateAsync: registrationFn, isPending } = useRegistration();
     const [nameValue, setNameValue] = React.useState('');
     const [emailValue, setEmailValue] = React.useState('');
@@ -38,6 +41,7 @@ export const RegistrationPage = () => {
         registrationFn({ name: nameValue, email: emailValue, login: loginValue, password: passwordValue })
             .then((result) => {
                 window.location.href = '/'
+                localStorage.setItem('token', result.token)
                 console.log(result)
             })
             .catch((error) => {
@@ -51,39 +55,37 @@ export const RegistrationPage = () => {
     }
 
     return (
-            <Form onSubmit={onSubmit} className={styles.form} header='Create your Pet Care account:'>
-                <label className={styles.label} htmlFor='name'>Name:</label>
-                <input 
-                    className={styles.input} 
+            <Form onSubmit={onSubmit} className={styles.form} header={<>Create your <span className={styles.headerAccent}> Pet Care </span> account:</>}>
+                <Input 
+                    label='Name:'
+                    className={styles.nameInput}
                     id='name' 
                     name='name' 
-                    type='text' 
+                    type='text'
                     maxLength={20}
                     required
                     value={nameValue}
                     onChange={onNameChange}
                 />
-                <label className={styles.label} htmlFor='email'>Email:</label>
-                <input 
-                    className={styles.input} 
-                    id='email' name='email' 
+                <Input 
+                    label='Email:'
+                    id='email'
+                    name='email' 
                     type='email' 
                     required
                     value={emailValue}
                     onChange={onEmailChange}
                 />
-                <label className={styles.label} htmlFor='login'>Login:</label>
-                <input 
-                    className={styles.input} 
+                <Input 
+                    label='Login:'
                     id='login' name='login' 
                     type='text'
                     required
                     value={loginValue}
                     onChange={onLoginChange}
                 />
-                <label  className={styles.label} htmlFor='password'>Password:</label>
-                <input 
-                    className={styles.input} 
+                <Input 
+                    label='Password:' 
                     id='password' 
                     name='password' 
                     type='password' 

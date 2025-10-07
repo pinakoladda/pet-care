@@ -1,10 +1,9 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-family-default);
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  /* color: rgba(255, 255, 255, 0.87); */
   color: var(--text-color-secondary);
   padding: 0 60px;
 
@@ -16,9 +15,11 @@
   --text-color-primary: #dedede;
   --text-color-secondary: #c2c2c2;
   --text-color-error: rgb(236, 54, 54);
+  --text-color-accent: rgb(202, 174, 235);
 
   --color-surface: rgb(27, 30, 30);
-
   --color-primary: #6D4886;
+
+  --font-family-default: "Comic Relief", system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 

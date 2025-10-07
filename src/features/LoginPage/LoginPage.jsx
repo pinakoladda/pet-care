@@ -3,8 +3,11 @@ import { Button } from '@/components/Button'
 import { Form } from '@/components/Form'
 import styles from './index.module.css'
 import { useLogin } from '@/lib/api';
+import { Input } from '@/components/Input';
+import { useTokenCheck } from '@/hooks/useTokenCheck';
 
 export const LoginPage = () => {
+    useTokenCheck()
     const { mutateAsync: loginFn, isPending } = useLogin()
     const [loginValue, setLoginValue] = React.useState('');
     const [passwordValue, setPasswordValue] = React.useState('');
@@ -25,8 +28,8 @@ export const LoginPage = () => {
 
         loginFn({ login: loginValue, password: passwordValue })
             .then((result) => {
+                localStorage.setItem('token', result.token)
                 window.location.href = '/'
-                console.log(result)
             })
             .catch((error) => {
                 setErrorMessage(error.response.data.message)
@@ -35,10 +38,9 @@ export const LoginPage = () => {
     }
 
     return (
-            <Form onSubmit={onSubmit} className={styles.form} header='Login to your Pet Care accont:'>
-                <label className={styles.label} htmlFor='login'>Login:</label>
-                <input 
-                    className={styles.input} 
+            <Form onSubmit={onSubmit} className={styles.form} header={<>Login to your <span className={styles.headerAccent}> Pet Care </span> accont:</>}>
+                <Input 
+                    label='Login:'
                     id='login' 
                     name='login'
                     maxLength={20}
@@ -46,9 +48,8 @@ export const LoginPage = () => {
                     value={loginValue}
                     onChange={onLoginChange}
                 />
-                <label className={styles.label} htmlFor='password'>Password:</label>
-                <input 
-                    className={styles.input} 
+                <Input
+                    label='Password:'
                     id='password' 
                     name='password'
                     type='password'

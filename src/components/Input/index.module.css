@@ -1,0 +1,16 @@
+.input {
+    background-color: transparent;
+    outline: none;
+    border: 1px solid var(--text-color-secondary);
+    border-radius: 4px;
+    padding: 6px;
+    height: 28px;
+    font-size: 18px;
+    color: var(--text-color-primary);
+    font-family: var(--font-family-default);
+}
+
+.label {
+    color: var(--text-color-primary);
+    font-size: 16px;
+}

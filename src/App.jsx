@@ -17,7 +17,7 @@ function App() {
   const PageComponent = React.useMemo(() => {
     const pathname = window.location.pathname;
 
-    if(pathname === '/') {
+    if (pathname === '/') {
       return MainPage;
     }
 

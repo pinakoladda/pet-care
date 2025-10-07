@@ -5,6 +5,7 @@
     color: var(--text-color-primary);
     transition: opacity 0.3s ease-in-out;
     cursor: pointer;
+    font-family: var(--font-family-default);
 }
 
 .button:hover {

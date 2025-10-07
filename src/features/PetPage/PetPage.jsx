@@ -1,8 +1,9 @@
 import React from 'react';
-import styles from './index.module.css';
 import { PetInfo, PetEditField } from './components/PetInfo';
 import { usePetData } from '@/lib/api';
 import { Loader } from '@/components/Loader';
+import { useAuthRouting } from '@/hooks/useAuthRouting';
+import styles from './index.module.css';
 
 const COLORS = ["Black", "White", "Red", "Brown", "Yellow", "Cream", "Blue", "Grey"];
 const GENDER = ["Male", "Female"];
@@ -26,6 +27,7 @@ const formatAge = (date) => {
 }
 
 export const PetPage = () => {
+    useAuthRouting()
     const petId = window.location.pathname.split('/')[2];
 
     const { data, isLoading } = usePetData(petId);
@@ -64,38 +66,6 @@ export const PetPage = () => {
                 </PetEditField>
                 <PetEditField label="Neutered" value='yes' defaultChecked={true} type="checkbox"/>
             </PetInfo>}
-            
-            {/* <section className={styles.helthInfo}>
-                <div className={styles.container}>
-                    <h4 className={styles.heading}>Last flea and tick treatment:</h4>
-                    <p className={styles.paragraph}>date: 10.01.2025</p>
-                    <p className={styles.paragraph}>Medcine: simparica trio</p>
-                </div>
-                <div className={styles.container}>
-                    <h4 className={styles.heading}>Last deworming treatment:</h4>
-                    <p className={styles.paragraph}>date: 10.12.2025</p>
-                    <p className={styles.paragraph}>Medcine: milprazon</p>
-                </div>
-                <div className={styles.container}>
-                    <h4 className={styles.heading}>Last vaccination against pabbies:</h4>
-                    <p className={styles.paragraph}>date: 10.12.2025</p>
-                    <p className={styles.paragraph}>Medcine: nodivac</p>
-                </div>
-                <div className={styles.container}>
-                    <h4 className={styles.heading}>Last vaccination against L4:</h4>
-                    <p className={styles.paragraph}>date: 10.12.2025</p>
-                    <p className={styles.paragraph}>Medcine: nodivac</p>
-                </div>
-                <div className={styles.container}>
-                    <h4 className={styles.heading}>Last vaccination against DHPPi:</h4>
-                    <p className={styles.paragraph}>date: 10.12.2025</p>
-                    <p className={styles.paragraph}>Medcine: nodivac</p>
-                </div>
-                <div className={styles.container}>
-                    <h4 className={styles.heading}>Other vaccinations and treatments:</h4>
-                </div>
-            </section> */}
-            
         </main>
     )
 }
