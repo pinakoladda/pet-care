@@ -4,24 +4,36 @@ import { ProfileInfo } from "@/components/ProfileInfo"
 import { useAuth } from "@/lib/api"
 import { Header } from "@/components/Header"
 import { Loader } from '@/components/Loader'
+import { useAuthRouting } from "@/hooks/useAuthRouting"
+import { AddPetForm } from "@/features/AddPetForm"
 
 import styles from './index.module.css'
-import { useAuthRouting } from "@/hooks/useAuthRouting"
+import React from "react"
 
 export const MainPage = () => {
     useAuthRouting()
     const { data, isLoading } = useAuth();
+    const [visible, setVisible] = React.useState(false)  
+
+    const onAddPet = () => {
+        setVisible(true)
+    }
+
+    const onPopupClose = () => {
+         setVisible(false)
+    }
 
     return (
         <>
-            <Header />
             <div className={styles.mainPage}>
                 {isLoading 
                 ? <Loader />
                 : <>
+                    <Header page='mainPage' />
                     <ProfileInfo name={data?.name} login={data?.login} />
                     <Notification />
-                    <Pets ownerId={data?._id} />
+                    <Pets onAddPet={onAddPet} ownerId={data?._id} />
+                    <AddPetForm visible={visible} onPopupClose={onPopupClose}/>
                 </>}
             </div>
         </>

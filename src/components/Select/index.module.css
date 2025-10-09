@@ -1,6 +1,5 @@
-.input {
+.select {
     background-color: transparent;
-    outline: none;
     border: 1px solid var(--text-color-secondary);
     border-radius: 4px;
     padding: 6px;

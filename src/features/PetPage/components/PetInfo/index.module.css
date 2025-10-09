@@ -21,9 +21,9 @@
 
 .petName {
     margin: 0;
-    color: var(--text-color-primary);
     font-size: 28px;
     text-align: center;
+    font-weight: bold;
 }
 
 .infoParagraph {
@@ -47,6 +47,7 @@
 
 .label {
     font-size: 18px;
+    color: var(--text-color-accent);
 }
 
 .isEdit {

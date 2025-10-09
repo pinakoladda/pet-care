@@ -1,0 +1,9 @@
+.label {
+    color: var(--text-color-primary);
+    font-size: 16px;
+    margin-right: 12px;
+}
+
+.radio {
+    margin: 0;
+}

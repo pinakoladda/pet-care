@@ -1,7 +1,8 @@
 import { Button } from '../Button';
 import styles from './index.module.css';
+import cn from 'classnames';
 
-export const Header = () => {
+export const Header = ({ page }) => {
 
     const handleLogOut = () => {
         localStorage.removeItem('token')
@@ -10,9 +11,9 @@ export const Header = () => {
 
     return (
         <header className={styles.header}>
-            {/* <p>Main page</p>
-            <p>My tails</p> */}
-            <Button onClick={handleLogOut}>log out</Button>
+            <Button as='a' className={cn(styles.link, { [styles.disabledLink]: page === 'mainPage' })} href='/'>main page</Button>
+            <Button className={styles.link}>my tails</Button>
+            <Button className={styles.link} onClick={handleLogOut}>log out</Button>
         </header>
     )
 }

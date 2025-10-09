@@ -1,0 +1,20 @@
+.header {
+    border-radius: 8px;
+    max-width: 1024px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 18px;
+    justify-content: end;
+}
+
+.link {
+    color: var(--text-color-accent);
+    font-size: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.disabledLink {
+    pointer-events: none;
+    opacity: 0.5;
+}

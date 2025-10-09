@@ -5,7 +5,7 @@ import { useUserPets } from '@/lib/api'
 import { Loader } from '@/components/Loader'
 import styles from './index.module.css'
 
-export const Pets = ({ ownerId }) => {
+export const Pets = ({ ownerId, onAddPet }) => {
     const { data, isLoading } = useUserPets(ownerId);
 
     return (
@@ -15,8 +15,8 @@ export const Pets = ({ ownerId }) => {
             ? <Loader />
             : <div className={styles.cardsContainer}>
                 {data?.map(({ name, age, breed, _id }) => <PetCard key={_id} name={name} age={age} breed={breed} id={_id}/>)}
-                <Button className={styles.addButton}>
-                    <CirclePlus size={80} color='#c2c2c2' strokeWidth={1.25} />
+                <Button onClick={onAddPet} className={styles.addButton}>
+                    <CirclePlus size={80} color='#c2c2c2' strokeWidth={1} />
                 </Button>
             </div>
             }

@@ -4,9 +4,9 @@ import { usePetData } from '@/lib/api';
 import { Loader } from '@/components/Loader';
 import { useAuthRouting } from '@/hooks/useAuthRouting';
 import styles from './index.module.css';
+import { Header } from '@/components/Header';
 
 const COLORS = ["Black", "White", "Red", "Brown", "Yellow", "Cream", "Blue", "Grey"];
-const GENDER = ["Male", "Female"];
 
 const formatDate = (date) => {
     const day = date.getDate();
@@ -41,6 +41,7 @@ export const PetPage = () => {
 
     return (
         <main className={styles.petPage}>
+            <Header />
             {isLoading 
             ? <Loader /> 
             :   <PetInfo name={data?.name}>
