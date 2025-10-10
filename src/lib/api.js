@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios"; 
 
 const API_HOST = import.meta.env.VITE_API_HOST;
@@ -92,3 +92,25 @@ export const useAuth = (props) => {
         ...props
     })
 }
+
+const createPetFn = async ({ name, type, gender, breed, birthDate, neutured }) => {
+    const response = await axios.post(`${API_HOST}/api/pet`, 
+        { name, type, gender, breed, birthDate, neutured }, 
+        { headers: { 'X-Auth-Token': localStorage.getItem('token') } }
+    )
+
+    return response.data
+}
+
+export const useCreatePet = () => {
+    const queryClient = useQueryClient()
+
+    return useMutation({
+        mutationKey: ['createPet'],
+        mutationFn: createPetFn,
+        onSuccess: () => {
+            queryClient.refetchQueries(['getPetData'])
+        }
+    })
+}
+

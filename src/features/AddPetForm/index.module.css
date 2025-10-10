@@ -1,16 +1,18 @@
 .main {
     width: 425px;
-    padding: 6px 12px;
+    padding: 20px 24px 12px;
+    box-sizing: border-box;
 }
 
 .form {
     padding: 0;
+    gap: 8px;
 }
 
 .button {
     height: 40px;
     border-radius: 4px;
-    margin: 18px 0;
+    margin: 18px 0 4px;
     font-size: 18px;
     background-color: var(--color-primary);
 }
@@ -23,6 +25,7 @@
 
 .inputName {
     text-transform: capitalize;
+    padding: 4px;
 }
 
 .radioQuestion {
@@ -34,4 +37,15 @@
 .radioSection {
     display: flex;
     gap: 36px;
+}
+
+.input {
+    padding: 4px;
+}
+
+.errorMessage {
+    color: var(--text-color-error);
+    margin: 0;
+    font-size: 14px;
+    white-space: pre-line;
 }

@@ -4,8 +4,10 @@
 
 .cardsContainer {
     display: flex;
+    flex-wrap: wrap;
     gap: 18px;
     align-items: center;
+    justify-content: center;
 }
 
 .addButton {

@@ -1,10 +1,10 @@
 .card {
     border-radius: 8px;
     background-color: rgba(137, 196, 196, 0.065);
-    width: 200px;
+    max-width: 180px;
+    width: 100%;
     padding: 12px;
     text-align: center;
-   
 }
 
 .petAvatar {
