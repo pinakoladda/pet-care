@@ -5,6 +5,7 @@ import { Avatar } from "@/components/Avatar"
 
 import styles from './index.module.css'
 import cn from "classnames"
+import { useDeletePet } from "@/lib/api"
 
 const ProfileContext = React.createContext();
 
@@ -14,12 +15,24 @@ const useProfileContext = () => {
     return context
 }
 
-export const PetInfo = ({name, children}) => {
+export const PetInfo = ({ name, children, petId }) => {
     const [isEditing, setIsEditing] = React.useState(false);
+    const { mutateAsync: deletePet, isPending } = useDeletePet()
+    
 
     const toggle = () => {
         setIsEditing((value) => !value)
     }
+
+    const onDeletePet = () => {
+        deletePet(petId)
+        .then(() => {
+            window.location.href = '/'
+        })
+        .catch((error) => {
+            console.log(error.response.data.message)
+        })
+    } 
 
     return (
         <ProfileContext.Provider value={{isEditing}}>
@@ -41,6 +54,7 @@ export const PetInfo = ({name, children}) => {
                         : <UserRoundPen size={28} color="#c2c2c2" strokeWidth={1.5} />
                         }
                     </Button>
+                    {isEditing && <Button disabled={isPending} onClick={onDeletePet} className={styles.deletePetButton}>Delete tail</Button>}
                 </div>
             </div>
         </ProfileContext.Provider>

@@ -44,7 +44,7 @@ export const PetPage = () => {
             <Header />
             {isLoading 
             ? <Loader /> 
-            :   <PetInfo name={data?.name}>
+            :   <PetInfo name={data?.name} petId={petId}>
                 <PetEditField 
                     label="Date of birth" 
                     type="date" 

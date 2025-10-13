@@ -5,6 +5,7 @@
     justify-content: space-between;
     padding: 16px;
     margin-bottom: 16px;
+    position: relative;
 }
 
 .section {
@@ -52,4 +53,16 @@
 
 .isEdit {
   margin-bottom: 8px;
+}
+
+.deletePetButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 40px;
+    border-radius: 4px;
+    margin: 18px;
+    font-size: 18px;
+    padding: 8px;
+    background-color: var(--color-primary);
 }

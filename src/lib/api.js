@@ -114,3 +114,17 @@ export const useCreatePet = () => {
     })
 }
 
+const deletePetFn = async (petId) => {
+    const response = await axios.delete(`${API_HOST}/api/pet/${petId}`, {
+        headers: {'X-Auth-Token': localStorage.getItem('token')}
+    })
+
+    return response.data
+}
+
+export const useDeletePet = () => {
+    return useMutation({
+        mutationKey: ['deletePet'],
+        mutationFn: deletePetFn,
+    })
+}
