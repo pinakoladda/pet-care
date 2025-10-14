@@ -14,7 +14,7 @@ export const Pets = ({ ownerId, onAddPet }) => {
             {isLoading 
             ? <Loader />
             : <div className={styles.cardsContainer}>
-                {data?.map(({ name, age, breed, _id }) => <PetCard key={_id} name={name} age={age} breed={breed} id={_id}/>)}
+                {data?.map(({ name, age, breed, _id, avatarUrl }) => <PetCard avatar={avatarUrl.md} key={_id} name={name} age={age} breed={breed} id={_id}/>)}
                 <Button onClick={onAddPet} className={styles.addButton}>
                     <CirclePlus size={80} color='#c2c2c2' strokeWidth={1} />
                 </Button>

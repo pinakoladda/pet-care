@@ -6,6 +6,7 @@ import { Avatar } from "@/components/Avatar"
 import styles from './index.module.css'
 import cn from "classnames"
 import { useDeletePet } from "@/lib/api"
+import { ConfirmaitionModal } from "@/components/ConfirmationModal"
 
 const ProfileContext = React.createContext();
 
@@ -15,11 +16,31 @@ const useProfileContext = () => {
     return context
 }
 
-export const PetInfo = ({ name, children, petId }) => {
+    const OPTIONS = [
+        { 
+            text: 'yes',
+            value: 'confirm'
+        }, 
+        {
+            text: 'no',
+            value: 'decline'
+        },
+    ]
+
+export const PetInfo = ({ name, children, petId, avatar }) => {
     const [isEditing, setIsEditing] = React.useState(false);
     const { mutateAsync: deletePet, isPending } = useDeletePet()
     
+    const [visible, setVisible] = React.useState(false)  
 
+    const onDelete = () => {
+        setVisible(true)
+    }
+      
+    const onPopupClose = () => {
+        setVisible(false)
+    }
+    
     const toggle = () => {
         setIsEditing((value) => !value)
     }
@@ -27,6 +48,7 @@ export const PetInfo = ({ name, children, petId }) => {
     const onDeletePet = () => {
         deletePet(petId)
         .then(() => {
+            onPopupClose()
             window.location.href = '/'
         })
         .catch((error) => {
@@ -39,7 +61,7 @@ export const PetInfo = ({ name, children, petId }) => {
             <div className={styles.petInfo}>
                 <section className={styles.section}>
                     <div className={styles.container}>
-                        <Avatar className={styles.avatar}/>
+                        <Avatar src={avatar} className={styles.avatar} glowing />
                         <PetEditField className={styles.petName} value={name}/>
                     </div>
                     <div className={styles.container}>
@@ -54,7 +76,16 @@ export const PetInfo = ({ name, children, petId }) => {
                         : <UserRoundPen size={28} color="#c2c2c2" strokeWidth={1.5} />
                         }
                     </Button>
-                    {isEditing && <Button disabled={isPending} onClick={onDeletePet} className={styles.deletePetButton}>Delete tail</Button>}
+                    {isEditing && 
+                    <Button onClick={onDelete} className={styles.deletePetButton}>Delete tail</Button>}
+                    <ConfirmaitionModal 
+                        header='Are you fucking sure?' 
+                        visible={visible} 
+                        options={OPTIONS} 
+                        onPopupClose={onPopupClose} 
+                        onConfirm={onDeletePet}
+                        disabled={isPending}
+                        />
                 </div>
             </div>
         </ProfileContext.Provider>

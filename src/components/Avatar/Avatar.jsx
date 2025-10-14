@@ -1,8 +1,8 @@
 import styles from './index.module.css'
 import cn from 'classnames'
 
-export const Avatar = ({className}) => {
+export const Avatar = ({ className, src, glowing }) => {
     return (
-        <div className={cn(styles.avatar, className)}></div>
+            <img src={src} className={cn(styles.avatar, className, glowing ? styles.glowing : '')}></img>
     )
 }

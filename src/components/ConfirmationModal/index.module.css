@@ -1,0 +1,35 @@
+.main {
+    padding: 38px 16px 16px;
+    width: 320px;
+    height: 220px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+    gap: 18px;
+    justify-content: space-around;
+}
+
+.header {
+    font-size: 18px;
+    color: var(--text-color-primary);
+    margin: 12px 0;
+    text-align: center;
+}
+
+.button {
+    height: 40px;
+    border-radius: 4px;
+    font-size: 18px;
+    color: var(--text-color-primary);
+    background-color: #422c51;
+    width: 50%;
+}
+
+.confirmButton {
+    background-color: var(--color-primary);
+}

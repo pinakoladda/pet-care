@@ -12,6 +12,13 @@
     transition: visibility 0.5s ease-in-out;
 }
 
+.closeButton {
+    padding: 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .mainVisible {
     visibility: visible;
 }

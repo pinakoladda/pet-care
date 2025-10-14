@@ -1,3 +1,4 @@
+import React from "react"
 import { Notification } from "./components/Notification"
 import { Pets } from "./components/Pets"
 import { ProfileInfo } from "@/components/ProfileInfo"
@@ -6,9 +7,9 @@ import { Header } from "@/components/Header"
 import { Loader } from '@/components/Loader'
 import { useAuthRouting } from "@/hooks/useAuthRouting"
 import { AddPetForm } from "@/features/AddPetForm"
+import { ConfirmaitionModal } from "@/components/ConfirmationModal"
 
 import styles from './index.module.css'
-import React from "react"
 
 export const MainPage = () => {
     useAuthRouting()
