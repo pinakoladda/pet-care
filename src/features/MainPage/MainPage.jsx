@@ -14,7 +14,7 @@ import styles from './index.module.css'
 export const MainPage = () => {
     useAuthRouting()
     const { data, isLoading } = useAuth();
-    const [visible, setVisible] = React.useState(false)  
+    const [visible, setVisible] = React.useState(false)
 
     const onAddPet = () => {
         setVisible(true)

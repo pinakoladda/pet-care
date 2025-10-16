@@ -1,11 +1,12 @@
 import { Loader as LoadIcon } from 'lucide-react';
+import cn from 'classnames';
 
 import styles from './index.module.css';
 
-export const Loader = () => {
+export const Loader = ({ className, size = 40 }) => {
     return (
-        <div className={styles.loaderContainer}>
-            <LoadIcon className={styles.loader} size={40} />
+        <div className={cn(styles.loaderContainer, className)}>
+            <LoadIcon className={styles.loader} size={size} />
         </div>
     )
 }

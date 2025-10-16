@@ -7,6 +7,7 @@ import { Select } from '@/components/Select'
 import { RadioGroup } from '@/components/RadioGroup'
 import { useAddPetForm } from './hooks/useAddPetForm'
 import styles from './index.module.css'
+import { Suggest } from '@/components/Suggest'
 
 const PET_TYPE = [
     {
@@ -82,7 +83,7 @@ export const AddPetForm = ({  visible, onPopupClose }) => {
                         className={styles.input}
                         {...fields.gender}
                     />
-                    <Input 
+                    <Suggest 
                         label='Enter your tail breed:'
                         id='breed' 
                         name='breed'
@@ -90,6 +91,7 @@ export const AddPetForm = ({  visible, onPopupClose }) => {
                         required
                         className={styles.input}
                         {...fields.breed}
+
                     />
                     <legend className={styles.radioQuestion}>Is neutured?</legend>
                     <section className={styles.radioSection}>

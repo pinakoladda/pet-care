@@ -1,12 +1,15 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import axios from "axios"; 
+import axios, { Axios } from "axios"; 
 
 const API_HOST = import.meta.env.VITE_API_HOST;
 
+const api = axios.create({
+    headers: { 'X-Auth-Token': localStorage.getItem('token') },
+    baseURL: `${API_HOST}/api`,
+})
+
 const getUserData = async () => {
-    const response = await axios.get(`${API_HOST}/api/user/1`, {
-        headers: {'X-Auth-Token': localStorage.getItem('token')}
-    })
+    const response = await api.get('/user/1')
 
     return response.data;
 }
@@ -19,9 +22,7 @@ export const useUserData = () => {
 };
 
 const getUserPets = async (ownerId) => {
-    const response = await axios.get(`${API_HOST}/api/pet/?ownerId=${ownerId}`, {
-        headers: {'X-Auth-Token': localStorage.getItem('token')}
-    })
+    const response = await api.get(`/pet/?ownerId=${ownerId}`)
 
     return response.data
 }
@@ -30,13 +31,12 @@ export const useUserPets = (ownerId) => {
     return useQuery({
         queryKey: ['getUserPets', ownerId],
         queryFn: () => getUserPets(ownerId),
+        enabled: !!ownerId,
     });
 };
 
 const getPetData = async (petId) => {
-    const response = await axios.get(`${API_HOST}/api/pet/${petId}`, {
-        headers: {'X-Auth-Token': localStorage.getItem('token')}
-    })
+    const response = await api.get(`/pet/${petId}`)
 
     return response.data
 }
@@ -49,9 +49,7 @@ export const usePetData = (petId) => {
 }
 
 const loginFn = async ({ login, password }) => {
-    const response = await axios.post(`${API_HOST}/api/login`, {login, password}, {
-        headers: {'X-Auth-Token': localStorage.getItem('token')}
-    })
+    const response = await axios.post(`${API_HOST}/api/login`, {login, password})
 
     return response.data
 }
@@ -77,9 +75,7 @@ export const useRegistration = () => {
 }
 
 const authFn = async () => {
-    const response = await axios.get(`${API_HOST}/api/auth`, {
-        headers: {'X-Auth-Token': localStorage.getItem('token')}
-    })
+    const response = await api.get('/auth')
 
     return response.data
 }
@@ -94,10 +90,7 @@ export const useAuth = (props) => {
 }
 
 const createPetFn = async ({ name, type, gender, breed, birthDate, neutured }) => {
-    const response = await axios.post(`${API_HOST}/api/pet`, 
-        { name, type, gender, breed, birthDate, neutured }, 
-        { headers: { 'X-Auth-Token': localStorage.getItem('token') } }
-    )
+    const response = await api.post('/pet', { name, type, gender, breed, birthDate, neutured })
 
     return response.data
 }
@@ -115,9 +108,7 @@ export const useCreatePet = () => {
 }
 
 const deletePetFn = async (petId) => {
-    const response = await axios.delete(`${API_HOST}/api/pet/${petId}`, {
-        headers: {'X-Auth-Token': localStorage.getItem('token')}
-    })
+    const response = await api.delete(`/pet/${petId}`)
 
     return response.data
 }
@@ -126,5 +117,19 @@ export const useDeletePet = () => {
     return useMutation({
         mutationKey: ['deletePet'],
         mutationFn: deletePetFn,
+    })
+}
+
+const getPetBreeds = async (type, q) => {
+    const response = await api.get(`/data/breeds?type=${type}&q=${q}`)
+
+    return response.data
+}
+
+export const usePetBreeds = (type, q) => {
+    return useQuery({
+        queryKey: ['getPetBreeds', type, q],
+        queryFn: () => getPetBreeds(type, q),
+        enabled: Boolean(type)
     })
 }

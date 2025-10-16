@@ -1,5 +1,6 @@
 import React from "react"
-import { useCreatePet } from "@/lib/api"
+import { useCreatePet, usePetBreeds } from "@/lib/api"
+import { useDebounce } from "@uidotdev/usehooks"
 
 export const useAddPetForm = ({ onPopupClose }) => {
     const { mutateAsync: createPetFn } = useCreatePet()
@@ -39,6 +40,10 @@ export const useAddPetForm = ({ onPopupClose }) => {
         setErrorMessage('')
     }
 
+    const debouncedBreed = useDebounce(breed, 300);
+    const { data = [], isLoading } = usePetBreeds(type, debouncedBreed)
+    const options = data.length === 0 ? ['Other'] : data
+
     return {
         fields: {
             name: {value: name, onChange: onChange(setName)},
@@ -46,7 +51,7 @@ export const useAddPetForm = ({ onPopupClose }) => {
             type: {value: type, onChange: onChange(setType)},
             gender: {value: gender, onChange: onChange(setGender)},
             neutured: {value: neutured, onChange: onChange(setNeutured)},
-            breed: {value: breed, onChange: onChange(setBreed)},
+            breed: {value: breed, onChange: onChange(setBreed), options, isLoading},
         },
         submitDisabled: !name || !type || !birthDate || !gender || !neutured || !breed,
         onSubmit,

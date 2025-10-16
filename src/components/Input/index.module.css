@@ -8,6 +8,7 @@
     color: var(--text-color-primary);
     font-family: var(--font-family-default);
     box-sizing: content-box;
+    width: 100%;
 }
 
 .label {

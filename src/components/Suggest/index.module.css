@@ -1,0 +1,27 @@
+.main {
+    width: 100%;
+    position: relative;
+}
+
+.options {
+    width: 100%;
+    position: absolute;
+    background-color: var(--color-primary);
+    padding: 12px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-top: 4px;
+    z-index: 1;
+}
+
+.option {
+    cursor: pointer;
+}
+
+.option:hover {
+    opacity: 0.3;
+}
+
+.loader {
+    margin: 8px;
+}
