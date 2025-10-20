@@ -6,8 +6,8 @@ import { Button } from '@/components/Button'
 import { Select } from '@/components/Select'
 import { RadioGroup } from '@/components/RadioGroup'
 import { useAddPetForm } from './hooks/useAddPetForm'
-import styles from './index.module.css'
 import { Suggest } from '@/components/Suggest'
+import styles from './index.module.css'
 
 const PET_TYPE = [
     {

@@ -6,7 +6,8 @@
     font-size: 18px;
     color: var(--text-color-primary);
     font-family: var(--font-family-default);
-    box-sizing: content-box;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .label {

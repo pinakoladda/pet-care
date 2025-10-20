@@ -25,7 +25,7 @@ export const Suggest = ({ options, isLoading, ...props }) => {
 
     return (
         <div className={styles.main}>
-            <Input {...props} onFocus={onFocus} onBlur={onUnFocus} ref={inputRef} autoComplete='off' />
+            <Input {...props} onFocus={onFocus} onBlur={onUnFocus} ref={inputRef} inputDetails autoComplete='off' />
             {visible && 
                 <div className={styles.options}>
                     {

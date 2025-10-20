@@ -9,9 +9,14 @@
     font-family: var(--font-family-default);
     box-sizing: content-box;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .label {
     color: var(--text-color-primary);
     font-size: 16px;
+}
+
+.inputDetails {
+    margin-top: 8px;
 }
