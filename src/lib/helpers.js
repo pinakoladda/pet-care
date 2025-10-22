@@ -8,3 +8,13 @@ export const formatDate = (value) => {
 
     return `${year}-${formattedMonth}-${formattedDay}`
 }
+
+export const formatAge = (value) => {
+    const date = new Date(value)
+    const dateNow = Date.now();
+    const dateOfBirth = date.getTime();
+    const result = dateNow - dateOfBirth;
+    const age = result / (1000 * 60 * 60 * 24 * 365);
+
+    return Math.floor(age);
+}
