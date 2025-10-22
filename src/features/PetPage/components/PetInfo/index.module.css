@@ -3,15 +3,13 @@
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
-    padding: 16px;
+    padding: 24px;
     margin-bottom: 16px;
     position: relative;
 }
 
-.section {
-    display: flex;
-    gap: 40px;
-    align-items: center;
+.avatarContainer {
+    padding: 18px 0 18px 18px;
 }
 
 .avatar {
@@ -33,29 +31,41 @@
     font-size: 18px;
 }
 
-.input {
-    background-color: transparent;
-    border: none;
-    border-bottom: 0.5px solid var(--text-color-secondary);
-    font-size: 18px;
-    color: var(--text-color-secondary);
-}
-
-.input:focus {
-    border-bottom: 1px solid;
-    outline: none;
-}
-
-.label {
-    font-size: 18px;
-    color: var(--text-color-accent);
+.infoParagraph:last-of-type  {
+    margin: 0;
 }
 
 .isEdit {
   margin-bottom: 8px;
 }
 
-.deletePetButton {
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.button {
+    align-self: end;
+}
+
+.deleteButton {
+    height: 40px;
+    font-size: 18px;
+    padding: 8px;
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+}
+
+.editButton {
+    height: 40px;
+    font-size: 18px;
+    padding: 8px;
+    background-color: var(--color-primary);
+}
+
+/* .deletePetButton {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -65,4 +75,4 @@
     font-size: 18px;
     padding: 8px;
     background-color: var(--color-primary);
-}
+} */

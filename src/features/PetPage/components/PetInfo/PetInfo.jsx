@@ -1,110 +1,109 @@
-import React from "react"
-import cn from "classnames"
-import { CircleCheck, UserRoundPen, X } from "lucide-react"
+import React from 'react'
+import cn from 'classnames'
+import { CircleCheck, UserRoundPen, X } from 'lucide-react'
 import { Button } from '@/components/Button'
-import { Avatar } from "@/components/Avatar"
-import { useDeletePet, usePatchPet } from "@/lib/api"
-import { ConfirmaitionModal } from "@/components/ConfirmationModal"
-import { AddPetForm } from "@/features/AddPetForm"
-import { formatAge, formatDate } from "@/lib/helpers"
+import { Avatar } from '@/components/Avatar'
+import { useDeletePet, usePatchPet } from '@/lib/api'
+import { ConfirmaitionModal } from '@/components/ConfirmationModal'
+import { AddPetForm } from '@/features/AddPetForm'
+import { formatAge, formatDate } from '@/lib/helpers'
 import styles from './index.module.css'
 
 const OPTIONS = [
-    { 
+    {
         text: 'yes',
-        value: 'confirm'
-    }, 
+        value: 'confirm',
+    },
     {
         text: 'no',
-        value: 'decline'
+        value: 'decline',
     },
 ]
 
 // кнопочки редактирования, кнопка удаления питомца
 
 export const PetInfo = ({ name, petId, avatar, petData }) => {
-    const [isEditing, setIsEditing] = React.useState(false);
     const [editPopupVisible, setEditPopupVisible] = React.useState(false)
     const { mutateAsync: deletePet, isPending } = useDeletePet()
     const { mutateAsync: patchPet } = usePatchPet()
-    
-    const [visible, setVisible] = React.useState(false)  
+
+    const [visible, setVisible] = React.useState(false)
 
     const onDelete = () => {
         setVisible(true)
     }
-      
+
     const onPopupClose = () => {
         setVisible(false)
     }
-    
+
     const toggle = () => {
-        setIsEditing((value) => !value)
         setEditPopupVisible((value) => !value)
     }
 
     const onDeletePet = () => {
         deletePet(petId)
-        .then(() => {
-            onPopupClose()
-            window.location.href = '/'
-        })
-        .catch((error) => {
-            console.log(error.response.data.message)
-        })
+            .then(() => {
+                onPopupClose()
+                window.location.href = '/'
+            })
+            .catch((error) => {
+                console.log(error.response.data.message)
+            })
     }
 
     return (
         <div className={styles.petInfo}>
-            <section className={styles.section}>
-                <div className={styles.container}>
-                    <Avatar src={avatar} className={styles.avatar} glowing />
-                    <PetInfoField className={styles.petName} value={name}/>
-                </div>
-                <div className={styles.container}>
-                    <PetInfoField 
-                        label="Date of birth"
-                        value={formatDate(petData?.birthDate)}
-                    />
-                    <PetInfoField 
-                        label="Age" 
-                        value={`${formatAge(petData?.birthDate)} years old`}
-                    />
-                    <PetInfoField value="Libra ♎︎" />
-                        <PetInfoField label="Gender" value={petData?.gender} />
-                    <PetInfoField label="Weight" value="3"/>
-                    <PetInfoField label="Breed" value={petData?.breed} />
-                    <PetInfoField label="Color" value="..."/>
-                    <PetInfoField label="Neutered" value={petData?.neutured ? 'yes' : 'no'}/>
-                </div>
-            </section>
-            <div className={styles.container}>
-                {isEditing && <Button><CircleCheck size={28} color="#c2c2c2" strokeWidth={1.5} /></Button>}
-                <Button className={styles.button} onClick={toggle}>
-                    {isEditing 
-                    ? <X size={28} color="#c2c2c2" strokeWidth={1.5} />
-                    : <UserRoundPen size={28} color="#c2c2c2" strokeWidth={1.5} />
-                }
-                </Button>
-                {isEditing && 
-                <Button onClick={onDelete} className={styles.deletePetButton}>Delete tail</Button>}
-                <ConfirmaitionModal 
-                    header='Are you fucking sure?' 
-                    visible={visible} 
-                    options={OPTIONS} 
-                    onPopupClose={onPopupClose} 
-                    onConfirm={onDeletePet}
-                    disabled={isPending}
+            <div className={styles.avatarContainer}>
+                <Avatar src={avatar} className={styles.avatar} glowing />
+                <PetInfoField className={styles.petName} value={name} />
+            </div>
+            <div className={styles.infoContainer}>
+                <PetInfoField
+                    label="Date of birth"
+                    value={formatDate(petData?.birthDate)}
+                />
+                <PetInfoField
+                    label="Age"
+                    value={`${formatAge(petData?.birthDate)} years old`}
+                />
+                <PetInfoField value="Libra ♎︎" />
+                <PetInfoField label="Gender" value={petData?.gender} />
+                <PetInfoField label="Weight" value="3" />
+                <PetInfoField label="Breed" value={petData?.breed} />
+                <PetInfoField label="Color" value="..." />
+                <PetInfoField
+                    label="Neutered"
+                    value={petData?.neutured ? 'yes' : 'no'}
                 />
             </div>
-            <AddPetForm 
-                visible={editPopupVisible} 
-                onPopupClose={toggle} 
-                defaultValues={petData} 
-                apiFn={patchPet} 
+            <div className={styles.container}>
+                {/* <Button className={styles.button} onClick={toggle}>
+                    <UserRoundPen size={28} color="#c2c2c2" strokeWidth={1.5} />
+                </Button> */}
+                <Button className={styles.editButton} onClick={toggle}>
+                    Edit Tail
+                </Button>
+                <Button onClick={onDelete} className={styles.deleteButton}>
+                    Delete tail
+                </Button>
+            </div>
+            <ConfirmaitionModal
+                header="Are you fucking sure?"
+                visible={visible}
+                options={OPTIONS}
+                onPopupClose={onPopupClose}
+                onConfirm={onDeletePet}
+                disabled={isPending}
+            />
+            <AddPetForm
+                visible={editPopupVisible}
+                onPopupClose={toggle}
+                defaultValues={petData}
+                apiFn={patchPet}
                 petId={petId}
-                header='Edit pet info:'
-                buttonText='Save tail'
+                header="Edit pet info:"
+                buttonText="Save tail"
             />
         </div>
     )

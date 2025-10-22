@@ -1,22 +1,29 @@
-import React from 'react';
-import { PetInfo } from './components/PetInfo';
-import { usePetData } from '@/lib/api';
-import { Loader } from '@/components/Loader';
-import { useAuthRouting } from '@/hooks/useAuthRouting';
-import { Header } from '@/components/Header';
-import styles from './index.module.css';
+import React from 'react'
+import { PetInfo } from './components/PetInfo'
+import { usePetData } from '@/lib/api'
+import { Loader } from '@/components/Loader'
+import { useAuthRouting } from '@/hooks/useAuthRouting'
+import { Header } from '@/components/Header'
+import styles from './index.module.css'
 
 export const PetPage = () => {
     useAuthRouting()
-    const petId = window.location.pathname.split('/')[2];
-    const { data, isLoading } = usePetData(petId);
+    const petId = window.location.pathname.split('/')[2]
+    const { data, isLoading } = usePetData(petId)
 
     return (
         <main className={styles.petPage}>
             <Header />
-            {isLoading 
-            ? <Loader /> 
-            :   <PetInfo petData={data} name={data?.name} petId={petId} avatar={data?.avatarUrl.lg} />}
+            {isLoading ? (
+                <Loader />
+            ) : (
+                <PetInfo
+                    petData={data}
+                    name={data?.name}
+                    petId={petId}
+                    avatar={data?.avatarUrl.lg}
+                />
+            )}
         </main>
     )
 }

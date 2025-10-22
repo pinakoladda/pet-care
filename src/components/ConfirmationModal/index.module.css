@@ -26,7 +26,8 @@
     border-radius: 4px;
     font-size: 18px;
     color: var(--text-color-primary);
-    background-color: #422c51;
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
     width: 50%;
 }
 
