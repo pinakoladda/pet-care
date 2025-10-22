@@ -5,8 +5,9 @@ import { Avatar } from "@/components/Avatar"
 
 import styles from './index.module.css'
 import cn from "classnames"
-import { useDeletePet } from "@/lib/api"
+import { useDeletePet, usePatchPet } from "@/lib/api"
 import { ConfirmaitionModal } from "@/components/ConfirmationModal"
+import { AddPetForm } from "@/features/AddPetForm"
 
 const ProfileContext = React.createContext();
 
@@ -27,9 +28,11 @@ const useProfileContext = () => {
         },
     ]
 
-export const PetInfo = ({ name, children, petId, avatar }) => {
+export const PetInfo = ({ name, children, petId, avatar, petData }) => {
     const [isEditing, setIsEditing] = React.useState(false);
+    const [editPopupVisible, setEditPopupVisible] = React.useState(false)
     const { mutateAsync: deletePet, isPending } = useDeletePet()
+    const { mutateAsync: patchPet } = usePatchPet()
     
     const [visible, setVisible] = React.useState(false)  
 
@@ -43,6 +46,7 @@ export const PetInfo = ({ name, children, petId, avatar }) => {
     
     const toggle = () => {
         setIsEditing((value) => !value)
+        setEditPopupVisible((value) => !value)
     }
 
     const onDeletePet = () => {
@@ -71,10 +75,12 @@ export const PetInfo = ({ name, children, petId, avatar }) => {
                 <div className={styles.container}>
                     {isEditing && <Button><CircleCheck size={28} color="#c2c2c2" strokeWidth={1.5} /></Button>}
                     <Button className={styles.button} onClick={toggle}>
+
+
                         {isEditing 
                         ? <X size={28} color="#c2c2c2" strokeWidth={1.5} />
                         : <UserRoundPen size={28} color="#c2c2c2" strokeWidth={1.5} />
-                        }
+                    }
                     </Button>
                     {isEditing && 
                     <Button onClick={onDelete} className={styles.deletePetButton}>Delete tail</Button>}
@@ -87,6 +93,15 @@ export const PetInfo = ({ name, children, petId, avatar }) => {
                         disabled={isPending}
                         />
                 </div>
+                <AddPetForm 
+                    visible={editPopupVisible} 
+                    onPopupClose={toggle} 
+                    defaultValues={petData} 
+                    apiFn={patchPet} 
+                    petId={petId}
+                    header='Edit pet info:'
+                    buttonText='Save tail'
+                />
             </div>
         </ProfileContext.Provider>
     )

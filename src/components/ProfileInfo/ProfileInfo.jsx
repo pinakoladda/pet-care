@@ -12,7 +12,7 @@ const useProfileContext = () => {
     return context
 }
 
-export const ProfileInfo = ({name, login, children}) => {
+export const ProfileInfo = ({ name, login, children }) => {
     const [isEditing, setIsEditing] = React.useState(false);
     
     const toggle = () => {

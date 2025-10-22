@@ -41,13 +41,13 @@ const NEUTURED_OPTIONS = [
     }
 ]
 
-export const AddPetForm = ({  visible, onPopupClose }) => {
-   const { fields, submitDisabled, onSubmit, errorMessage } = useAddPetForm({ onPopupClose })
+export const AddPetForm = ({  visible, onPopupClose, defaultValues, apiFn, petId, header, buttonText }) => {
+   const { fields, submitDisabled, onSubmit, errorMessage } = useAddPetForm({ onPopupClose, defaultValues, apiFn, petId })
 
     return (
         <Popup className={styles.popup} visible={visible} onPopupClose={onPopupClose}>
             <div className={styles.main}>
-                <Form className={styles.form} header='Add a new tail:' headerClassName={styles.header} onSubmit={onSubmit}>
+                <Form className={styles.form} header={header} headerClassName={styles.header} onSubmit={onSubmit}>
                     <Input
                         label='Name:'
                         id='name' 
@@ -105,7 +105,7 @@ export const AddPetForm = ({  visible, onPopupClose }) => {
                         disabled={submitDisabled}  
                         className={styles.button} 
                         type='submit'
-                    >Save new tail
+                    >{buttonText}
                     </Button>
                     {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
                 </Form>

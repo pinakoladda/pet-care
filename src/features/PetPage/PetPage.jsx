@@ -5,17 +5,9 @@ import { Loader } from '@/components/Loader';
 import { useAuthRouting } from '@/hooks/useAuthRouting';
 import styles from './index.module.css';
 import { Header } from '@/components/Header';
+import { formatDate } from '@/lib/helpers';
 
 const COLORS = ["Black", "White", "Red", "Brown", "Yellow", "Cream", "Blue", "Grey"];
-
-const formatDate = (date) => {
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
-    const formattedMonth = month <= 9 ? '0' + month : month;
-
-    return `${year}-${formattedMonth}-${day}`
-}
 
 const formatAge = (date) => {
     const dateNow = Date.now();
@@ -44,7 +36,7 @@ export const PetPage = () => {
             <Header />
             {isLoading 
             ? <Loader /> 
-            :   <PetInfo name={data?.name} petId={petId} avatar={data?.avatarUrl.lg} >
+            :   <PetInfo petData={data} name={data?.name} petId={petId} avatar={data?.avatarUrl.lg} >
                 <PetEditField 
                     label="Date of birth" 
                     type="date" 
@@ -65,7 +57,7 @@ export const PetPage = () => {
                     <option value=''>---</option>
                     {COLORS.map((color) => <option key={color} value={color}>{color}</option>)}
                 </PetEditField>
-                <PetEditField label="Neutered" value='yes' defaultChecked={true} type="checkbox"/>
+                <PetEditField label="Neutered" value='' defaultChecked={true} type="checkbox"/>
             </PetInfo>}
         </main>
     )

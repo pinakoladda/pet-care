@@ -133,3 +133,21 @@ export const usePetBreeds = (type, q) => {
         enabled: Boolean(type)
     })
 }
+
+const patchPetFn = async ({ petId, ...data}) => {
+    const response = await api.patch(`/pet/${petId}`, data)
+
+    return response.data
+} 
+
+export const usePatchPet = () => {
+    const queryClient = useQueryClient()
+
+     return useMutation({
+        mutationKey: ['patchPet'],
+        mutationFn: patchPetFn,
+        onSuccess: () => {
+            queryClient.refetchQueries(['getPetData'])
+        }
+    })
+}

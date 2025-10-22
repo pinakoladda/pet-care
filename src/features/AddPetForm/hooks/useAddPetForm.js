@@ -1,29 +1,32 @@
 import React from "react"
-import { useCreatePet, usePetBreeds } from "@/lib/api"
+import { usePetBreeds } from "@/lib/api"
 import { useDebounce } from "@uidotdev/usehooks"
+import { formatDate } from "@/lib/helpers"
 
-export const useAddPetForm = ({ onPopupClose }) => {
-    const { mutateAsync: createPetFn } = useCreatePet()
-    const [name, setName] = React.useState('')
-    const [birthDate, setBirthDate] = React.useState('')
-    const [type, setType] = React.useState('')
-    const [gender, setGender] = React.useState('')
-    const [neutured, setNeutured] = React.useState('')
-    const [breed, setBreed] = React.useState('')
+export const useAddPetForm = ({ onPopupClose, defaultValues, apiFn, petId }) => {
+    const defaultNeutured = defaultValues?.neutured ? 'true' : 'false';
+    const [name, setName] = React.useState(defaultValues?.name || '')
+    const [birthDate, setBirthDate] = React.useState(formatDate(defaultValues?.birthDate || ''))
+    const [type, setType] = React.useState(defaultValues?.type || '')
+    const [gender, setGender] = React.useState(defaultValues?.gender || '')
+    const [neutured, setNeutured] = React.useState(defaultNeutured)
+    const [breed, setBreed] = React.useState(defaultValues?.breed || '')
     const [errorMessage, setErrorMessage] = React.useState()
 
     const onSubmit = (event) => {
         event.preventDefault()
-        createPetFn({name, birthDate, type, gender, neutured: neutured === 'true' ? true : false, breed})
+        apiFn({name, birthDate, type, gender, neutured: neutured === 'true' ? true : false, breed, petId})
             .then(() => {
                 onPopupClose()
-                setName('')
-                setBirthDate('')
-                setType('')
-                setNeutured('')
-                setBreed('')
-                setGender('')
-                setErrorMessage('')
+                if(!petId) {
+                    setName('')
+                    setBirthDate('')
+                    setType('')
+                    setNeutured('')
+                    setBreed('')
+                    setGender('')
+                    setErrorMessage('')
+                }
             })
             .catch((error) => {
                 const errorData = error.response.data;
