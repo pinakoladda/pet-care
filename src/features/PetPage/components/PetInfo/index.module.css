@@ -45,6 +45,12 @@
     justify-content: space-between;
 }
 
+.infoContainer {
+    border: 3px dotted var(--color-primary);
+    border-radius: 15px;
+    padding: 12px;
+}
+
 .button {
     align-self: end;
 }
@@ -64,15 +70,3 @@
     padding: 8px;
     background-color: var(--color-primary);
 }
-
-/* .deletePetButton {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 40px;
-    border-radius: 4px;
-    margin: 18px;
-    font-size: 18px;
-    padding: 8px;
-    background-color: var(--color-primary);
-} */

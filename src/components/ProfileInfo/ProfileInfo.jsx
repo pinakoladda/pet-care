@@ -1,62 +1,49 @@
-import React from "react"
-import { CircleCheck, UserPen, UserRoundCheck, UserRoundPen, X } from "lucide-react"
+import React from 'react'
+import { UserRoundPen } from 'lucide-react'
 import { Button } from '@/components/Button'
-import { Avatar } from "@/components/Avatar"
-import { Input } from "../Input"
+import { Avatar } from '@/components/Avatar'
 import styles from './index.module.css'
+import { EditUserForm } from '@/features/EditUserForm'
 
-const ProfileContext = React.createContext();
+export const ProfileInfo = ({ children, userData }) => {
+    const [isEditing, setIsEditing] = React.useState(false)
 
-const useProfileContext = () => {
-    const context = React.useContext(ProfileContext);
-    return context
-}
-
-export const ProfileInfo = ({ name, login, children }) => {
-    const [isEditing, setIsEditing] = React.useState(false);
-    
     const toggle = () => {
         setIsEditing((value) => !value)
     }
-    
-    return (
-        <ProfileContext.Provider value={{isEditing}}>
-            <div className={styles.userInfo}>
-                <section className={styles.sectionInfo}>
-                    <Avatar />
-                    <div className={styles.containerInfo}>
-                       {name && <ProfileEditField value={name}/>}
-                        {login && <p className={styles.userLogin}>{login}</p>}
 
-                        {children}
-                    </div>
-                </section>
-                <div className={styles.container}>
-                    {isEditing && <Button><CircleCheck size={24} color="#c2c2c2" strokeWidth={1.75} /></Button>}
-                    <Button className={styles.button} onClick={toggle}>
-                        {isEditing 
-                        ? <X size={24} color="#c2c2c2" strokeWidth={1.75} />
-                        : <UserRoundPen size={28} color="#c2c2c2" strokeWidth={1.5} />}
-                    </Button>
+    return (
+        <div className={styles.userInfo}>
+            <section className={styles.sectionInfo}>
+                <Avatar />
+                <div className={styles.containerInfo}>
+                    {userData.name && (
+                        <ProfileEditField value={userData.name} />
+                    )}
+                    {userData.login && (
+                        <p className={styles.userLogin}>{userData.login}</p>
+                    )}
+                    {children}
                 </div>
+            </section>
+            <div className={styles.container}>
+                <Button className={styles.button} onClick={toggle}>
+                    <UserRoundPen size={28} color="#c2c2c2" strokeWidth={1.5} />
+                </Button>
             </div>
-        </ProfileContext.Provider>
+            <EditUserForm
+                userData={userData}
+                visible={isEditing}
+                onPopupClose={toggle}
+            />
+        </div>
     )
 }
 
-export const ProfileEditField = ({ value, label, nonEditable }) => {
-    const { isEditing } = useProfileContext();
-
-    if(isEditing && !nonEditable) {
-        return (
-            <>
-                {label && <label>{label}: </label>}
-                <Input className={styles.userNameInput} value={value}></Input> 
-            </>
-        )
-    }
-
+export const ProfileEditField = ({ value, label }) => {
     return (
-        <h3 className={styles.userName}>{label ? label + ':' : ''} {value}</h3>
+        <h3 className={styles.userName}>
+            {label ? label + ':' : ''} {value}
+        </h3>
     )
 }

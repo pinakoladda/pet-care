@@ -1,6 +1,5 @@
 import React from 'react'
 import cn from 'classnames'
-import { CircleCheck, UserRoundPen, X } from 'lucide-react'
 import { Button } from '@/components/Button'
 import { Avatar } from '@/components/Avatar'
 import { useDeletePet, usePatchPet } from '@/lib/api'
@@ -19,8 +18,6 @@ const OPTIONS = [
         value: 'decline',
     },
 ]
-
-// кнопочки редактирования, кнопка удаления питомца
 
 export const PetInfo = ({ name, petId, avatar, petData }) => {
     const [editPopupVisible, setEditPopupVisible] = React.useState(false)
@@ -78,9 +75,6 @@ export const PetInfo = ({ name, petId, avatar, petData }) => {
                 />
             </div>
             <div className={styles.container}>
-                {/* <Button className={styles.button} onClick={toggle}>
-                    <UserRoundPen size={28} color="#c2c2c2" strokeWidth={1.5} />
-                </Button> */}
                 <Button className={styles.editButton} onClick={toggle}>
                     Edit Tail
                 </Button>

@@ -1,12 +1,19 @@
-import React from "react"
-import { usePetBreeds } from "@/lib/api"
-import { useDebounce } from "@uidotdev/usehooks"
-import { formatDate } from "@/lib/helpers"
+import React from 'react'
+import { usePetBreeds } from '@/lib/api'
+import { useDebounce } from '@uidotdev/usehooks'
+import { formatDate } from '@/lib/helpers'
 
-export const useAddPetForm = ({ onPopupClose, defaultValues, apiFn, petId }) => {
-    const defaultNeutured = defaultValues?.neutured ? 'true' : 'false';
+export const useAddPetForm = ({
+    onPopupClose,
+    defaultValues,
+    apiFn,
+    petId,
+}) => {
+    const defaultNeutured = defaultValues?.neutured ? 'true' : 'false'
     const [name, setName] = React.useState(defaultValues?.name || '')
-    const [birthDate, setBirthDate] = React.useState(formatDate(defaultValues?.birthDate || ''))
+    const [birthDate, setBirthDate] = React.useState(
+        defaultValues?.birthDate ? formatDate(defaultValues.birthDate) : ''
+    )
     const [type, setType] = React.useState(defaultValues?.type || '')
     const [gender, setGender] = React.useState(defaultValues?.gender || '')
     const [neutured, setNeutured] = React.useState(defaultNeutured)
@@ -15,10 +22,18 @@ export const useAddPetForm = ({ onPopupClose, defaultValues, apiFn, petId }) => 
 
     const onSubmit = (event) => {
         event.preventDefault()
-        apiFn({name, birthDate, type, gender, neutured: neutured === 'true' ? true : false, breed, petId})
+        apiFn({
+            name,
+            birthDate,
+            type,
+            gender,
+            neutured: neutured === 'true' ? true : false,
+            breed,
+            petId,
+        })
             .then(() => {
                 onPopupClose()
-                if(!petId) {
+                if (!petId) {
                     setName('')
                     setBirthDate('')
                     setType('')
@@ -29,9 +44,13 @@ export const useAddPetForm = ({ onPopupClose, defaultValues, apiFn, petId }) => 
                 }
             })
             .catch((error) => {
-                const errorData = error.response.data;
-                if(errorData.details) {
-                    setErrorMessage(errorData.details.map(({ message }) => message).join('\n'))
+                const errorData = error.response.data
+                if (errorData.details) {
+                    setErrorMessage(
+                        errorData.details
+                            .map(({ message }) => message)
+                            .join('\n')
+                    )
                 } else {
                     setErrorMessage(errorData.message)
                 }
@@ -43,21 +62,27 @@ export const useAddPetForm = ({ onPopupClose, defaultValues, apiFn, petId }) => 
         setErrorMessage('')
     }
 
-    const debouncedBreed = useDebounce(breed, 300);
+    const debouncedBreed = useDebounce(breed, 300)
     const { data = [], isLoading } = usePetBreeds(type, debouncedBreed)
     const options = data.length === 0 ? ['Other'] : data
 
     return {
         fields: {
-            name: {value: name, onChange: onChange(setName)},
-            birthDate: {value: birthDate, onChange: onChange(setBirthDate)},
-            type: {value: type, onChange: onChange(setType)},
-            gender: {value: gender, onChange: onChange(setGender)},
-            neutured: {value: neutured, onChange: onChange(setNeutured)},
-            breed: {value: breed, onChange: onChange(setBreed), options, isLoading},
+            name: { value: name, onChange: onChange(setName) },
+            birthDate: { value: birthDate, onChange: onChange(setBirthDate) },
+            type: { value: type, onChange: onChange(setType) },
+            gender: { value: gender, onChange: onChange(setGender) },
+            neutured: { value: neutured, onChange: onChange(setNeutured) },
+            breed: {
+                value: breed,
+                onChange: onChange(setBreed),
+                options,
+                isLoading,
+            },
         },
-        submitDisabled: !name || !type || !birthDate || !gender || !neutured || !breed,
+        submitDisabled:
+            !name || !type || !birthDate || !gender || !neutured || !breed,
         onSubmit,
-        errorMessage
+        errorMessage,
     }
 }
