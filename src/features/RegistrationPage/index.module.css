@@ -3,10 +3,6 @@
     margin: 20px auto;
 }
 
-.nameInput{
-    text-transform: capitalize;
-}
-
 .submitButton {
     height: 40px;
     border-radius: 4px;

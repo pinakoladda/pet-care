@@ -19,7 +19,15 @@ export const Header = ({ page }) => {
             >
                 main page
             </Button>
-            <Button className={styles.link}>settings</Button>
+            <Button
+                as="a"
+                href="/settings"
+                className={cn(styles.link, {
+                    [styles.disabledLink]: page === 'settings',
+                })}
+            >
+                settings
+            </Button>
             <Button className={styles.link} onClick={handleLogOut}>
                 log out
             </Button>

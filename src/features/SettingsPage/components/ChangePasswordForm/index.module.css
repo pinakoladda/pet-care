@@ -1,0 +1,21 @@
+.passwordForm {
+    margin: 0;
+    flex: 1 1 auto;
+    max-width: unset;
+    width: 50%;
+}
+
+.button {
+    height: 40px;
+    max-width: fit-content;
+    font-size: 18px;
+    padding: 8px;
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    margin-top: 12px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: end;
+}

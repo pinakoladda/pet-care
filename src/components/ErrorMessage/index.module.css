@@ -1,0 +1,6 @@
+.errorMessage {
+    color: var(--text-color-error);
+    margin: 0;
+    font-size: 14px;
+    white-space: pre-line;
+}

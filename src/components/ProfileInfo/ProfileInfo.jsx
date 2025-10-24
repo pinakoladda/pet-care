@@ -17,11 +17,11 @@ export const ProfileInfo = ({ children, userData }) => {
             <section className={styles.sectionInfo}>
                 <Avatar />
                 <div className={styles.containerInfo}>
-                    {userData.name && (
-                        <ProfileEditField value={userData.name} />
+                    {userData?.name && (
+                        <ProfileEditField value={userData?.name} />
                     )}
-                    {userData.login && (
-                        <p className={styles.userLogin}>{userData.login}</p>
+                    {userData?.login && (
+                        <p className={styles.userLogin}>{userData?.login}</p>
                     )}
                     {children}
                 </div>

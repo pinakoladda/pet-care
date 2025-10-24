@@ -5,6 +5,7 @@ import { useRegistration } from '@/lib/api'
 import { Input } from '@/components/Input'
 import { useTokenCheck } from '@/hooks/useTokenCheck'
 import styles from './index.module.css'
+import { ErrorMessage } from '@/components/ErrorMessage'
 
 export const RegistrationPage = () => {
     useTokenCheck()
@@ -73,7 +74,6 @@ export const RegistrationPage = () => {
         >
             <Input
                 label="Name:"
-                className={styles.nameInput}
                 id="name"
                 name="name"
                 type="text"
@@ -111,9 +111,7 @@ export const RegistrationPage = () => {
                 value={passwordValue}
                 onChange={onPasswordChange}
             />
-            {errorMessage && (
-                <p className={styles.errorMessage}>{errorMessage}</p>
-            )}
+            <ErrorMessage errorMessage={errorMessage} />
             <Button
                 disabled={isPending}
                 type="submit"

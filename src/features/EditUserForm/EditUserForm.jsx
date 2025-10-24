@@ -5,6 +5,7 @@ import styles from './index.module.css'
 import { Input } from '@/components/Input'
 import { useEditUserForm } from './hooks/useEditUserForm'
 import { Select } from '@/components/Select'
+import { ErrorMessage } from '@/components/ErrorMessage'
 
 const GENDER = [
     {
@@ -64,9 +65,7 @@ export const EditUserForm = ({ visible, onPopupClose, userData }) => {
                     >
                         Save changes
                     </Button>
-                    {errorMessage && (
-                        <p className={styles.errorMessage}>{errorMessage}</p>
-                    )}
+                    <ErrorMessage errorMessage={errorMessage} />
                 </Form>
             </main>
         </Popup>
