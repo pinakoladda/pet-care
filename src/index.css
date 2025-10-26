@@ -1,4 +1,4 @@
-:root {
+html {
   font-family: var(--font-family-default);
   line-height: 1.5;
   font-weight: 400;
@@ -12,6 +12,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --font-family-default: "Comic Relief", system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+html[data-theme='dark'] {
   --text-color-primary: #dedede;
   --text-color-secondary: #c2c2c2;
   --text-color-error: rgb(236, 54, 54);
@@ -19,7 +23,14 @@
 
   --color-surface: rgb(27, 30, 30);
   --color-primary: #6D4886;
-
-  --font-family-default: "Comic Relief", system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+html[data-theme='light'] {
+  --text-color-primary: #dedede;
+  --text-color-secondary: #c2c2c2;
+  --text-color-error: rgb(236, 54, 54);
+  --text-color-accent: rgb(202, 174, 235);
+
+  --color-surface: rgb(27, 30, 30);
+  --color-primary: #9f1f1f;
+}

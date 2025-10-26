@@ -12,6 +12,7 @@ export const useAuthRouting = () => {
         if (isAuthError) {
             localStorage.removeItem('token')
         }
+
         if (!isTokenExsist || isAuthError) {
             window.location.href = '/login'
         }

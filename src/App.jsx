@@ -59,6 +59,9 @@ export const BaseApp = ({ children }) => {
         actions: { setTheme },
     }
 
+    React.useEffect(() => {
+        document.querySelector('html').setAttribute('data-theme', theme)
+    }, [theme])
     return (
         <GlobalContext.Provider value={globalContext}>
             {children}
