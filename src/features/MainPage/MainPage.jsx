@@ -2,17 +2,20 @@ import React from 'react'
 import { Notification } from './components/Notification'
 import { Pets } from './components/Pets'
 import { ProfileInfo } from '@/components/ProfileInfo'
-import { useAuth, useCreatePet } from '@/lib/api'
+import { useCreatePet } from '@/lib/api'
 import { Header } from '@/components/Header'
 import { Loader } from '@/components/Loader'
 import { useAuthRouting } from '@/hooks/useAuthRouting'
 import { AddPetForm } from '@/features/AddPetForm'
 
 import styles from './index.module.css'
+import { useGlobalContext } from '@/contexts/GlobalContext'
 
 export const MainPage = () => {
     useAuthRouting()
-    const { data, isLoading } = useAuth()
+    const {
+        state: { user, isLoading },
+    } = useGlobalContext()
     const [visible, setVisible] = React.useState(false)
     const { mutateAsync: apiFn } = useCreatePet()
 
@@ -32,9 +35,9 @@ export const MainPage = () => {
                 ) : (
                     <>
                         <Header page="mainPage" />
-                        <ProfileInfo userData={data} />
+                        <ProfileInfo userData={user} />
                         <Notification />
-                        <Pets onAddPet={onAddPet} ownerId={data?._id} />
+                        <Pets onAddPet={onAddPet} ownerId={user?._id} />
                         <AddPetForm
                             visible={visible}
                             onPopupClose={onPopupClose}

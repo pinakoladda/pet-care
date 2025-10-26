@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { LoginPage } from './features/LoginPage'
 import { RegistrationPage } from './features/RegistrationPage'
 import { SettingsPage } from './features/SettingsPage'
+import { DEFAULT_CONTEXT_STATE, GlobalContext } from './contexts/GlobalContext'
+import { useAuth } from './lib/api'
 
 const ROUTES = [
     { component: PetPage, path: /\/pet\/*/ },
@@ -37,9 +39,30 @@ function App() {
     return (
         <>
             <QueryClientProvider client={queryClient}>
-                <PageComponent />
+                <BaseApp>
+                    <PageComponent />
+                </BaseApp>
             </QueryClientProvider>
         </>
+    )
+}
+
+export const BaseApp = ({ children }) => {
+    const [theme, setTheme] = React.useState('dark')
+
+    const isTokenExsist = Boolean(localStorage.getItem('token'))
+
+    const { data, isLoading, isError } = useAuth({ enabled: isTokenExsist })
+
+    const globalContext = {
+        state: { theme, user: data, isLoading, isAuthError: isError },
+        actions: { setTheme },
+    }
+
+    return (
+        <GlobalContext.Provider value={globalContext}>
+            {children}
+        </GlobalContext.Provider>
     )
 }
 

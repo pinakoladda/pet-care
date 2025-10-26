@@ -1,16 +1,16 @@
 import { Header } from '@/components/Header'
-import { useAuth } from '@/lib/api'
 import { Loader } from '@/components/Loader'
 import styles from './index.module.css'
 import { ProfileInfo } from '@/components/ProfileInfo'
 import React from 'react'
 import { RadioGroup } from '@/components/RadioGroup'
 import { ChangePasswordForm } from './components/ChangePasswordForm'
+import { useGlobalContext } from '@/contexts/GlobalContext'
 
 const THEME_OPTIONS = [
     {
-        value: 'white',
-        text: 'white',
+        value: 'light',
+        text: 'light',
     },
     {
         value: 'dark',
@@ -19,8 +19,10 @@ const THEME_OPTIONS = [
 ]
 
 export const SettingsPage = () => {
-    const { isLoading, data } = useAuth()
-    const [theme, setTheme] = React.useState('dark')
+    const {
+        state: { theme, user, isLoading },
+        actions: { setTheme },
+    } = useGlobalContext()
 
     const onChange = (event) => {
         setTheme(event.target.value)
@@ -33,12 +35,9 @@ export const SettingsPage = () => {
             ) : (
                 <>
                     <Header page="settings" />
-                    <ProfileInfo userData={data} />
-                    {/* <h3>User name: {data.name}</h3>
-                    <p>Login: {data.login}</p>
-                    <p>Gender: {data.gender}</p> */}
+                    <ProfileInfo userData={user} />
                     <div className={styles.container}>
-                        <ChangePasswordForm userData={data} />
+                        <ChangePasswordForm userData={user} />
                         <div className={styles.themeContainer}>
                             <h4 className={styles.themeHeader}>
                                 Choose app color-theme:

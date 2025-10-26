@@ -1,17 +1,19 @@
-import { useAuth } from "@/lib/api";
-import React from "react";
+import { useGlobalContext } from '@/contexts/GlobalContext'
+import React from 'react'
 
 export const useAuthRouting = () => {
-    const isTokenExsist = Boolean(localStorage.getItem('token'));
-    
-    const { isError } = useAuth({ enabled: isTokenExsist });
+    const {
+        state: { isAuthError },
+    } = useGlobalContext()
 
     React.useEffect(() => {
-        if(isError) {
+        const isTokenExsist = Boolean(localStorage.getItem('token'))
+
+        if (isAuthError) {
             localStorage.removeItem('token')
         }
-        if(!isTokenExsist || isError) {
-            window.location.href = '/login';
+        if (!isTokenExsist || isAuthError) {
+            window.location.href = '/login'
         }
-    }, [isTokenExsist, isError])
+    }, [isAuthError])
 }
