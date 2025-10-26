@@ -5,8 +5,6 @@ import styles from './index.module.css'
 import { ProfileInfo } from '@/components/ProfileInfo'
 import React from 'react'
 import { RadioGroup } from '@/components/RadioGroup'
-import { useChangePassword } from './hooks/useChangePassword'
-import { ErrorMessage } from '@/components/ErrorMessage'
 import { ChangePasswordForm } from './components/ChangePasswordForm'
 
 const THEME_OPTIONS = [
@@ -22,7 +20,11 @@ const THEME_OPTIONS = [
 
 export const SettingsPage = () => {
     const { isLoading, data } = useAuth()
-    const { fields } = useChangePassword()
+    const [theme, setTheme] = React.useState('dark')
+
+    const onChange = (event) => {
+        setTheme(event.target.value)
+    }
 
     return (
         <main className={styles.settingsPage}>
@@ -36,7 +38,7 @@ export const SettingsPage = () => {
                     <p>Login: {data.login}</p>
                     <p>Gender: {data.gender}</p> */}
                     <div className={styles.container}>
-                        <ChangePasswordForm />
+                        <ChangePasswordForm userData={data} />
                         <div className={styles.themeContainer}>
                             <h4 className={styles.themeHeader}>
                                 Choose app color-theme:
@@ -46,7 +48,8 @@ export const SettingsPage = () => {
                                     className={styles.radio}
                                     name="theme"
                                     options={THEME_OPTIONS}
-                                    {...fields.theme}
+                                    value={theme}
+                                    onChange={onChange}
                                 />
                             </div>
                         </div>

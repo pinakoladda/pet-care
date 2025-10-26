@@ -1,42 +1,60 @@
+import { useChangeUserPassword } from '@/lib/api'
 import React from 'react'
 
-export const useChangePassword = () => {
-    const [oldPassword, setOldPassword] = React.useState('')
+export const useChangePassword = ({ userData }) => {
+    const { mutateAsync: changePassword, isPending } = useChangeUserPassword()
+    const [currentPassword, setCurrentPassword] = React.useState('')
     const [newPassword, setNewPassword] = React.useState('')
     const [repeatPassword, setRepeatPassword] = React.useState('')
-    const [theme, setTheme] = React.useState('dark')
     const [errorMessage, setErrorMessage] = React.useState()
-
-    const passwordCheck = () => {
-        if (oldPassword === newPassword) {
-            console.log('old password shouldnt be equal to new one')
-            setErrorMessage('old password shouldnt be equal to a new one')
-        } else if (newPassword !== repeatPassword) {
-            console.log('your repeat password isnt equal to new password')
-            setErrorMessage('your repeat password isnt equal to new password')
-        } else {
-            console.log('your new password:' + newPassword)
-            setNewPassword('')
-            setOldPassword('')
-            setRepeatPassword('')
-        }
-    }
+    const [successMessage, setSuccesMessage] = React.useState(false)
 
     const onChange = (stateFn) => (event) => {
         stateFn(event.target.value)
         setErrorMessage('')
+        setSuccesMessage(false)
     }
 
     const onSubmit = (event) => {
         event.preventDefault()
-        passwordCheck()
+        if (currentPassword === newPassword) {
+            setErrorMessage(
+                'current password and new rassword shouldnt be equal'
+            )
+            return
+        } else if (newPassword !== repeatPassword) {
+            setErrorMessage(
+                'new password and repeat password fields should be equal'
+            )
+            return
+        }
+        changePassword({ currentPassword, newPassword, userId: userData?._id })
+            .then(() => {
+                setNewPassword('')
+                setCurrentPassword('')
+                setRepeatPassword('')
+                setSuccesMessage(true)
+            })
+            .catch((error) => {
+                const errorData = error.response.data
+                console.log(errorData)
+                if (errorData.details) {
+                    setErrorMessage(
+                        errorData.details
+                            .map(({ message }) => message)
+                            .join('\n')
+                    )
+                } else {
+                    setErrorMessage(errorData.message)
+                }
+            })
     }
 
     return {
         fields: {
-            oldPassword: {
-                value: oldPassword,
-                onChange: onChange(setOldPassword),
+            currentPassword: {
+                value: currentPassword,
+                onChange: onChange(setCurrentPassword),
             },
             newPassword: {
                 value: newPassword,
@@ -46,13 +64,15 @@ export const useChangePassword = () => {
                 value: repeatPassword,
                 onChange: onChange(setRepeatPassword),
             },
-            theme: {
-                value: theme,
-                onChange: onChange(setTheme),
-            },
         },
         onSubmit,
-        submitDisabled: errorMessage,
+        submitDisabled:
+            errorMessage ||
+            !currentPassword ||
+            !newPassword ||
+            !repeatPassword ||
+            isPending,
         errorMessage,
+        successMessage,
     }
 }

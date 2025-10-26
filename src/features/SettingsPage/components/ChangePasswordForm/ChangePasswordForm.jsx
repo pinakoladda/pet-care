@@ -5,9 +5,9 @@ import { Button } from '@/components/Button'
 import { ErrorMessage } from '@/components/ErrorMessage'
 import styles from './index.module.css'
 
-export const ChangePasswordForm = () => {
-    const { fields, onSubmit, errorMessage, submitDisabled } =
-        useChangePassword()
+export const ChangePasswordForm = ({ userData }) => {
+    const { fields, onSubmit, errorMessage, submitDisabled, successMessage } =
+        useChangePassword({ userData })
     return (
         <Form
             header="Setup a new password:"
@@ -15,10 +15,10 @@ export const ChangePasswordForm = () => {
             onSubmit={onSubmit}
         >
             <Input
-                label="Old password:"
-                name="oldPassword"
-                id="oldPassword"
-                {...fields.oldPassword}
+                label="Current password:"
+                name="currentPassword"
+                id="currentPassword"
+                {...fields.currentPassword}
             />
             <Input
                 label="New password:"
@@ -33,6 +33,11 @@ export const ChangePasswordForm = () => {
                 {...fields.repeatPassword}
             />
             <ErrorMessage errorMessage={errorMessage} />
+            {successMessage && (
+                <p className={styles.successMessage}>
+                    Your password changed successfully!
+                </p>
+            )}
             <div className={styles.buttonContainer}>
                 <Button
                     disabled={submitDisabled}

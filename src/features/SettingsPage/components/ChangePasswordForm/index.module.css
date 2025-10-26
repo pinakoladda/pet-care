@@ -19,3 +19,9 @@
     display: flex;
     justify-content: end;
 }
+
+.successMessage {
+    font-size: 16px;
+    color: var(--text-color-primary);
+    margin: 8px 0;
+}

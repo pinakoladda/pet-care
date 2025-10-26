@@ -191,3 +191,16 @@ export const usePatchUser = () => {
         },
     })
 }
+
+const changePasswordFn = async ({ userId, ...data }) => {
+    const response = await api.patch(`/user/${userId}/password`, data)
+
+    return response.data
+}
+
+export const useChangeUserPassword = () => {
+    return useMutation({
+        mutationKey: ['changePassword'],
+        mutationFn: changePasswordFn,
+    })
+}
