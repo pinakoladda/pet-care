@@ -5,6 +5,7 @@ import { Loader } from '@/components/Loader'
 import { useAuthRouting } from '@/hooks/useAuthRouting'
 import { Header } from '@/components/Header'
 import styles from './index.module.css'
+import { PetMedicalInfo } from './components/PetMedicalInfo/PetMedicalInfo'
 
 export const PetPage = () => {
     useAuthRouting()
@@ -17,12 +18,15 @@ export const PetPage = () => {
             {isLoading ? (
                 <Loader />
             ) : (
-                <PetInfo
-                    petData={data}
-                    name={data?.name}
-                    petId={petId}
-                    avatar={data?.avatarUrl.lg}
-                />
+                <>
+                    <PetInfo
+                        petData={data}
+                        name={data?.name}
+                        petId={petId}
+                        avatar={data?.avatarUrl.lg}
+                    />
+                    <PetMedicalInfo />
+                </>
             )}
         </main>
     )
