@@ -8,19 +8,6 @@ const api = axios.create({
     baseURL: `${API_HOST}/api`,
 })
 
-const getUserData = async () => {
-    const response = await api.get('/user/1')
-
-    return response.data
-}
-
-export const useUserData = () => {
-    return useQuery({
-        queryKey: ['getUserData'],
-        queryFn: getUserData,
-    })
-}
-
 const getUserPets = async (ownerId) => {
     const response = await api.get(`/pet/?ownerId=${ownerId}`)
 
@@ -202,5 +189,35 @@ export const useChangeUserPassword = () => {
     return useMutation({
         mutationKey: ['changePassword'],
         mutationFn: changePasswordFn,
+    })
+}
+
+const addPetWeightFn = async ({ weight, petId, date }) => {
+    const response = await api.post(`${API_HOST}/api/weights`, {
+        weight,
+        petId,
+        date,
+    })
+
+    return response.data
+}
+
+export const useAddPetWeight = () => {
+    return useMutation({
+        mutationKey: ['addWeight'],
+        mutationFn: addPetWeightFn,
+    })
+}
+
+const getPetWeight = async (petId) => {
+    const response = await api.get(`/weights/?petId=${petId}`)
+
+    return response.data
+}
+
+export const usePetWeight = (petId) => {
+    return useQuery({
+        queryKey: ['getPetWeight', petId],
+        queryFn: () => getPetWeight(petId),
     })
 }

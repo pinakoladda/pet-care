@@ -1,5 +1,5 @@
-import { usePatchUser } from '@/lib/api'
 import React from 'react'
+import { usePatchUser } from '@/lib/api'
 
 export const useEditUserForm = ({ onPopupClose, userData }) => {
     const { mutateAsync: patchUser, isPending } = usePatchUser()

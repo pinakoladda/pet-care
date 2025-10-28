@@ -10,7 +10,11 @@ export const Form = ({
 }) => {
     return (
         <form className={cn(styles.form, className)} {...props}>
-            <h3 className={cn(styles.header, headerClassName)}>{header}</h3>
+            {header ? (
+                <h3 className={cn(styles.header, headerClassName)}>{header}</h3>
+            ) : (
+                ''
+            )}
             {children}
         </form>
     )

@@ -1,0 +1,79 @@
+.petWeight {
+    background-color: var(--color-surface);
+    border-radius: 8px;
+    padding: 18px;
+    display: inline-block;
+}
+
+.currentWeight {
+    margin: 0 0 6px 0;
+    font-size: 18px;
+    color: var(--text-color-prinary);
+}
+
+.weightDifference {
+    margin: 6px 0 12px;
+    font-size: 16px;
+    color: var(--text-color-secondary);
+}
+
+.buttonContainer {
+    margin: 32px 0 0;
+    display: flex;
+    gap: 18px;
+}
+
+.button {
+    height: 40px;
+    font-size: 16px;
+    padding: 6px;
+    background-color: var(--color-primary);
+}
+
+.buttonTransparent {
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+}
+
+.popupContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: fit-content;
+}
+
+.popupHeader {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-color-prinary);
+}
+
+.popupWeihtContainer {
+    display: flex;
+    gap: 8px;
+}
+
+.inputPopupContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.popupInput {
+    font-size: 16px;
+    max-width: 150px;
+    height: 32px;
+    padding: 4px;
+}
+
+.popupSelect {
+    font-size: 16px;
+    height: 32px;
+    padding: 0 0 0 4px;
+}
+
+.popupInputDate {
+    font-size: 16px;
+    height: 32px;
+}

@@ -25,7 +25,7 @@ export const PetPage = () => {
                         petId={petId}
                         avatar={data?.avatarUrl.lg}
                     />
-                    <PetMedicalInfo />
+                    <PetMedicalInfo name={data?.name} petId={petId} />
                 </>
             )}
         </main>
