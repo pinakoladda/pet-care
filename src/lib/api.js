@@ -203,9 +203,13 @@ const addPetWeightFn = async ({ weight, petId, date }) => {
 }
 
 export const useAddPetWeight = () => {
+    const queryClient = useQueryClient()
     return useMutation({
         mutationKey: ['addWeight'],
         mutationFn: addPetWeightFn,
+        onSuccess: () => {
+            queryClient.refetchQueries(['getPetWeight'])
+        },
     })
 }
 
@@ -219,5 +223,22 @@ export const usePetWeight = (petId) => {
     return useQuery({
         queryKey: ['getPetWeight', petId],
         queryFn: () => getPetWeight(petId),
+    })
+}
+
+const deleteWeightFn = async (weightId) => {
+    const response = await api.delete(`/weights/${weightId}`)
+
+    return response.data
+}
+
+export const useDeleteWeight = () => {
+    const queryClient = useQueryClient()
+    return useMutation({
+        mutationKey: ['deleteWeight'],
+        mutationFn: deleteWeightFn,
+        onSuccess: () => {
+            queryClient.refetchQueries(['getPetWeight'])
+        },
     })
 }

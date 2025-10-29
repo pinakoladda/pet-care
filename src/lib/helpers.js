@@ -21,7 +21,7 @@ export const formatAge = (value) => {
 
 export const convertWeightToGrams = (value, measure) => {
     if (measure === 'grams') {
-        return value
+        return Number(value)
     }
     if (measure === 'kilograms') {
         return value * 1000
@@ -34,7 +34,7 @@ export const convertWeightToGrams = (value, measure) => {
 
 export const convertWeight = (value, measure) => {
     if (measure === 'grams') {
-        return value
+        return Number(value)
     }
     if (measure === 'kilograms') {
         return value / 1000

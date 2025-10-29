@@ -8,8 +8,10 @@ import { Form } from '@/components/Form'
 import { useAddWeight } from './hooks/useAddWeight'
 import { ErrorMessage } from '@/components/ErrorMessage'
 import { usePetWeight } from '@/lib/api'
-import styles from './index.module.css'
 import { convertWeight } from '@/lib/helpers'
+import { usePrewiousWeight } from './hooks/usePreviousWeight'
+import { format } from 'date-fns'
+import styles from './index.module.css'
 
 const OPTIONS = [
     { value: 'kilograms', text: 'kg' },
@@ -19,7 +21,6 @@ const OPTIONS = [
 
 export const PetWeight = ({ name, petId }) => {
     const { data } = usePetWeight(petId)
-    console.log(data)
 
     const {
         fields,
@@ -30,15 +31,32 @@ export const PetWeight = ({ name, petId }) => {
         errorMessage,
     } = useAddWeight({ petId })
 
+    const {
+        visiblePreviousPopup,
+        onPreviousPopupOpen,
+        onPreviousPopupClose,
+        onDeleteWeight,
+    } = usePrewiousWeight(petId)
+
     return (
         <main className={styles.petWeight}>
-            <h4 className={styles.currentWeight}>
-                {name}'s weight is{' '}
-                {convertWeight(data?.weight.weight, 'kilograms')} kg
-            </h4>
+            {data?.weight?.weight ? (
+                <h4 className={styles.currentWeight}>
+                    {name}'s weight is{' '}
+                    {convertWeight(data?.weight?.weight, 'kilograms')} kg
+                </h4>
+            ) : (
+                <h4 className={styles.currentWeight}>
+                    You can add {name}'s weight here
+                </h4>
+            )}
             <p className={styles.weightDifference}>+200 gr since last month</p>
             <div className={styles.buttonContainer}>
-                <Button className={cn(styles.button, styles.buttonTransparent)}>
+                <Button
+                    className={cn(styles.button, styles.buttonTransparent)}
+                    onClick={onPreviousPopupOpen}
+                    disabled={!data?.weight}
+                >
                     Previous values
                 </Button>
                 <Button onClick={onAddWeight} className={styles.button}>
@@ -82,6 +100,41 @@ export const PetWeight = ({ name, petId }) => {
                         </Button>
                     </div>
                 </Form>
+            </Popup>
+            <Popup
+                visible={visiblePreviousPopup}
+                onPopupClose={onPreviousPopupClose}
+            >
+                <div className={styles.popupPreviousContainer}>
+                    {data?.weight ? (
+                        <h4 className={styles.popupHeader}>Previous values:</h4>
+                    ) : (
+                        <h4 className={styles.popupHeaderEmpty}>
+                            {name} doesn't have weight history
+                        </h4>
+                    )}
+                    {data?.history.map((item) => {
+                        return (
+                            <div
+                                className={styles.popupPreviousWeight}
+                                key={item._id}
+                            >
+                                <p className={styles.popupParagraph}>
+                                    {convertWeight(item.weight, 'kilograms')} kg
+                                </p>
+                                <p className={styles.popupParagraph}>
+                                    {format(item.date, 'dd/MM/yyyy')}
+                                </p>
+                                <Button
+                                    onClick={onDeleteWeight(item._id)}
+                                    className={styles.popupDeleteButton}
+                                >
+                                    Delete
+                                </Button>
+                            </div>
+                        )
+                    })}
+                </div>
             </Popup>
         </main>
     )

@@ -8,17 +8,6 @@ import { AddPetForm } from '@/features/AddPetForm'
 import { formatAge, formatDate } from '@/lib/helpers'
 import styles from './index.module.css'
 
-const OPTIONS = [
-    {
-        text: 'yes',
-        value: 'confirm',
-    },
-    {
-        text: 'no',
-        value: 'decline',
-    },
-]
-
 export const PetInfo = ({ name, petId, avatar, petData }) => {
     const [editPopupVisible, setEditPopupVisible] = React.useState(false)
     const { mutateAsync: deletePet, isPending } = useDeletePet()
@@ -85,7 +74,6 @@ export const PetInfo = ({ name, petId, avatar, petData }) => {
             <ConfirmaitionModal
                 header="Are you fucking sure?"
                 visible={visible}
-                options={OPTIONS}
                 onPopupClose={onPopupClose}
                 onConfirm={onDeletePet}
                 disabled={isPending}
