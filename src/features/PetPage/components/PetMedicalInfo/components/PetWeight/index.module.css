@@ -21,6 +21,7 @@
     margin: 32px 0 0;
     display: flex;
     gap: 18px;
+    justify-content: space-between;
 }
 
 .button {
@@ -43,7 +44,7 @@
     width: fit-content;
 }
 
-.popupHeader {
+.popupHeaderAddWeight {
     margin: 0;
     font-size: 18px;
     color: var(--text-color-prinary);

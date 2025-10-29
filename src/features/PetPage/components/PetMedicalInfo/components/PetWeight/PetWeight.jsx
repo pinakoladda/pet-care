@@ -21,6 +21,22 @@ const OPTIONS = [
 
 export const PetWeight = ({ name, petId }) => {
     const { data } = usePetWeight(petId)
+    console.log(data)
+
+    const weightDifference = React.useMemo(() => {
+        const weightHistory = data?.history
+
+        if (!weightHistory || weightHistory.length < 2) {
+            return 0
+        }
+
+        const lastValue = weightHistory[0].weight
+        const preLastValue = weightHistory[1].weight
+
+        const weightDifference = lastValue - preLastValue
+
+        return convertWeight(weightDifference, 'kilograms')
+    }, [data])
 
     const {
         fields,
@@ -50,7 +66,11 @@ export const PetWeight = ({ name, petId }) => {
                     You can add {name}'s weight here
                 </h4>
             )}
-            <p className={styles.weightDifference}>+200 gr since last month</p>
+            {weightDifference !== 0 && (
+                <p className={styles.weightDifference}>
+                    {weightDifference} kg since last measure
+                </p>
+            )}
             <div className={styles.buttonContainer}>
                 <Button
                     className={cn(styles.button, styles.buttonTransparent)}
@@ -69,7 +89,9 @@ export const PetWeight = ({ name, petId }) => {
             >
                 <Form onSubmit={onAddWeightSubmit}>
                     <div className={styles.popupContainer}>
-                        <h4 className={styles.popupHeader}>Add weight:</h4>
+                        <h4 className={styles.popupHeaderAddWeight}>
+                            Add weight:
+                        </h4>
                         <div className={styles.inputPopupContainer}>
                             <div className={styles.popupWeihtContainer}>
                                 <Input
