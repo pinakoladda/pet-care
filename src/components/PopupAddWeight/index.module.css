@@ -1,0 +1,49 @@
+.button {
+    height: 40px;
+    font-size: 16px;
+    padding: 6px;
+    background-color: var(--color-primary);
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: fit-content;
+}
+
+.header {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-color-prinary);
+}
+
+.weihtContainer {
+    display: flex;
+    gap: 8px;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.input {
+    font-size: 16px;
+    max-width: 150px;
+    height: 32px;
+    padding: 4px;
+}
+
+.select {
+    font-size: 16px;
+    height: 32px;
+    padding: 0 0 0 4px;
+}
+
+.inputDate {
+    font-size: 16px;
+    height: 32px;
+}

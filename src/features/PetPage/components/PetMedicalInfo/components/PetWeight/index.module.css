@@ -2,16 +2,18 @@
     background-color: var(--color-surface);
     border-radius: 8px;
     padding: 18px;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.currentWeight {
+.header {
     margin: 0 0 6px 0;
     font-size: 18px;
     color: var(--text-color-prinary);
 }
 
-.weightDifference {
+.paragraph {
     margin: 6px 0 12px;
     font-size: 16px;
     color: var(--text-color-secondary);
@@ -21,7 +23,6 @@
     margin: 32px 0 0;
     display: flex;
     gap: 18px;
-    justify-content: space-between;
 }
 
 .button {

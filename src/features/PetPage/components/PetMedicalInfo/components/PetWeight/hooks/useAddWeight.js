@@ -3,23 +3,12 @@ import { convertWeight, convertWeightToGrams } from '@/lib/helpers'
 import { format } from 'date-fns'
 import React from 'react'
 
-export const useAddWeight = ({ petId }) => {
+export const useAddWeight = ({ petId, onPopupClose }) => {
     const { mutateAsync: addPetWeightFn } = useAddPetWeight()
-    const [visibleAddWeightPopup, setVisibleAddWeightPopup] =
-        React.useState(false)
     const [currentWeight, setCurrentWeight] = React.useState('')
     const [measure, setMeasure] = React.useState('kilograms')
     const [date, setDate] = React.useState(format(new Date(), 'yyyy-MM-dd'))
     const [errorMessage, setErrorMessage] = React.useState()
-
-    console.log(date)
-    const onAddWeight = () => {
-        setVisibleAddWeightPopup(true)
-    }
-
-    const onCloseAddWeight = () => {
-        setVisibleAddWeightPopup(false)
-    }
 
     const onAddWeightSubmit = (event) => {
         event.preventDefault()
@@ -29,7 +18,7 @@ export const useAddWeight = ({ petId }) => {
             date: date,
         })
             .then(() => {
-                onCloseAddWeight()
+                onPopupClose()
                 setCurrentWeight('')
                 setDate('')
             })
@@ -72,9 +61,6 @@ export const useAddWeight = ({ petId }) => {
             date: { value: date, onChange: onChange(setDate) },
         },
         onAddWeightSubmit,
-        visibleAddWeightPopup,
-        onAddWeight,
-        onCloseAddWeight,
         errorMessage,
     }
 }

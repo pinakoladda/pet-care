@@ -1,0 +1,39 @@
+.petFood {
+    background-color: var(--color-surface);
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    margin: 0 0 6px 0;
+    font-size: 18px;
+    color: var(--text-color-prinary);
+}
+
+.paragraph {
+    margin: 6px 0;
+    font-size: 16px;
+    color: var(--text-color-secondary);
+}
+
+.buttonContainer {
+    margin: 32px 0 0;
+    display: flex;
+    gap: 18px;
+}
+
+.button {
+    height: 40px;
+    font-size: 16px;
+    padding: 6px;
+    background-color: var(--color-primary);
+}
+
+.buttonTransparent {
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+}
