@@ -1,6 +1,13 @@
+import cn from 'classnames'
 import styles from './index.module.css'
 
-export const RadioGroup = ({ options, name, onChange, value }) => {
+export const RadioGroup = ({
+    options,
+    name,
+    onChange,
+    value,
+    radioClassName,
+}) => {
     return (
         <>
             {options.map((option) => (
@@ -12,15 +19,16 @@ export const RadioGroup = ({ options, name, onChange, value }) => {
                     value={option.value}
                     checked={value === option.value}
                     key={option.value}
+                    radioClassName={radioClassName}
                 />
             ))}
         </>
     )
 }
 
-export const Radio = ({ text, id, ...props }) => {
+export const Radio = ({ text, id, radioClassName, ...props }) => {
     return (
-        <div className={styles.main}>
+        <div className={cn(styles.main, radioClassName)}>
             <label htmlFor={id} className={styles.label}>
                 {text}
             </label>

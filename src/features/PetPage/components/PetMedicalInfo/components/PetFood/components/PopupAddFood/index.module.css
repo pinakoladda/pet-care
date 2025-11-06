@@ -1,0 +1,37 @@
+.form {
+    max-width: 400px;
+    width: 100%;
+}
+
+.header {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-color-accent);
+    min-width: 200px;
+}
+
+.input {
+    font-size: 16px;
+    height: 32px;
+    padding: 4px;
+    margin-bottom: 8px;
+}
+
+.button {
+    height: 40px;
+    font-size: 16px;
+    padding: 6px;
+    background-color: var(--color-primary);
+}
+
+.radioClassName {
+    margin-bottom: 8px;
+}
+
+.radioClassName:last-of-type {
+    margin: 0;
+}
+
+.radioContainer {
+    margin: 8px 0;
+}

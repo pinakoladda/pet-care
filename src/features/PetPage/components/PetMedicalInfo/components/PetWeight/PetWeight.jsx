@@ -5,9 +5,9 @@ import { usePetWeight } from '@/lib/api'
 import { convertWeight } from '@/lib/helpers'
 import styles from './index.module.css'
 import { Loader } from '@/components/Loader'
-import { PopupAddWeight } from '@/components/PopupAddWeight'
 import { usePopupProps } from '@/hooks/usePopupProps'
-import { PopupPreviousWeight } from '@/components/PopupPreviousWeight'
+import { PopupAddWeight } from './components/PopupAddWeight'
+import { PopupPreviousWeight } from './components/PopupPreviousWeight'
 
 export const PetWeight = ({ name, petId }) => {
     const { data, isLoading } = usePetWeight(petId)

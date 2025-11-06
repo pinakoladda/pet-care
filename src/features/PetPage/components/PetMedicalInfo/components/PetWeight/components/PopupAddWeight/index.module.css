@@ -16,7 +16,7 @@
 .header {
     margin: 0;
     font-size: 18px;
-    color: var(--text-color-prinary);
+    color: var(--text-color-accent);
 }
 
 .weihtContainer {

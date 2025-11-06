@@ -1,10 +1,10 @@
 import { useAddWeight } from '@/features/PetPage/components/PetMedicalInfo/components/PetWeight/hooks/useAddWeight'
-import { Button } from '../Button'
-import { ErrorMessage } from '../ErrorMessage'
-import { Form } from '../Form'
-import { Input } from '../Input'
-import { Popup } from '../Popup'
-import { Select } from '../Select'
+import { Button } from '@/components/Button'
+import { ErrorMessage } from '@/components/ErrorMessage'
+import { Form } from '@/components/Form'
+import { Input } from '@/components/Input'
+import { Popup } from '@/components/Popup'
+import { Select } from '@/components/Select'
 import styles from './index.module.css'
 
 const OPTIONS = [

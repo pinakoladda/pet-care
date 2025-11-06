@@ -1,11 +1,11 @@
+import React from 'react'
 import { Header } from '@/components/Header'
 import { Loader } from '@/components/Loader'
-import styles from './index.module.css'
 import { ProfileInfo } from '@/components/ProfileInfo'
-import React from 'react'
 import { RadioGroup } from '@/components/RadioGroup'
 import { ChangePasswordForm } from './components/ChangePasswordForm'
 import { useGlobalContext } from '@/contexts/GlobalContext'
+import styles from './index.module.css'
 
 const THEME_OPTIONS = [
     {

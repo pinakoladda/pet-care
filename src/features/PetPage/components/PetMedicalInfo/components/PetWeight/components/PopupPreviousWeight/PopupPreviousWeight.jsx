@@ -1,6 +1,6 @@
 import { usePrewiousWeight } from '@/features/PetPage/components/PetMedicalInfo/components/PetWeight/hooks/usePreviousWeight'
-import { Button } from '../Button'
-import { Popup } from '../Popup'
+import { Button } from '@/components/Button'
+import { Popup } from '@/components/Popup'
 import { convertWeight } from '@/lib/helpers'
 import { format } from 'date-fns'
 import styles from './index.module.css'

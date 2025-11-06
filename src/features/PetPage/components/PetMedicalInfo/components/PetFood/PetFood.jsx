@@ -1,8 +1,14 @@
 import { Button } from '@/components/Button'
 import cn from 'classnames'
 import styles from './index.module.css'
+import { PopupAddFood } from './components/PopupAddFood'
+import { usePopupProps } from '@/hooks/usePopupProps'
+import { PopupPreviousFood } from './components/PopupPreviousFood'
 
 export const PetFood = ({ name }) => {
+    const addFoodPopupProps = usePopupProps()
+    const previousFoodPopupProps = usePopupProps()
+
     return (
         <main className={styles.petFood}>
             <div>
@@ -17,10 +23,18 @@ export const PetFood = ({ name }) => {
                 <div className={styles.buttonContainer}>
                     <Button
                         className={cn(styles.button, styles.buttonTransparent)}
+                        onClick={previousFoodPopupProps.onPopupOpen}
                     >
                         Previous foods
                     </Button>
-                    <Button className={styles.button}>Add pet food +</Button>
+                    <Button
+                        className={styles.button}
+                        onClick={addFoodPopupProps.onPopupOpen}
+                    >
+                        Add pet food +
+                    </Button>
+                    <PopupAddFood {...addFoodPopupProps} />
+                    <PopupPreviousFood {...previousFoodPopupProps} />
                 </div>
             </div>
         </main>
