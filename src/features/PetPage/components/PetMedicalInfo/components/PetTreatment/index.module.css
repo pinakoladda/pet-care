@@ -1,0 +1,66 @@
+/* .petTreatment {
+    border-radius: 8px;
+    padding: 24px;
+    background-color: var(--color-surface);
+} */
+
+.header {
+    font-size: 24px;
+    color: var(--text-color-primary);
+    margin: 12px 0;
+}
+
+.subheading {
+    font-size: 18px;
+    margin: 0 0 12px;
+    color: var(--text-color-accent);
+}
+
+.sectionTreatment {
+    border: 3px dotted var(--color-primary);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.treatmentContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 0 0 4px;
+    border-bottom: 1px solid var(--color-primary);
+}
+
+.paragraph {
+    flex: 1 1 auto;
+    max-width: 300px;
+    font-size: 16px;
+    color: var(--text-color-secondary);
+    margin: 0;
+}
+
+.paragraphDate {
+    font-size: 16px;
+    color: var(--text-color-secondary);
+    margin: 0;
+}
+
+.buttonContainer {
+    margin: 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.addButton {
+    font-size: 16px;
+    padding: 6px;
+    background-color: var(--color-primary);
+}
+
+.moreButton {
+    font-size: 16px;
+    color: var(--text-color-accent);
+}
