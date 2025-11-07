@@ -20,22 +20,22 @@ export const PetFood = ({ name }) => {
                     <p className={styles.paragraph}>daily portion: 50g</p>
                     <p className={styles.paragraph}>from: 20.07.2025</p>
                 </div>
-                <div className={styles.buttonContainer}>
-                    <Button
-                        className={cn(styles.button, styles.buttonTransparent)}
-                        onClick={previousFoodPopupProps.onPopupOpen}
-                    >
-                        Previous foods
-                    </Button>
-                    <Button
-                        className={styles.button}
-                        onClick={addFoodPopupProps.onPopupOpen}
-                    >
-                        Add pet food +
-                    </Button>
-                    <PopupAddFood {...addFoodPopupProps} />
-                    <PopupPreviousFood {...previousFoodPopupProps} />
-                </div>
+            </div>
+            <div className={styles.buttonContainer}>
+                <Button
+                    className={cn(styles.button, styles.buttonTransparent)}
+                    onClick={previousFoodPopupProps.onPopupOpen}
+                >
+                    Previous foods
+                </Button>
+                <Button
+                    className={styles.button}
+                    onClick={addFoodPopupProps.onPopupOpen}
+                >
+                    Add pet food +
+                </Button>
+                <PopupAddFood {...addFoodPopupProps} />
+                <PopupPreviousFood {...previousFoodPopupProps} />
             </div>
         </main>
     )

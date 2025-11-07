@@ -1,4 +1,5 @@
 import { PetFood } from './components/PetFood'
+import { PetSymptoms } from './components/PetSymptoms'
 import { PetWeight } from './components/PetWeight'
 import styles from './index.module.css'
 
@@ -10,6 +11,7 @@ export const PetMedicalInfo = ({ petId, name }) => {
                 <PetWeight petId={petId} name={name} />
                 <PetFood petId={petId} name={name} />
             </div>
+            <PetSymptoms name={name} />
         </main>
     )
 }

@@ -37,10 +37,10 @@ export const convertWeight = (value, measure) => {
         return Number(value)
     }
     if (measure === 'kilograms') {
-        return value / 1000
+        return Math.floor(value / 1000)
     }
     if (measure === 'pounds') {
-        return value / 453.6
+        return Math.floor(value / 453.6)
     }
     throw new Error('unsupported measure: ' + measure)
 }

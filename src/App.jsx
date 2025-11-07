@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { LoginPage } from './features/LoginPage'
 import { RegistrationPage } from './features/RegistrationPage'
 import { SettingsPage } from './features/SettingsPage'
-import { DEFAULT_CONTEXT_STATE, GlobalContext } from './contexts/GlobalContext'
+import { GlobalContext } from './contexts/GlobalContext'
 import { useAuth } from './lib/api'
 
 const ROUTES = [
@@ -48,20 +48,30 @@ function App() {
 }
 
 export const BaseApp = ({ children }) => {
-    const [theme, setTheme] = React.useState('dark')
+    const [theme, setTheme] = React.useState(
+        localStorage.getItem('theme') || 'dark'
+    )
+    const [measure, setMeasure] = React.useState(
+        localStorage.getItem('measure') || 'kg'
+    )
 
     const isTokenExsist = Boolean(localStorage.getItem('token'))
-
     const { data, isLoading, isError } = useAuth({ enabled: isTokenExsist })
 
     const globalContext = {
-        state: { theme, user: data, isLoading, isAuthError: isError },
-        actions: { setTheme },
+        state: { theme, measure, user: data, isLoading, isAuthError: isError },
+        actions: { setTheme, setMeasure },
     }
 
     React.useEffect(() => {
         document.querySelector('html').setAttribute('data-theme', theme)
+        localStorage.setItem('theme', theme)
     }, [theme])
+
+    React.useEffect(() => {
+        localStorage.setItem('measure', measure)
+    }, [measure])
+
     return (
         <GlobalContext.Provider value={globalContext}>
             {children}

@@ -18,14 +18,28 @@ const THEME_OPTIONS = [
     },
 ]
 
+const MEASURE_OPTIONS = [
+    {
+        value: 'kilograms',
+        text: 'kilograms',
+    },
+    {
+        value: 'pounds',
+        text: 'pounds',
+    },
+]
+
 export const SettingsPage = () => {
     const {
-        state: { theme, user, isLoading },
-        actions: { setTheme },
+        state: { theme, measure, user, isLoading },
+        actions: { setTheme, setMeasure },
     } = useGlobalContext()
 
-    const onChange = (event) => {
+    const onChangeTheme = (event) => {
         setTheme(event.target.value)
+    }
+    const onChangeMeasure = (event) => {
+        setMeasure(event.target.value)
     }
 
     return (
@@ -38,20 +52,36 @@ export const SettingsPage = () => {
                     <ProfileInfo userData={user} />
                     <div className={styles.container}>
                         <ChangePasswordForm userData={user} />
-                        <div className={styles.themeContainer}>
-                            <h4 className={styles.themeHeader}>
-                                Choose app color-theme:
-                            </h4>
-                            <div className={styles.radioContainer}>
-                                <RadioGroup
-                                    className={styles.radio}
-                                    name="theme"
-                                    options={THEME_OPTIONS}
-                                    value={theme}
-                                    onChange={onChange}
-                                />
+                        <section className={styles.settingsContainer}>
+                            <div className={styles.themeContainer}>
+                                <h4 className={styles.header}>
+                                    Choose app color-theme:
+                                </h4>
+                                <div className={styles.radioContainer}>
+                                    <RadioGroup
+                                        className={styles.radio}
+                                        name="theme"
+                                        options={THEME_OPTIONS}
+                                        value={theme}
+                                        onChange={onChangeTheme}
+                                    />
+                                </div>
                             </div>
-                        </div>
+                            <div className={styles.measureContainer}>
+                                <h4 className={styles.header}>
+                                    Choose your preferred measure:
+                                </h4>
+                                <div className={styles.radioContainer}>
+                                    <RadioGroup
+                                        className={styles.radio}
+                                        name="measure"
+                                        options={MEASURE_OPTIONS}
+                                        value={measure}
+                                        onChange={onChangeMeasure}
+                                    />
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </>
             )}

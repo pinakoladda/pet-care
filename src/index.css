@@ -6,6 +6,8 @@ html {
   color-scheme: light dark;
   color: var(--text-color-secondary);
   padding: 0 60px;
+  background-color: var(--background-color-main);
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,14 +25,21 @@ html[data-theme='dark'] {
 
   --color-surface: rgb(27, 30, 30);
   --color-primary: #6D4886;
+  --background-color-main: rgb(18, 18, 18);
 }
 
 html[data-theme='light'] {
-  --text-color-primary: #dedede;
-  --text-color-secondary: #c2c2c2;
+  --text-color-primary: #fff8f0;
+  --text-color-secondary: #e6e4e9;
   --text-color-error: rgb(236, 54, 54);
-  --text-color-accent: rgb(202, 174, 235);
+  --text-color-accent: #e88000;
 
-  --color-surface: rgb(27, 30, 30);
-  --color-primary: #9f1f1f;
+  /* --color-surface: #452c57; */
+  --color-surface: #6D4886;
+  --color-primary: #e88000;
+  /* --background-color-main: #6D4886; */
+  --background-color-main: #452c57;
+
+
+
 }

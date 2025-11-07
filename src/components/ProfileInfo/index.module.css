@@ -1,5 +1,5 @@
 .userInfo {
-    background-color: rgba(137, 196, 196, 0.065);
+    background-color: var(--color-surface);
     border-radius: 8px;
     display: flex;
     justify-content: space-between;

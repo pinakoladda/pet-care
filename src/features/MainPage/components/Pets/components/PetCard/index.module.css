@@ -1,6 +1,6 @@
 .card {
     border-radius: 8px;
-    background-color: rgba(137, 196, 196, 0.065);
+    background-color: var(--color-surface);
     max-width: 180px;
     width: 100%;
     padding: 12px;
@@ -33,8 +33,7 @@
 .button {
     font-size: 18px;
     width: 100%;
-    background-color: #6D4886;
-    border-color: #6D4886;
+    background-color: var(--color-primary);
     padding: 6px;
     text-decoration: none;
     display: block;

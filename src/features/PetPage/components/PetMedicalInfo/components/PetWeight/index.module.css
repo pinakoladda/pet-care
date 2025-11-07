@@ -10,7 +10,7 @@
 .header {
     margin: 0 0 6px 0;
     font-size: 18px;
-    color: var(--text-color-prinary);
+    color: var(--text-color-primary);
 }
 
 .paragraph {
@@ -26,7 +26,6 @@
 }
 
 .button {
-    height: 40px;
     font-size: 16px;
     padding: 6px;
     background-color: var(--color-primary);

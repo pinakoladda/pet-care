@@ -1,6 +1,9 @@
 .main {
     width: 425px;
     box-sizing: border-box;
+    background-color: var(--color-surface);
+    border-radius: 8px;
+    padding: 18px 0;
 }
 
 .header {

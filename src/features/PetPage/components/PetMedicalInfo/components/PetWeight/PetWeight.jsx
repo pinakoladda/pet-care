@@ -3,14 +3,18 @@ import cn from 'classnames'
 import { Button } from '@/components/Button'
 import { usePetWeight } from '@/lib/api'
 import { convertWeight } from '@/lib/helpers'
-import styles from './index.module.css'
 import { Loader } from '@/components/Loader'
 import { usePopupProps } from '@/hooks/usePopupProps'
 import { PopupAddWeight } from './components/PopupAddWeight'
 import { PopupPreviousWeight } from './components/PopupPreviousWeight'
+import styles from './index.module.css'
+import { useGlobalContext } from '@/contexts/GlobalContext'
 
 export const PetWeight = ({ name, petId }) => {
     const { data, isLoading } = usePetWeight(petId)
+    const {
+        state: { measure },
+    } = useGlobalContext()
 
     const addWeightPopupProps = usePopupProps()
     const previousPopupProps = usePopupProps()
@@ -27,8 +31,8 @@ export const PetWeight = ({ name, petId }) => {
 
         const weightDifference = lastValue - preLastValue
 
-        return convertWeight(weightDifference, 'kilograms')
-    }, [data])
+        return convertWeight(weightDifference, measure)
+    }, [data, measure])
 
     return (
         <main className={styles.petWeight}>
@@ -40,11 +44,9 @@ export const PetWeight = ({ name, petId }) => {
                         {data?.weight?.weight ? (
                             <h4 className={styles.header}>
                                 {name}'s weight is{' '}
-                                {convertWeight(
-                                    data?.weight?.weight,
-                                    'kilograms'
-                                )}{' '}
-                                kg
+                                {convertWeight(data?.weight?.weight, measure) +
+                                    ' ' +
+                                    measure}
                             </h4>
                         ) : (
                             <h4 className={styles.header}>
@@ -54,7 +56,7 @@ export const PetWeight = ({ name, petId }) => {
                         {weightDifference !== 0 && (
                             <p className={styles.paragraph}>
                                 {weightDifference > 0 ? '+' : ''}
-                                {weightDifference} kg since last measure
+                                {weightDifference} {measure} since last measure
                             </p>
                         )}
                     </div>
