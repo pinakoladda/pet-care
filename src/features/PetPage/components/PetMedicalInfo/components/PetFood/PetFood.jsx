@@ -14,6 +14,7 @@ export const PetFood = ({ name }) => {
             <div>
                 <h3 className={styles.header}>{name}'s diet</h3>
                 <div className={styles.container}>
+                    <p className={styles.paragraph}>Type: dry food</p>
                     <p className={styles.paragraph}>
                         Grandorf white fish adult mini
                     </p>

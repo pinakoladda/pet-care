@@ -1,7 +1,10 @@
 import { Button } from '@/components/Button'
 import styles from './index.module.css'
+import { PopupAddInsectsTreatment } from './components/PopupAddInsectsTreatment'
+import { usePopupProps } from '@/hooks/usePopupProps'
 
 export const PetTreatment = ({ name }) => {
+    const addInsectsTreatmentPopupProps = usePopupProps()
     return (
         <main className={styles.petTreatment}>
             <h3 className={styles.header}>{name}'s treatment</h3>
@@ -39,10 +42,14 @@ export const PetTreatment = ({ name }) => {
                 </div>
                 <div className={styles.buttonContainer}>
                     <Button className={styles.moreButton}>see more...</Button>
-                    <Button className={styles.addButton}>
+                    <Button
+                        onClick={addInsectsTreatmentPopupProps.onPopupOpen}
+                        className={styles.addButton}
+                    >
                         Add new treatment +
                     </Button>
                 </div>
+                <PopupAddInsectsTreatment {...addInsectsTreatmentPopupProps} />
             </section>
             <section className={styles.sectionTreatment}>
                 <h4 className={styles.subheading}>Antiparasite treatment</h4>
