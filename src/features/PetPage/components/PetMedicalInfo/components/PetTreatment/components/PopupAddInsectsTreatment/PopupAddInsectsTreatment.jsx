@@ -3,10 +3,10 @@ import { Form } from '@/components/Form'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { Select } from '@/components/Select'
-import styles from './index.module.css'
 import { useAddInsectsTreatment } from '../../hooks/useAddInsectsTreatment'
 import { ErrorMessage } from '@/components/ErrorMessage'
 import cn from 'classnames'
+import styles from './index.module.css'
 
 const REPEAT_OPTIONS = [
     { value: 'once', text: 'once' },

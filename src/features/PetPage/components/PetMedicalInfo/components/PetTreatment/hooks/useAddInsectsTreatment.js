@@ -10,7 +10,7 @@ export const useAddInsectsTreatment = ({ onPopupClose, petId, type }) => {
     const [notes, setNotes] = React.useState('')
     const [errorMessage, setErrorMessage] = React.useState('')
 
-    const recurrence = () => {
+    const getRecurrenceValue = () => {
         if (repeat === 'once') {
             return repeat
         }
@@ -18,8 +18,6 @@ export const useAddInsectsTreatment = ({ onPopupClose, petId, type }) => {
             return repeatValue + '_' + repeat
         }
     }
-
-    console.log(recurrence())
 
     const onChange = (updateFn) => (event) => {
         updateFn(event.target.value)
@@ -33,7 +31,7 @@ export const useAddInsectsTreatment = ({ onPopupClose, petId, type }) => {
             name: medicine,
             type: type,
             date: date,
-            recurrence: recurrence(),
+            recurrence: getRecurrenceValue(),
             notes: notes,
         })
             .then(() => {
@@ -41,7 +39,9 @@ export const useAddInsectsTreatment = ({ onPopupClose, petId, type }) => {
                 setMedicine('')
                 setDate('')
                 setRepeat('')
+                setRepeatValue('')
                 setNotes('')
+                setErrorMessage('')
             })
             .catch((error) => {
                 const errorData = error.response.data

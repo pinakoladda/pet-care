@@ -31,16 +31,16 @@ export const useAddMedicine = () => {
     })
 }
 
-const getMedicine = async (petId) => {
+const getMedicinesFn = async (petId) => {
     const response = await api.get(`/medicine/?petId=${petId}`)
 
     return response.data
 }
 
-export const useGetMedicine = (petId) => {
+export const useGetMedicines = (petId) => {
     return useQuery({
         queryKey: ['getMedicine', petId],
-        queryFn: () => getMedicine(petId),
+        queryFn: () => getMedicinesFn(petId),
     })
 }
 
@@ -50,7 +50,7 @@ const deleteMedicine = async (medicineId) => {
     return response.data
 }
 
-export const useDeleteFood = () => {
+export const useDeleteMedicine = () => {
     const queryClient = useQueryClient()
     return useMutation({
         mutationKey: ['deleteMedicine'],

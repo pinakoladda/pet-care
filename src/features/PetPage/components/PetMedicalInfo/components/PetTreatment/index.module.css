@@ -45,16 +45,25 @@
 }
 
 .paragraphDate {
-    font-size: 16px;
+    font-size: 14px;
     color: var(--text-color-secondary);
     margin: 0;
-    min-width: 120px;
+    max-width: 120px;
     width: 100%;
     border-right: 1px dashed var(--color-primary);
 }
 
+.paragraphDelete {
+    font-size: 16px;
+    color: var(--text-color-secondary);
+    margin: 0;
+    max-width: 50px;
+    width: 100%;
+}
+
 .example {
     color: var(--text-color-accent);
+    font-size: 14px;
 }
 
 .buttonContainer {
