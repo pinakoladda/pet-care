@@ -6,15 +6,19 @@ import { Button } from '@/components/Button'
 import { RadioGroup } from '@/components/RadioGroup'
 import React from 'react'
 import { useAddFood } from '../../hooks/useAddFood'
+import { ErrorMessage } from '@/components/ErrorMessage'
 
 const OPTIONS = [
     { value: 'natural', text: 'Natural' },
-    { value: 'dry food', text: 'Dry Food' },
-    { value: 'wet food', text: 'Wet Food' },
+    { value: 'dry', text: 'Dry Food' },
+    { value: 'wet', text: 'Wet Food' },
 ]
 
-export const PopupAddFood = ({ ...props }) => {
-    const { fields, onSubmit } = useAddFood()
+export const PopupAddFood = ({ petId, ...props }) => {
+    const { fields, onSubmit, errorMessage } = useAddFood({
+        petId,
+        onPopupClose: props.onPopupClose,
+    })
 
     return (
         <Popup {...props}>
@@ -43,7 +47,7 @@ export const PopupAddFood = ({ ...props }) => {
                             id="natural"
                             name="natural"
                             className={styles.input}
-                            {...fields.natural}
+                            {...fields.comment}
                         />
                         <Input
                             label="Date from:"
@@ -55,8 +59,8 @@ export const PopupAddFood = ({ ...props }) => {
                         />
                     </div>
                 )}
-                {(fields.foodType.value === 'dry food' ||
-                    fields.foodType.value === 'wet food') && (
+                {(fields.foodType.value === 'dry' ||
+                    fields.foodType.value === 'wet') && (
                     <div className={styles.container}>
                         <Input
                             label="Add food name:"
@@ -73,6 +77,7 @@ export const PopupAddFood = ({ ...props }) => {
                             className={styles.input}
                             type="number"
                             min={0}
+                            max={2000}
                             {...fields.portion}
                         />
                         <Input
@@ -85,6 +90,7 @@ export const PopupAddFood = ({ ...props }) => {
                         />
                     </div>
                 )}
+                <ErrorMessage errorMessage={errorMessage} />
                 <Button className={styles.button} type="submit">
                     Save
                 </Button>

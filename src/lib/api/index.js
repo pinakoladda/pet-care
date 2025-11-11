@@ -3,7 +3,7 @@ import axios, { Axios } from 'axios'
 
 const API_HOST = import.meta.env.VITE_API_HOST
 
-const api = axios.create({
+export const api = axios.create({
     headers: { 'X-Auth-Token': localStorage.getItem('token') },
     baseURL: `${API_HOST}/api`,
 })

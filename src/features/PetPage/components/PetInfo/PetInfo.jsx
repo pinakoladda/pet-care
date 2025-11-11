@@ -60,7 +60,7 @@ export const PetInfo = ({ name, petId, avatar, petData }) => {
                 />
                 <PetInfoField value="Libra ♎︎" />
                 <PetInfoField label="Gender" value={petData?.gender} />
-                {data?.weight.weight ? (
+                {data?.weight?.weight ? (
                     <PetInfoField
                         label="Weight"
                         value={
@@ -73,7 +73,7 @@ export const PetInfo = ({ name, petId, avatar, petData }) => {
                     ''
                 )}
                 <PetInfoField label="Breed" value={petData?.breed} />
-                <PetInfoField label="Color" value="..." />
+                {/* <PetInfoField label="Color" value="..." /> */}
                 <PetInfoField
                     label="Neutered"
                     value={petData?.neutured ? 'yes' : 'no'}
