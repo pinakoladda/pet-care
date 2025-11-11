@@ -10,10 +10,10 @@ export const Select = ({ label, id, options, className, ...props }) => {
                 {options?.map((option) => (
                     <option
                         className={styles.option}
-                        key={option.value}
-                        value={option.value}
+                        key={option.value ? option.value : option}
+                        value={option.value ? option.value : option}
                     >
-                        {option.text}
+                        {option.text ? option.text : option}
                     </option>
                 ))}
             </select>

@@ -1,15 +1,74 @@
+import { useAddMedicine } from '@/lib/api/medicine'
 import React from 'react'
 
-export const useAddInsectsTreatment = () => {
+export const useAddInsectsTreatment = ({ onPopupClose, petId, type }) => {
+    const { mutateAsync: addMedicineFn } = useAddMedicine()
     const [medicine, setMedicine] = React.useState('')
+    const [date, setDate] = React.useState('')
+    const [repeat, setRepeat] = React.useState('')
+    const [repeatValue, setRepeatValue] = React.useState('')
+    const [notes, setNotes] = React.useState('')
+    const [errorMessage, setErrorMessage] = React.useState('')
+
+    const recurrence = () => {
+        if (repeat === 'once') {
+            return repeat
+        }
+        if (repeat !== 'once') {
+            return repeatValue + '_' + repeat
+        }
+    }
+
+    console.log(recurrence())
 
     const onChange = (updateFn) => (event) => {
         updateFn(event.target.value)
+        setErrorMessage('')
+    }
+
+    const onSubmit = (event) => {
+        event.preventDefault('')
+        addMedicineFn({
+            petId: petId,
+            name: medicine,
+            type: type,
+            date: date,
+            recurrence: recurrence(),
+            notes: notes,
+        })
+            .then(() => {
+                onPopupClose()
+                setMedicine('')
+                setDate('')
+                setRepeat('')
+                setNotes('')
+            })
+            .catch((error) => {
+                const errorData = error.response.data
+                if (errorData.details) {
+                    setErrorMessage(
+                        errorData.details
+                            .map(({ message }) => message)
+                            .join('\n')
+                    )
+                } else {
+                    setErrorMessage(errorData.message)
+                }
+            })
     }
 
     return {
         fields: {
             medicine: { value: medicine, onChange: onChange(setMedicine) },
+            date: { value: date, onChange: onChange(setDate) },
+            repeat: { value: repeat, onChange: onChange(setRepeat) },
+            notes: { value: notes, onChange: onChange(setNotes) },
+            repeatValue: {
+                value: repeatValue,
+                onChange: onChange(setRepeatValue),
+            },
         },
+        onSubmit,
+        errorMessage,
     }
 }

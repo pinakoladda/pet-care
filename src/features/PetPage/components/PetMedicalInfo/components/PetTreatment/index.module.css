@@ -36,16 +36,25 @@
 
 .paragraph {
     flex: 1 1 auto;
-    max-width: 300px;
     font-size: 16px;
     color: var(--text-color-secondary);
     margin: 0;
+    max-width: 300px;
+    width: 100%;
+    border-right: 1px dashed var(--color-primary);
 }
 
 .paragraphDate {
     font-size: 16px;
     color: var(--text-color-secondary);
     margin: 0;
+    min-width: 120px;
+    width: 100%;
+    border-right: 1px dashed var(--color-primary);
+}
+
+.example {
+    color: var(--text-color-accent);
 }
 
 .buttonContainer {

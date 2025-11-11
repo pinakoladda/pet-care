@@ -2,8 +2,9 @@ import { Button } from '@/components/Button'
 import styles from './index.module.css'
 import { PopupAddInsectsTreatment } from './components/PopupAddInsectsTreatment'
 import { usePopupProps } from '@/hooks/usePopupProps'
+import cn from 'classnames'
 
-export const PetTreatment = ({ name }) => {
+export const PetTreatment = ({ name, petId }) => {
     const addInsectsTreatmentPopupProps = usePopupProps()
     return (
         <main className={styles.petTreatment}>
@@ -13,29 +14,23 @@ export const PetTreatment = ({ name }) => {
                     Flea and tick preventative treatment
                 </h4>
                 <div className={styles.treatmentContainer}>
-                    <p className={styles.paragraph}>Simparica for dogs 3 kg</p>
-                    <p className={styles.paragraphDate}>07.11.2025</p>
-                    <p className={styles.paragraph}>
-                        1 tablet, chewed with pleasure
+                    <p className={cn(styles.paragraph, styles.example)}>
+                        Name of medicine
                     </p>
-                </div>
-                <div className={styles.treatmentContainer}>
-                    <p className={styles.paragraph}>
-                        Simparica Simparica Simparicafor dogs 3 kg
+                    <p className={cn(styles.paragraphDate, styles.example)}>
+                        Medication date
                     </p>
-                    <p className={styles.paragraphDate}>29.12.2025</p>
-                    <p className={styles.paragraph}>
-                        1 tablet, chewed with pleasure, Lorem, ipsum dolor sit
-                        amet consectetur adipisicing elit. Libero impedit
-                        assumenda temporibus, quod vitae necessitatibus pariatur
-                        quibusdam ab eligendi aliquam! Quod minus laboriosam
-                        veritatis, praesentium cupiditate debitis blanditiis
-                        rerum at.
+                    <p className={cn(styles.paragraphDate, styles.example)}>
+                        Repeat date
+                    </p>
+                    <p className={cn(styles.paragraph, styles.example)}>
+                        Notes
                     </p>
                 </div>
                 <div className={styles.treatmentContainer}>
                     <p className={styles.paragraph}>Simparica for dogs 3 kg</p>
                     <p className={styles.paragraphDate}>07.11.2025</p>
+                    <p className={styles.paragraphDate}>07.11.2026</p>
                     <p className={styles.paragraph}>
                         1 tablet, chewed with pleasure
                     </p>
@@ -49,7 +44,11 @@ export const PetTreatment = ({ name }) => {
                         Add new treatment +
                     </Button>
                 </div>
-                <PopupAddInsectsTreatment {...addInsectsTreatmentPopupProps} />
+                <PopupAddInsectsTreatment
+                    petId={petId}
+                    {...addInsectsTreatmentPopupProps}
+                    type="insects"
+                />
             </section>
             <section className={styles.sectionTreatment}>
                 <h4 className={styles.subheading}>Antiparasite treatment</h4>

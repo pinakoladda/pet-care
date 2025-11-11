@@ -5,7 +5,7 @@
 
 .container {
     display: flex;
-    gap: 18px;
+    gap: 16px;
 }
 
 .header {
@@ -19,8 +19,45 @@
     font-size: 16px;
     height: 32px;
     padding: 4px;
-    margin-bottom: 8px;
     flex: 1 1 auto;
+}
+
+.textAreaContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.textArea {
+    font-size: 16px;
+    min-height: 32px;
+    height: 78px;
+    max-height: 200px;
+    padding: 4px;
+    border: 1px solid var(--text-color-secondary);
+    border-radius: 4px;
+    background-color: transparent;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.label {
+    font-size: 16px;
+    color: var(--text-color-secondary);
+}
+
+.selectParagraph {
+    font-size: 16px;
+    color: var(--text-color-secondary);
+    margin: 0;
+}
+
+.selectContainer {
+    display: flex;
+    gap: 8px;
+}
+
+.select {
+    min-width: fit-content;
 }
 
 .button {

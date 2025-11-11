@@ -13,7 +13,7 @@ export const PetMedicalInfo = ({ petId, name }) => {
                 <PetFood petId={petId} name={name} />
                 <PetSymptoms name={name} />
             </div>
-            <PetTreatment name={name} />
+            <PetTreatment name={name} petId={petId} />
         </main>
     )
 }
