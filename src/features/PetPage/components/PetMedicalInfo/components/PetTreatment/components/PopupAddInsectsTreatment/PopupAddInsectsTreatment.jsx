@@ -7,6 +7,7 @@ import { useAddInsectsTreatment } from '../../hooks/useAddInsectsTreatment'
 import { ErrorMessage } from '@/components/ErrorMessage'
 import cn from 'classnames'
 import styles from './index.module.css'
+import { TextArea } from '@/components/TextArea'
 
 const REPEAT_OPTIONS = [
     { value: 'once', text: 'once' },
@@ -94,14 +95,7 @@ export const PopupAddInsectsTreatment = ({ petId, type, ...props }) => {
                     </div>
                 </div>
                 <div className={styles.textAreaContainer}>
-                    <label className={styles.label} htmlFor="textArea">
-                        Notes:
-                    </label>
-                    <textarea
-                        className={styles.textArea}
-                        id="textArea"
-                        {...fields.notes}
-                    />
+                    <TextArea id="textArea" {...fields.notes} label="Notes:" />
                 </div>
                 <ErrorMessage errorMessage={errorMessage} />
                 <Button className={styles.button} type="submit">
