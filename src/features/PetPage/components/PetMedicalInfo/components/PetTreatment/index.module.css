@@ -42,6 +42,7 @@
     max-width: 300px;
     width: 100%;
     border-right: 1px dashed var(--color-primary);
+    padding: 2px;
 }
 
 .paragraphDate {
