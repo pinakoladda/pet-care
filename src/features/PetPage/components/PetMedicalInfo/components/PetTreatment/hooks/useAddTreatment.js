@@ -2,7 +2,7 @@ import { useAddMedicine } from '@/lib/api/medicine'
 import { format } from 'date-fns'
 import React from 'react'
 
-export const useAddInsectsTreatment = ({ onPopupClose, petId, type }) => {
+export const useAddTreatment = ({ onPopupClose, petId, type }) => {
     const { mutateAsync: addMedicineFn } = useAddMedicine()
     const [medicine, setMedicine] = React.useState('')
     const [date, setDate] = React.useState(format(new Date(), 'yyyy-MM-dd'))

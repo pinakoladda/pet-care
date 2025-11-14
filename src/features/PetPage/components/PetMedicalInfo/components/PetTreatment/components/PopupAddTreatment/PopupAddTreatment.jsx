@@ -1,13 +1,13 @@
 import { Popup } from '@/components/Popup'
-import styles from './index.module.css'
 import { Form } from '@/components/Form'
 import { Input } from '@/components/Input'
-import { Select } from '@/components/Select'
-import { TextArea } from '@/components/TextArea'
-import { ErrorMessage } from '@/components/ErrorMessage'
 import { Button } from '@/components/Button'
-import { useAddVormsTreatment } from '../../hooks/useAddVormsTreatment'
+import { Select } from '@/components/Select'
+import { ErrorMessage } from '@/components/ErrorMessage'
+import { TextArea } from '@/components/TextArea'
+import { useAddTreatment } from '../../hooks/useAddTreatment'
 import cn from 'classnames'
+import styles from './index.module.css'
 
 const REPEAT_OPTIONS = [
     { value: 'once', text: 'once' },
@@ -19,8 +19,8 @@ const REPEAT_OPTIONS = [
 
 const REPEAT_OPTIONS_VALUE = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 
-export const PopupAddVormsTreatment = ({ petId, type, ...props }) => {
-    const { fields, errorMessage, onSubmit } = useAddVormsTreatment({
+export const PopupAddTreatment = ({ petId, type, ...props }) => {
+    const { fields, onSubmit, errorMessage } = useAddTreatment({
         onPopupClose: props.onPopupClose,
         petId,
         type,
@@ -29,7 +29,12 @@ export const PopupAddVormsTreatment = ({ petId, type, ...props }) => {
         <Popup {...props}>
             <Form className={styles.form} onSubmit={onSubmit}>
                 <h4 className={styles.header}>
-                    Add information about treatment against helminths:
+                    {type === 'insects' &&
+                        'Add information about treatment against fleas, ticks and mosquitoes:'}
+                    {type === 'vorms' &&
+                        'Add information about treatment against helmints:'}
+                    {type === 'vaccination' &&
+                        'Add information about vaccination:'}
                 </h4>
                 <div className={styles.container}>
                     <div>

@@ -1,0 +1,84 @@
+.header {
+    font-size: 18px;
+    margin: 0 0 12px;
+    color: var(--text-color-accent);
+}
+
+.sectionTreatment {
+    border: 3px dotted var(--color-primary);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.treatmentContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 0 0 4px;
+    border-bottom: 1px solid var(--color-primary);
+}
+
+.paragraph {
+    flex: 1 1 auto;
+    font-size: 16px;
+    color: var(--text-color-secondary);
+    margin: 0;
+    max-width: 300px;
+    width: 100%;
+    border-right: 1px dashed var(--color-primary);
+    padding: 2px;
+}
+
+.paragraphDate {
+    font-size: 14px;
+    color: var(--text-color-secondary);
+    margin: 0;
+    max-width: 120px;
+    width: 100%;
+    border-right: 1px dashed var(--color-primary);
+}
+
+.paragraphDelete {
+    font-size: 16px;
+    color: var(--text-color-secondary);
+    margin: 0;
+    max-width: 50px;
+    width: 100%;
+}
+
+.example {
+    color: var(--text-color-accent);
+    font-size: 14px;
+}
+
+.paragraphEmpty {
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-color-secondary);
+}
+
+.buttonContainer {
+    margin: 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.addButton {
+    font-size: 16px;
+    padding: 6px;
+    background-color: var(--color-primary);
+}
+
+.addBtnCenter {
+    margin: 0 auto;
+}
+
+.moreButton {
+    font-size: 16px;
+    color: var(--text-color-accent);
+}
