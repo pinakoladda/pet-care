@@ -8,6 +8,8 @@ export const PetTreatment = ({ name, petId }) => {
     const { data, isLoading } = useGetMedicines(petId)
     const dataInsects = data?.filter(({ type }) => type === 'insects') || []
     const dataVorms = data?.filter(({ type }) => type === 'vorms') || []
+    const dataVaccinations =
+        data?.filter(({ type }) => type === 'vaccinations') || []
 
     return (
         <main className={styles.petTreatment}>
@@ -21,14 +23,18 @@ export const PetTreatment = ({ name, petId }) => {
                         petId={petId}
                         type="insects"
                         data={dataInsects}
-                        isLoading={isLoading}
                     />
                     <TreatmentSection
                         header="Treatment against helmints (vorms)"
                         petId={petId}
                         type="vorms"
                         data={dataVorms}
-                        isLoading={isLoading}
+                    />
+                    <TreatmentSection
+                        header="Vaccinations"
+                        petId={petId}
+                        type="vaccinations"
+                        data={dataVaccinations}
                     />
                 </>
             )}

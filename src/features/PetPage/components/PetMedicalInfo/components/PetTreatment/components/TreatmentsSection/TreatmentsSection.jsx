@@ -23,9 +23,9 @@ export const TreatmentSection = ({ data, petId, type, header }) => {
 
     return (
         <section className={styles.sectionTreatment}>
+            <h4 className={styles.header}>{header}</h4>
             {data && data.length > 0 ? (
                 <>
-                    <h4 className={styles.header}>{header}</h4>
                     <div className={styles.treatmentContainer}>
                         <p className={cn(styles.paragraph, styles.example)}>
                             Name of medicine
