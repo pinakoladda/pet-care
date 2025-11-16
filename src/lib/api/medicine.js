@@ -60,3 +60,34 @@ export const useDeleteMedicine = () => {
         },
     })
 }
+
+const getEvents = async () => {
+    const response = await api.get(`/medicine/events/`)
+
+    return response.data
+}
+
+export const useGetEvents = () => {
+    return useQuery({
+        queryKey: ['getEvents'],
+        queryFn: () => getEvents(),
+    })
+}
+
+const addMedicineDateFn = async ({ medicineId, date }) => {
+    console.log(medicineId, date)
+    const response = await api.post(`/medicine/${medicineId}`, { date })
+
+    return response.data
+}
+
+export const useAddMedicineDate = () => {
+    const queryClient = useQueryClient()
+    return useMutation({
+        mutationKey: ['addMedicineDate'],
+        mutationFn: addMedicineDateFn,
+        onSuccess: () => {
+            queryClient.refetchQueries(['getEvents'])
+        },
+    })
+}
