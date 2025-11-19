@@ -20,7 +20,7 @@ html {
 html[data-theme='dark'] {
   --text-color-primary: #dedede;
   --text-color-secondary: #c2c2c2;
-  --text-color-error: rgb(236, 54, 54);
+  --text-color-error: rgb(124 28 28);
   --text-color-accent: oklch(79.398% 0.09152 305.71);
 
   --color-surface: rgb(27, 30, 30);
@@ -34,12 +34,7 @@ html[data-theme='light'] {
   --text-color-error: rgb(236, 54, 54);
   --text-color-accent: #e88000;
 
-  /* --color-surface: #452c57; */
   --color-surface: #6D4886;
   --color-primary: #e88000;
-  /* --background-color-main: #6D4886; */
   --background-color-main: #452c57;
-
-
-
 }
