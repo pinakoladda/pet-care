@@ -75,7 +75,6 @@ export const useGetEvents = () => {
 }
 
 const addMedicineDateFn = async ({ medicineId, date }) => {
-    console.log(medicineId, date)
     const response = await api.post(`/medicine/${medicineId}`, { date })
 
     return response.data

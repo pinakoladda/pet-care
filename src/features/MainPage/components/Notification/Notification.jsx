@@ -1,9 +1,18 @@
 import { useGetEvents } from '@/lib/api/medicine'
 import styles from './index.module.css'
-import { format } from 'date-fns'
+import { format, differenceInDays, isPast } from 'date-fns'
 import { PopupEditNotification } from './components/PopupEditNotification'
 import { usePopupProps } from '@/hooks/usePopupProps'
 import React from 'react'
+import { Button } from '@/components/Button'
+import { MousePointerClick } from 'lucide-react'
+import cn from 'classnames'
+
+const TYPE_NAMES = {
+    vorms: 'anti-helmints treatment',
+    insects: 'anti-insects treatment',
+    vaccinations: 'vaccination',
+}
 
 export const Notification = () => {
     const { data = [] } = useGetEvents()
@@ -14,6 +23,11 @@ export const Notification = () => {
         return null
     }
 
+    const closeEvents = data.filter((event) => {
+        const diff = differenceInDays(event.nextDate, Date.now())
+        return diff <= 30
+    })
+
     const onEventClick = (medicineId) => () => {
         editNotificationPopupProps.onPopupOpen()
         setSelectedMedicine(medicineId)
@@ -23,22 +37,35 @@ export const Notification = () => {
         <section className={styles.main}>
             <h4 className={styles.header}>Upcoming events:</h4>
             <section className={styles.notification}>
-                {data &&
-                    data.map((event) => {
-                        return (
+                {closeEvents.map((event) => {
+                    return (
+                        <div
+                            className={cn(styles.messageContainer, {
+                                [styles.messageExp]: isPast(event.nextDate),
+                            })}
+                            onClick={onEventClick(event._id)}
+                        >
                             <p
-                                key={event._id}
+                                key={event._id + event.nextDate}
                                 className={styles.message}
-                                onClick={onEventClick(event._id)}
                             >
                                 {event.petId.name +
+                                    '`s' +
                                     ' next ' +
-                                    event.type +
-                                    ' scheduled at ' +
-                                    format(event.nextDate, 'dd/MM/yyyy')}
+                                    TYPE_NAMES[event.type] +
+                                    ' is scheduled for ' +
+                                    format(event.nextDate, 'PPPP')}
                             </p>
-                        )
-                    })}
+                            <Button className={styles.button}>
+                                <MousePointerClick
+                                    size={20}
+                                    strokeWidth={1.25}
+                                    color="var(--text-color-accent)"
+                                />
+                            </Button>
+                        </div>
+                    )
+                })}
             </section>
             <PopupEditNotification
                 {...editNotificationPopupProps}

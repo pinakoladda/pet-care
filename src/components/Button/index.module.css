@@ -2,9 +2,9 @@
     background-color: unset;
     border: none;
     border-radius: 8px;
-    color: var(--text-color-primary);
     transition: opacity 0.3s ease-in-out;
     cursor: pointer;
+    color: var(--text-color-primary);
     font-family: var(--font-family-default);
 }
 
@@ -15,4 +15,26 @@
 .button:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+}
+
+.buttonPrimary {
+    height: 40px;
+    font-size: 18px;
+    padding: 8px;
+    background-color: var(--color-primary);
+}
+
+.buttonTransparent {
+    height: 40px;
+    font-size: 18px;
+    padding: 8px;
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+}
+
+.buttonLink {
+    background-color: unset;
+    border: none;
+    color: var(--text-color-primary);
 }

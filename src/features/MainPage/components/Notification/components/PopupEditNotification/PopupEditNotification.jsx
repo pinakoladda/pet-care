@@ -18,16 +18,29 @@ export const PopupEditNotification = ({ medicineId, ...props }) => {
     const onSubmit = (event) => {
         event.preventDefault()
         addMedicineDateFn({ medicineId, date })
+        props.onPopupClose()
     }
 
     return (
         <Popup {...props}>
-            <Form onSubmit={onSubmit} className={styles.main}>
-                <h3 className={styles.header}>
-                    Event is complete? Choose date of event:
-                </h3>
-                <Input type="date" value={date} onChange={onDateChange} />
-                <Button type="submit">Save</Button>
+            <Form
+                className={styles.main}
+                onSubmit={onSubmit}
+                header="Event is complete? Choose the date of event:"
+            >
+                <Input
+                    className={styles.input}
+                    type="date"
+                    value={date}
+                    onChange={onDateChange}
+                />
+                <Button
+                    type="submit"
+                    styleType="primary"
+                    className={styles.button}
+                >
+                    Save
+                </Button>
             </Form>
         </Popup>
     )
