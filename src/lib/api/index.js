@@ -242,3 +242,39 @@ export const useDeleteWeight = () => {
         },
     })
 }
+
+const patchPetAvatarFn = async ({ petId, ...data }) => {
+    const response = await api.patch(`/pet/avatar/${petId}`, data)
+
+    return response.data
+}
+
+export const usePatchAvatarPet = () => {
+    const queryClient = useQueryClient()
+
+    return useMutation({
+        mutationKey: ['patchAvatarPet'],
+        mutationFn: patchPetAvatarFn,
+        onSuccess: () => {
+            queryClient.refetchQueries(['getPetData'])
+        },
+    })
+}
+
+const patchUserAvatarFn = async (data) => {
+    const response = await api.patch(`/user/avatar`, data)
+
+    return response.data
+}
+
+export const usePatchUserAvatar = () => {
+    const queryClient = useQueryClient()
+
+    return useMutation({
+        mutationKey: ['patchAvatarUser'],
+        mutationFn: patchUserAvatarFn,
+        onSuccess: () => {
+            queryClient.refetchQueries(['auth'])
+        },
+    })
+}

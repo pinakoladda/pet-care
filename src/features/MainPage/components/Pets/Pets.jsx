@@ -21,7 +21,7 @@ export const Pets = ({ ownerId, onAddPet }) => {
             ) : (
                 <div
                     className={cn(styles.cardContainer, {
-                        [styles.cardsContainer]: data.length >= 3,
+                        [styles.cardsContainer]: data?.length >= 3,
                     })}
                 >
                     {data?.map(({ name, age, breed, _id, avatarUrl }) => (

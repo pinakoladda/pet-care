@@ -2,7 +2,12 @@ import React from 'react'
 import cn from 'classnames'
 import { Button } from '@/components/Button'
 import { Avatar } from '@/components/Avatar'
-import { useDeletePet, usePatchPet, usePetWeight } from '@/lib/api'
+import {
+    useDeletePet,
+    usePatchAvatarPet as usePatchPetAvatar,
+    usePatchPet,
+    usePetWeight,
+} from '@/lib/api'
 import { ConfirmaitionModal } from '@/components/ConfirmationModal'
 import { AddPetForm } from '@/features/AddPetForm'
 import { convertWeight, formatAge, formatDate } from '@/lib/helpers'
@@ -14,6 +19,7 @@ export const PetInfo = ({ name, petId, avatar, petData }) => {
     const { data } = usePetWeight(petId)
     const { mutateAsync: deletePet, isPending } = useDeletePet()
     const { mutateAsync: patchPet } = usePatchPet()
+    const { mutateAsync: patchPetAvatar } = usePatchPetAvatar()
     const {
         state: { measure },
     } = useGlobalContext()
@@ -43,6 +49,10 @@ export const PetInfo = ({ name, petId, avatar, petData }) => {
             })
     }
 
+    const onUploadAvatar = (data) => {
+        return patchPetAvatar({ ...data, petId })
+    }
+
     return (
         <div className={styles.petInfo}>
             <div className={styles.avatarContainer}>
@@ -51,6 +61,7 @@ export const PetInfo = ({ name, petId, avatar, petData }) => {
                     className={styles.avatar}
                     glowing
                     isEditable
+                    onUpload={onUploadAvatar}
                 />
                 <PetInfoField className={styles.petName} value={name} />
             </div>

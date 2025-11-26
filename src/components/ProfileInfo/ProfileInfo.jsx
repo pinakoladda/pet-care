@@ -4,10 +4,11 @@ import { Button } from '@/components/Button'
 import { Avatar } from '@/components/Avatar'
 import styles from './index.module.css'
 import { EditUserForm } from '@/features/EditUserForm'
-import { Input } from '../Input'
+import { usePatchUserAvatar } from '@/lib/api'
 
 export const ProfileInfo = ({ children, userData }) => {
     const [isEditing, setIsEditing] = React.useState(false)
+    const { mutateAsync: patchUserAvatar } = usePatchUserAvatar()
 
     const toggle = () => {
         setIsEditing((value) => !value)
@@ -16,7 +17,12 @@ export const ProfileInfo = ({ children, userData }) => {
     return (
         <div className={styles.userInfo}>
             <section className={styles.sectionInfo}>
-                <Avatar className={styles.avatar} isEditable></Avatar>
+                <Avatar
+                    className={styles.avatar}
+                    isEditable
+                    onUpload={patchUserAvatar}
+                    src={userData?.avatarUrl?.lg}
+                />
                 <div className={styles.containerInfo}>
                     {userData?.name && (
                         <ProfileEditField value={userData?.name} />
