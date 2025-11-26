@@ -7,7 +7,6 @@ import React from 'react'
 import { Button } from '@/components/Button'
 import { MousePointerClick } from 'lucide-react'
 import cn from 'classnames'
-import { useGlobalContext } from '@/contexts/GlobalContext'
 
 const TYPE_NAMES = {
     vorms: 'anti-helmints treatment',
@@ -16,10 +15,6 @@ const TYPE_NAMES = {
 }
 
 export const Notification = () => {
-    const {
-        state: { theme },
-    } = useGlobalContext()
-
     const { data = [] } = useGetEvents()
     const editNotificationPopupProps = usePopupProps()
 
@@ -48,12 +43,10 @@ export const Notification = () => {
                             className={cn(styles.messageContainer, {
                                 [styles.messageExp]: isPast(event.nextDate),
                             })}
+                            key={event._id + event.date}
                             onClick={onEventClick(event._id)}
                         >
-                            <p
-                                key={event._id + event.nextDate}
-                                className={styles.message}
-                            >
+                            <p className={styles.message}>
                                 {event.petId.name +
                                     '`s' +
                                     ' next ' +
@@ -65,11 +58,7 @@ export const Notification = () => {
                                 <MousePointerClick
                                     size={20}
                                     strokeWidth={1.25}
-                                    color={
-                                        theme === 'dark'
-                                            ? 'var(--text-color-accent)'
-                                            : 'var(--text-color-primary)'
-                                    }
+                                    color={'var(--text-color-primary)'}
                                 />
                             </Button>
                         </div>

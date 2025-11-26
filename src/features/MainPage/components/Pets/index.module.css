@@ -10,6 +10,12 @@
     justify-content: center;
 }
 
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
 .addButton {
     background-color: unset;
     border-color: transparent;
@@ -17,6 +23,6 @@
 
 .header {
     color: var(--text-color-primary);
-    margin: 0 0 12px;
+    margin: 0 0 12px 10px;
     font-size: 18px;
 }

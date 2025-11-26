@@ -44,8 +44,8 @@ export const useGetMedicines = (petId) => {
     })
 }
 
-const deleteMedicine = async (medicineId) => {
-    const response = await api.delete(`/medicine/${medicineId}`)
+const deleteMedicine = async ({ medicineId, date }) => {
+    const response = await api.delete(`/medicine/${medicineId}?date=${date}`)
 
     return response.data
 }

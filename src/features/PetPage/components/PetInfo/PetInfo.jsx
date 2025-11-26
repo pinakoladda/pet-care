@@ -46,7 +46,12 @@ export const PetInfo = ({ name, petId, avatar, petData }) => {
     return (
         <div className={styles.petInfo}>
             <div className={styles.avatarContainer}>
-                <Avatar src={avatar} className={styles.avatar} glowing />
+                <Avatar
+                    src={avatar}
+                    className={styles.avatar}
+                    glowing
+                    isEditable
+                />
                 <PetInfoField className={styles.petName} value={name} />
             </div>
             <div className={styles.infoContainer}>

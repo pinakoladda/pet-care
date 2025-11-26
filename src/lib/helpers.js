@@ -37,7 +37,7 @@ export const convertWeight = (value, measure) => {
         return Number(value)
     }
     if (measure === 'kilograms') {
-        return Math.floor(value / 1000)
+        return Math.floor(value / 10) / 100
     }
     if (measure === 'pounds') {
         return Math.floor(value / 453.6)

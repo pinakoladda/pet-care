@@ -19,18 +19,21 @@ export const ChangePasswordForm = ({ userData }) => {
                 name="currentPassword"
                 id="currentPassword"
                 {...fields.currentPassword}
+                type="password"
             />
             <Input
                 label="New password:"
                 name="newPassword"
                 id="newPassword"
                 {...fields.newPassword}
+                type="password"
             />
             <Input
                 label="Repeat password:"
                 name="repeatPassword"
                 id="repeatPassword"
                 {...fields.repeatPassword}
+                type="password"
             />
             <ErrorMessage errorMessage={errorMessage} />
             {successMessage && (

@@ -18,7 +18,7 @@
 }
 
 .messageExp {
-    background-color: var(--text-color-error) !important;
+    background-color: var(--color-attention) !important;
 }
 
 .messageContainer {
@@ -32,6 +32,10 @@
     transition: opacity 0.4s ease-in-out;
 }
 
+.messageContainer:hover {
+    opacity: 0.3;
+}
+
 .message {
     margin: 0;
     color: var(--text-color-primary);
@@ -40,9 +44,6 @@
     text-align: center;
 }
 
-.messageContainer:hover {
-    opacity: 0.3;
-}
 
 .button {
     padding: 0 0 0 6px;

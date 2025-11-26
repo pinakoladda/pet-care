@@ -6,10 +6,37 @@
     display: block;
     object-fit: cover;
     object-position: center;
-    /* box-shadow: 0 0 24px rgb(232, 199, 136);
-    background-color: rgb(232, 199, 136); */
 }
 
 .glowing {
     box-shadow: 0 0 24px var(--color-primary);
+}
+
+.container {
+    position: relative;
+}
+
+.editImg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.container:hover .editImg {
+    opacity: 1;
+}
+
+.container[data-is-editable="true"] .avatar {
+    transition: opacity 0.4s ease-in-out;
+}
+
+.container[data-is-editable="true"] .avatar:hover {
+    opacity: 0.3;
+}
+
+.input {
+    display: none;
 }

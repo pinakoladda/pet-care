@@ -7,8 +7,8 @@ import { Loader } from '@/components/Loader'
 import { usePopupProps } from '@/hooks/usePopupProps'
 import { PopupAddWeight } from './components/PopupAddWeight'
 import { PopupPreviousWeight } from './components/PopupPreviousWeight'
-import styles from './index.module.css'
 import { useGlobalContext } from '@/contexts/GlobalContext'
+import styles from './index.module.css'
 
 export const PetWeight = ({ name, petId }) => {
     const { data, isLoading } = usePetWeight(petId)

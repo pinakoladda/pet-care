@@ -1,9 +1,10 @@
 import React from 'react'
-import { UserRoundPen } from 'lucide-react'
+import { Pencil, UserRoundPen } from 'lucide-react'
 import { Button } from '@/components/Button'
 import { Avatar } from '@/components/Avatar'
 import styles from './index.module.css'
 import { EditUserForm } from '@/features/EditUserForm'
+import { Input } from '../Input'
 
 export const ProfileInfo = ({ children, userData }) => {
     const [isEditing, setIsEditing] = React.useState(false)
@@ -15,7 +16,7 @@ export const ProfileInfo = ({ children, userData }) => {
     return (
         <div className={styles.userInfo}>
             <section className={styles.sectionInfo}>
-                <Avatar />
+                <Avatar className={styles.avatar} isEditable></Avatar>
                 <div className={styles.containerInfo}>
                     {userData?.name && (
                         <ProfileEditField value={userData?.name} />

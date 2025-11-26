@@ -4,8 +4,12 @@ import { Popup } from '@/components/Popup'
 import { convertWeight } from '@/lib/helpers'
 import { format } from 'date-fns'
 import styles from './index.module.css'
+import { useGlobalContext } from '@/contexts/GlobalContext'
 
 export const PopupPreviousWeight = ({ data, name, ...props }) => {
+    const {
+        state: { measure },
+    } = useGlobalContext()
     const { onDeleteWeight } = usePrewiousWeight()
     return (
         <Popup {...props}>
@@ -24,7 +28,7 @@ export const PopupPreviousWeight = ({ data, name, ...props }) => {
                             key={item._id}
                         >
                             <p className={styles.paragraph}>
-                                {convertWeight(item.weight, 'kilograms')} kg
+                                {convertWeight(item.weight, measure)} {measure}
                             </p>
                             <p className={styles.paragraph}>
                                 {format(item.date, 'dd/MM/yyyy')}

@@ -52,7 +52,7 @@ export const BaseApp = ({ children }) => {
         localStorage.getItem('theme') || 'dark'
     )
     const [measure, setMeasure] = React.useState(
-        localStorage.getItem('measure') || 'kg'
+        localStorage.getItem('measure') || 'kilograms'
     )
 
     const isTokenExsist = Boolean(localStorage.getItem('token'))

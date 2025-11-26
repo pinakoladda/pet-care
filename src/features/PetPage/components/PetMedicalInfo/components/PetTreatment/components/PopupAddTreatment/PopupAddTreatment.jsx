@@ -80,6 +80,7 @@ export const PopupAddTreatment = ({ petId, type, ...props }) => {
                                         options={REPEAT_OPTIONS_VALUE}
                                         {...fields.repeatValue}
                                         required
+                                        withNoneOption={false}
                                     />
                                     <Select
                                         id="repeat"

@@ -17,8 +17,8 @@ export const TreatmentSection = ({ data, petId, type, header }) => {
         setExpanded((v) => !v)
     }
 
-    const onMedicineDelete = (medicineId) => () => {
-        deleteMedicineFn(medicineId)
+    const onMedicineDelete = (medicineId, date) => () => {
+        deleteMedicineFn({ medicineId, date })
     }
 
     return (
@@ -52,7 +52,7 @@ export const TreatmentSection = ({ data, petId, type, header }) => {
                         return (
                             <div
                                 className={styles.treatmentContainer}
-                                key={item._id}
+                                key={item._id + item.date}
                             >
                                 <p className={styles.paragraph}>{item.name}</p>
                                 <p className={styles.paragraphDate}>
@@ -66,7 +66,10 @@ export const TreatmentSection = ({ data, petId, type, header }) => {
                                 <p className={styles.paragraph}>{item.notes}</p>
                                 <Button
                                     className={styles.paragraphDelete}
-                                    onClick={onMedicineDelete(item._id)}
+                                    onClick={onMedicineDelete(
+                                        item._id,
+                                        item.date
+                                    )}
                                 >
                                     <X />
                                 </Button>

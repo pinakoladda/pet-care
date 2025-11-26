@@ -7,7 +7,7 @@ export const useAddTreatment = ({ onPopupClose, petId, type }) => {
     const [medicine, setMedicine] = React.useState('')
     const [date, setDate] = React.useState(format(new Date(), 'yyyy-MM-dd'))
     const [repeat, setRepeat] = React.useState('once')
-    const [repeatValue, setRepeatValue] = React.useState('')
+    const [repeatValue, setRepeatValue] = React.useState('1')
     const [notes, setNotes] = React.useState('')
     const [errorMessage, setErrorMessage] = React.useState('')
 
