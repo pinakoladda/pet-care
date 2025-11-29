@@ -6,6 +6,8 @@ import { RadioGroup } from '@/components/RadioGroup'
 import { ChangePasswordForm } from './components/ChangePasswordForm'
 import { useGlobalContext } from '@/contexts/GlobalContext'
 import styles from './index.module.css'
+import { Select } from '@/components/Select'
+import { Trans } from '@lingui/react/macro'
 
 const THEME_OPTIONS = [
     {
@@ -29,10 +31,20 @@ const MEASURE_OPTIONS = [
     },
 ]
 
+const LANGUAGES = [
+    { value: 'en', text: 'English' },
+    { value: 'de', text: 'German' },
+    { value: 'fr', text: 'French' },
+    { value: 'ja', text: 'Japanese' },
+    { value: 'ru', text: 'Russian' },
+    { value: 'ua', text: 'Ukrainian' },
+    { value: 'pl', text: 'Polish' },
+]
+
 export const SettingsPage = () => {
     const {
-        state: { theme, measure, user, isLoading },
-        actions: { setTheme, setMeasure },
+        state: { theme, measure, lang, user, isLoading },
+        actions: { setTheme, setMeasure, setLang },
     } = useGlobalContext()
 
     const onChangeTheme = (event) => {
@@ -40,6 +52,9 @@ export const SettingsPage = () => {
     }
     const onChangeMeasure = (event) => {
         setMeasure(event.target.value)
+    }
+    const onChangeLang = (event) => {
+        setLang(event.target.value)
     }
 
     return (
@@ -55,7 +70,7 @@ export const SettingsPage = () => {
                         <section className={styles.settingsContainer}>
                             <div className={styles.themeContainer}>
                                 <h4 className={styles.header}>
-                                    Choose app color-theme:
+                                    <Trans>Choose app color-theme:</Trans>
                                 </h4>
                                 <div className={styles.radioContainer}>
                                     <RadioGroup
@@ -69,7 +84,9 @@ export const SettingsPage = () => {
                             </div>
                             <div className={styles.measureContainer}>
                                 <h4 className={styles.header}>
-                                    Choose your preferred measure:
+                                    <Trans>
+                                        Choose your preferred measure:
+                                    </Trans>
                                 </h4>
                                 <div className={styles.radioContainer}>
                                     <RadioGroup
@@ -80,6 +97,17 @@ export const SettingsPage = () => {
                                         onChange={onChangeMeasure}
                                     />
                                 </div>
+                            </div>
+                            <div className={styles.languageContainer}>
+                                <h4 className={styles.header}>
+                                    <Trans>Choose page language:</Trans>
+                                </h4>
+                                <Select
+                                    options={LANGUAGES}
+                                    className={styles.languageSelect}
+                                    value={lang}
+                                    onChange={onChangeLang}
+                                />
                             </div>
                         </section>
                     </div>

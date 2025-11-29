@@ -18,10 +18,9 @@
     padding: 32px;
     box-sizing: border-box;
     width: 50%;
-}
-
-.themeContainer {
-    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
 }
 
 .radioContainer {
@@ -30,7 +29,11 @@
 }
 
 .header {
-    margin: 0 0 30px;
+    margin: 0 0 28px;
     font-size: 18px;
     color: var(--text-color-primary);
+}
+
+.languageSelect {
+    font-size: 16px;
 }

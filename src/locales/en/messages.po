@@ -1,0 +1,71 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-11-29 15:39+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: buddies\n"
+"X-Crowdin-Project-ID: 850478\n"
+"X-Crowdin-Language: en\n"
+"X-Crowdin-File: /src/locales/en/messages.po\n"
+"X-Crowdin-File-ID: 10\n"
+"Project-Id-Version: buddies\n"
+"Language-Team: English\n"
+"PO-Revision-Date: 2025-11-29 15:22\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+
+#. js-lingui-explicit-id
+#: src/features/SettingsPage/SettingsPage.jsx:16
+msgid "light"
+msgstr "light"
+
+#. js-lingui-explicit-id
+#: src/features/SettingsPage/SettingsPage.jsx:20
+msgid "dark"
+msgstr "dark"
+
+#. js-lingui-explicit-id
+#: src/features/SettingsPage/SettingsPage.jsx:27
+msgid "kilograms"
+msgstr "kilograms"
+
+#. js-lingui-explicit-id
+#: src/features/SettingsPage/SettingsPage.jsx:31
+msgid "pounds"
+msgstr "pounds"
+
+#: src/features/SettingsPage/SettingsPage.jsx:74
+msgid "Choose app color-theme:"
+msgstr ""
+
+#: src/features/SettingsPage/SettingsPage.jsx:104
+msgid "Choose page language:"
+msgstr ""
+
+#: src/features/SettingsPage/SettingsPage.jsx:88
+msgid "Choose your preferred measure:"
+msgstr ""
+
+#: src/components/Header/Header.jsx:33
+msgid "log out"
+msgstr ""
+
+#: src/features/LoginPage/LoginPage.jsx:81
+msgid "Login"
+msgstr "Login"
+
+#: src/components/Header/Header.jsx:21
+msgid "main page"
+msgstr ""
+
+#: src/components/Header/Header.jsx:30
+msgid "settings"
+msgstr ""
+
+#: src/features/LoginPage/LoginPage.jsx:84
+msgid "Still don't have an account in Pet Care? "
+msgstr ""

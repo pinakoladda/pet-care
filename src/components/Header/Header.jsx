@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro'
 import { Button } from '../Button'
 import styles from './index.module.css'
 import cn from 'classnames'
@@ -17,7 +18,7 @@ export const Header = ({ page }) => {
                 })}
                 href="/"
             >
-                main page
+                <Trans>main page</Trans>
             </Button>
             <Button
                 as="a"
@@ -26,10 +27,10 @@ export const Header = ({ page }) => {
                     [styles.disabledLink]: page === 'settings',
                 })}
             >
-                settings
+                <Trans>settings</Trans>
             </Button>
             <Button className={styles.link} onClick={handleLogOut}>
-                log out
+                <Trans>log out</Trans>
             </Button>
         </header>
     )

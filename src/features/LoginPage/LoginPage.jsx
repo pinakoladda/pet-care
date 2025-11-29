@@ -5,6 +5,7 @@ import styles from './index.module.css'
 import { useLogin } from '@/lib/api'
 import { Input } from '@/components/Input'
 import { useTokenCheck } from '@/hooks/useTokenCheck'
+import { Trans } from '@lingui/react/macro'
 
 export const LoginPage = () => {
     useTokenCheck()
@@ -77,10 +78,10 @@ export const LoginPage = () => {
                 type="submit"
                 className={styles.submitButton}
             >
-                Login
+                <Trans>Login</Trans>
             </Button>
             <p className={styles.paragraph}>
-                Still don't have an account in Pet Care?{' '}
+                <Trans>Still don't have an account in Pet Care? </Trans>
                 <a href="/registration">Sign up</a>
             </p>
         </Form>
