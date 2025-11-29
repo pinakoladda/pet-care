@@ -10,7 +10,12 @@ import {
 } from '@/lib/api'
 import { ConfirmaitionModal } from '@/components/ConfirmationModal'
 import { AddPetForm } from '@/features/AddPetForm'
-import { convertWeight, formatAge, formatDate } from '@/lib/helpers'
+import {
+    convertWeight,
+    formatAge,
+    formatDate,
+    getZodiacSign,
+} from '@/lib/helpers'
 import { useGlobalContext } from '@/contexts/GlobalContext'
 import styles from './index.module.css'
 
@@ -53,6 +58,8 @@ export const PetInfo = ({ name, petId, avatar, petData }) => {
         return patchPetAvatar({ ...data, petId })
     }
 
+    const zodiac = getZodiacSign(petData.birthDate)
+
     return (
         <div className={styles.petInfo}>
             <div className={styles.avatarContainer}>
@@ -74,7 +81,7 @@ export const PetInfo = ({ name, petId, avatar, petData }) => {
                     label="Age"
                     value={`${formatAge(petData?.birthDate)} years old`}
                 />
-                <PetInfoField value="Libra ♎︎" />
+                <PetInfoField value={zodiac.name + ' ' + zodiac.sign} />
                 <PetInfoField label="Gender" value={petData?.gender} />
                 {data?.weight?.weight ? (
                     <PetInfoField
@@ -89,7 +96,6 @@ export const PetInfo = ({ name, petId, avatar, petData }) => {
                     ''
                 )}
                 <PetInfoField label="Breed" value={petData?.breed} />
-                {/* <PetInfoField label="Color" value="..." /> */}
                 <PetInfoField
                     label="Neutered"
                     value={petData?.neutured ? 'yes' : 'no'}

@@ -36,7 +36,7 @@ export const PetFood = ({ name, petId }) => {
                         </div>
                     </>
                 ) : (
-                    <p className={styles.paragraph}>
+                    <p className={styles.header}>
                         Add info about {name}'s diet
                     </p>
                 )}
