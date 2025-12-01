@@ -7,6 +7,7 @@ import React from 'react'
 import { Button } from '@/components/Button'
 import { MousePointerClick } from 'lucide-react'
 import cn from 'classnames'
+import { Trans } from '@lingui/react/macro'
 
 const TYPE_NAMES = {
     vorms: 'anti-helmints treatment',
@@ -35,7 +36,9 @@ export const Notification = () => {
 
     return (
         <section className={styles.main}>
-            <h4 className={styles.header}>Upcoming events:</h4>
+            <h4 className={styles.header}>
+                <Trans>Upcoming events:</Trans>
+            </h4>
             <section className={styles.notification}>
                 {closeEvents.map((event) => {
                     return (

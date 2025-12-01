@@ -14,58 +14,127 @@ msgstr ""
 "X-Crowdin-File-ID: 10\n"
 "Project-Id-Version: buddies\n"
 "Language-Team: Russian\n"
-"PO-Revision-Date: 2025-11-29 15:22\n"
+"PO-Revision-Date: 2025-12-01 14:52\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 
 #. js-lingui-explicit-id
 #: src/features/SettingsPage/SettingsPage.jsx:16
-msgid "light"
-msgstr ""
+#~ msgid "light"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/features/SettingsPage/SettingsPage.jsx:20
-msgid "dark"
-msgstr ""
+#~ msgid "dark"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/features/SettingsPage/SettingsPage.jsx:27
-msgid "kilograms"
-msgstr ""
+#~ msgid "kilograms"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/features/SettingsPage/SettingsPage.jsx:31
-msgid "pounds"
-msgstr ""
+#~ msgid "pounds"
+#~ msgstr ""
 
-#: src/features/SettingsPage/SettingsPage.jsx:74
+#: src/features/RegistrationPage/RegistrationPage.jsx:72
+msgid "account:"
+msgstr "аккаунт:"
+
+#: src/features/MainPage/components/Pets/Pets.jsx:17
+msgid "Add your first tail here:"
+msgstr "Добавьте ваш первый хвост здесь:"
+
+#: src/features/RegistrationPage/RegistrationPage.jsx:124
+msgid "Already have an account?"
+msgstr "Уже зарегистрированы?"
+
+#: src/features/PetPage/components/PetInfo/PetInfo.jsx:116
+msgid "Are you fucking sure?"
+msgstr "Вы уверены?"
+
+#: src/features/SettingsPage/SettingsPage.jsx:73
 msgid "Choose app color-theme:"
 msgstr "Выберите цветовую тему приложения:"
 
-#: src/features/SettingsPage/SettingsPage.jsx:104
+#: src/features/SettingsPage/SettingsPage.jsx:103
 msgid "Choose page language:"
 msgstr "Выберите язык страницы:"
 
-#: src/features/SettingsPage/SettingsPage.jsx:88
+#: src/features/SettingsPage/SettingsPage.jsx:87
 msgid "Choose your preferred measure:"
 msgstr "Выберите предпочитаемое измерение:"
+
+#: src/features/RegistrationPage/RegistrationPage.jsx:70
+msgid "Create your "
+msgstr "Создать свой "
+
+#: src/features/PetPage/components/PetInfo/PetInfo.jsx:110
+msgid "Delete Tail"
+msgstr "Удалить хвост"
+
+#: src/features/PetPage/components/PetInfo/PetInfo.jsx:107
+msgid "Edit Tail"
+msgstr "Изменить хвост"
+
+#: src/features/AddPetForm/AddPetForm.jsx:119
+msgid "Is neutured?"
+msgstr "Нейтра?"
 
 #: src/components/Header/Header.jsx:33
 msgid "log out"
 msgstr "выйти"
 
-#: src/features/LoginPage/LoginPage.jsx:81
+#: src/features/LoginPage/LoginPage.jsx:83
 msgid "Login"
 msgstr "Логин"
+
+#: src/features/LoginPage/LoginPage.jsx:47
+msgid "Login to your <0> Pet Care </0> accont:"
+msgstr "Войдите в учетную запись <0> для домашних животных </0>:"
 
 #: src/components/Header/Header.jsx:21
 msgid "main page"
 msgstr "главная страница"
 
+#: src/features/MainPage/components/Pets/Pets.jsx:21
+msgid "My tails:"
+msgstr "Мои хвосты:"
+
+#: src/components/ConfirmationModal/ConfirmationModal.jsx:35
+msgid "no"
+msgstr "нет"
+
+#: src/features/PetPage/components/PetMedicalInfo/PetMedicalInfo.jsx:12
+msgid "Pet medical info:"
+msgstr "Информация о питомнике:"
+
+#: src/features/RegistrationPage/RegistrationPage.jsx:121
+msgid "Registration"
+msgstr "Регистрация"
+
+#: src/features/EditUserForm/EditUserForm.jsx:67
+msgid "Save changes"
+msgstr "Сохранить изменения"
+
 #: src/components/Header/Header.jsx:30
 msgid "settings"
 msgstr "настройки"
 
-#: src/features/LoginPage/LoginPage.jsx:84
+#: src/features/RegistrationPage/RegistrationPage.jsx:126
+msgid "Sign in"
+msgstr "Войти"
+
+#: src/features/LoginPage/LoginPage.jsx:86
 msgid "Still don't have an account in Pet Care? "
 msgstr "У вас еще нет аккаунта в Pet Care? "
+
+#: src/features/MainPage/components/Notification/Notification.jsx:40
+msgid "Upcoming events:"
+msgstr "Предстоящие мероприятия:"
+
+#: src/components/ConfirmationModal/ConfirmationModal.jsx:28
+msgid "yes"
+msgstr "да"
+

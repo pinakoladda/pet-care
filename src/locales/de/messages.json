@@ -1,1 +1,91 @@
-{"messages":{"/RhvUo":["einstellen"],"5YzYlx":["Wählen Sie die Farbe der App:"],"6z5jE4":["ausloggen"],"CtZ3jJ":["Haben Sie noch keinen Account in Haustierpflege? "],"aiyJcK":["Wähle die Sprache der Seite:"],"dark":["dark"],"hAq7I4":["Wählen Sie Ihre bevorzugte Messung:"],"kilograms":["kilograms"],"light":["light"],"pV69OY":["Hauptseite"],"pounds":["pounds"],"z0t9bb":["Anmelden"]}}
+{
+    "messages": {
+        "/RhvUo": [
+            "einstellen"
+        ],
+        "3d1wCB": [
+            "ja"
+        ],
+        "5YzYlx": [
+            "Wählen Sie die Farbe der App:"
+        ],
+        "5lWFkC": [
+            "Anmelden"
+        ],
+        "69vkBp": [
+            "o"
+        ],
+        "6z5jE4": [
+            "ausloggen"
+        ],
+        "8wYDMp": [
+            "Haben Sie bereits ein Konto?"
+        ],
+        "AXsLDt": [
+            "Tierärztliche Info:"
+        ],
+        "BQK3TF": [
+            "Wird Neutralisiert?"
+        ],
+        "CtZ3jJ": [
+            "Haben Sie noch keinen Account in Haustierpflege? "
+        ],
+        "FiVbIw": [
+            "Schwanz bearbeiten"
+        ],
+        "Fs2FEn": [
+            "Erstellen Sie Ihre "
+        ],
+        "HOqAOa": [
+            "Schwanz löschen"
+        ],
+        "NGo7o/": [
+            "Anmeldung"
+        ],
+        "VUwLnB": [
+            "Bist du dir sicher?"
+        ],
+        "aiyJcK": [
+            "Wähle die Sprache der Seite:"
+        ],
+        "dark": [
+            "dunkel"
+        ],
+        "dzOpDU": [
+            "konto:"
+        ],
+        "hAq7I4": [
+            "Wählen Sie Ihre bevorzugte Messung:"
+        ],
+        "jgaEN0": [
+            "Melden Sie sich bei Ihrem <0> Haustier </0> accont:"
+        ],
+        "kilograms": [
+            "kg-Gramm"
+        ],
+        "light": [
+            "hell"
+        ],
+        "pV69OY": [
+            "Hauptseite"
+        ],
+        "pounds": [
+            "pfund"
+        ],
+        "qrHK1u": [
+            "Meine Schwanz:"
+        ],
+        "s/6nNW": [
+            "Nächste Ereignisse:"
+        ],
+        "tAt6p7": [
+            "Fügen Sie Ihren ersten Schwanz hier hinzu:"
+        ],
+        "y3aU20": [
+            "Änderungen speichern"
+        ],
+        "z0t9bb": [
+            "Anmelden"
+        ]
+    }
+}

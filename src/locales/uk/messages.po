@@ -14,9 +14,45 @@ msgstr ""
 "X-Crowdin-File-ID: 10\n"
 "Project-Id-Version: buddies\n"
 "Language-Team: Ukrainian\n"
-"PO-Revision-Date: 2025-11-29 15:22\n"
+"PO-Revision-Date: 2025-12-01 14:52\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
+
+#. js-lingui-explicit-id
+#: src/features/SettingsPage/SettingsPage.jsx:16
+#~ msgid "light"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/features/SettingsPage/SettingsPage.jsx:20
+#~ msgid "dark"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/features/SettingsPage/SettingsPage.jsx:27
+#~ msgid "kilograms"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/features/SettingsPage/SettingsPage.jsx:31
+#~ msgid "pounds"
+#~ msgstr ""
+
+#: src/features/RegistrationPage/RegistrationPage.jsx:72
+msgid "account:"
+msgstr "обліковий запис:"
+
+#: src/features/MainPage/components/Pets/Pets.jsx:17
+msgid "Add your first tail here:"
+msgstr "Додайте свій перший хвіст тут:"
+
+#: src/features/RegistrationPage/RegistrationPage.jsx:124
+msgid "Already have an account?"
+msgstr "Вже маєте обліковий запис?"
+
+#: src/features/PetPage/components/PetInfo/PetInfo.jsx:116
+msgid "Are you fucking sure?"
+msgstr "Ти в біса впевнений?"
 
 #: src/features/SettingsPage/SettingsPage.jsx:73
 msgid "Choose app color-theme:"
@@ -30,23 +66,75 @@ msgstr "Виберіть мову сторінки:"
 msgid "Choose your preferred measure:"
 msgstr "Оберіть бажаний вимір:"
 
+#: src/features/RegistrationPage/RegistrationPage.jsx:70
+msgid "Create your "
+msgstr "Створи свій "
+
+#: src/features/PetPage/components/PetInfo/PetInfo.jsx:110
+msgid "Delete Tail"
+msgstr "Видалити вітрило"
+
+#: src/features/PetPage/components/PetInfo/PetInfo.jsx:107
+msgid "Edit Tail"
+msgstr "Редагувати"
+
+#: src/features/AddPetForm/AddPetForm.jsx:119
+msgid "Is neutured?"
+msgstr "Чи зручна доставка?"
+
 #: src/components/Header/Header.jsx:33
 msgid "log out"
 msgstr "вийти"
 
-#: src/features/LoginPage/LoginPage.jsx:81
+#: src/features/LoginPage/LoginPage.jsx:83
 msgid "Login"
 msgstr "Логін"
+
+#: src/features/LoginPage/LoginPage.jsx:47
+msgid "Login to your <0> Pet Care </0> accont:"
+msgstr "Увійдіть до свого <0> Домашня тварина </0> відділення:"
 
 #: src/components/Header/Header.jsx:21
 msgid "main page"
 msgstr "головна сторінка"
 
+#: src/features/MainPage/components/Pets/Pets.jsx:21
+msgid "My tails:"
+msgstr "Мої зворотні хвости:"
+
+#: src/components/ConfirmationModal/ConfirmationModal.jsx:35
+msgid "no"
+msgstr "нема"
+
+#: src/features/PetPage/components/PetMedicalInfo/PetMedicalInfo.jsx:12
+msgid "Pet medical info:"
+msgstr "Інформація про медичну інформацію:"
+
+#: src/features/RegistrationPage/RegistrationPage.jsx:121
+msgid "Registration"
+msgstr "Реєстрація"
+
+#: src/features/EditUserForm/EditUserForm.jsx:67
+msgid "Save changes"
+msgstr "Зберегти зміни"
+
 #: src/components/Header/Header.jsx:30
 msgid "settings"
 msgstr "налаштування"
 
-#: src/features/LoginPage/LoginPage.jsx:84
+#: src/features/RegistrationPage/RegistrationPage.jsx:126
+msgid "Sign in"
+msgstr "Увійти"
+
+#: src/features/LoginPage/LoginPage.jsx:86
 msgid "Still don't have an account in Pet Care? "
 msgstr "Все ще немає облікового запису в корпусі? "
+
+#: src/features/MainPage/components/Notification/Notification.jsx:40
+msgid "Upcoming events:"
+msgstr "Майбутні події:"
+
+#: src/components/ConfirmationModal/ConfirmationModal.jsx:28
+msgid "yes"
+msgstr "так"
 

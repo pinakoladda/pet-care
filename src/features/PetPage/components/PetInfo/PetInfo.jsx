@@ -18,6 +18,7 @@ import {
 } from '@/lib/helpers'
 import { useGlobalContext } from '@/contexts/GlobalContext'
 import styles from './index.module.css'
+import { Trans } from '@lingui/react/macro'
 
 export const PetInfo = ({ name, petId, avatar, petData }) => {
     const [editPopupVisible, setEditPopupVisible] = React.useState(false)
@@ -103,14 +104,18 @@ export const PetInfo = ({ name, petId, avatar, petData }) => {
             </div>
             <div className={styles.container}>
                 <Button className={styles.editButton} onClick={toggle}>
-                    Edit Tail
+                    <Trans>Edit Tail</Trans>
                 </Button>
                 <Button onClick={onDelete} className={styles.deleteButton}>
-                    Delete tail
+                    <Trans>Delete Tail</Trans>
                 </Button>
             </div>
             <ConfirmaitionModal
-                header="Are you fucking sure?"
+                header={
+                    <>
+                        <Trans>Are you fucking sure?</Trans>
+                    </>
+                }
                 visible={visible}
                 onPopupClose={onPopupClose}
                 onConfirm={onDeletePet}

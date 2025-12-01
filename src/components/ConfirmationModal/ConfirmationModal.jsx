@@ -2,6 +2,7 @@ import { Button } from '../Button'
 import { Popup } from '../Popup'
 import cn from 'classnames'
 import styles from './index.module.css'
+import { Trans } from '@lingui/react/macro'
 
 export const ConfirmaitionModal = ({
     header,
@@ -24,14 +25,14 @@ export const ConfirmaitionModal = ({
                         onClick={onConfirm}
                         className={cn(styles.button, styles.confirmButton)}
                     >
-                        yes
+                        <Trans>yes</Trans>
                     </Button>
                     <Button
                         disabled={disabled}
                         onClick={onPopupClose}
                         className={styles.button}
                     >
-                        no
+                        <Trans>no</Trans>
                     </Button>
                 </div>
             </section>

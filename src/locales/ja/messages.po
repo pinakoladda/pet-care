@@ -14,58 +14,127 @@ msgstr ""
 "X-Crowdin-File-ID: 10\n"
 "Project-Id-Version: buddies\n"
 "Language-Team: Japanese\n"
-"PO-Revision-Date: 2025-11-29 15:22\n"
+"PO-Revision-Date: 2025-12-01 14:52\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 
 #. js-lingui-explicit-id
 #: src/features/SettingsPage/SettingsPage.jsx:16
-msgid "light"
-msgstr ""
+#~ msgid "light"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/features/SettingsPage/SettingsPage.jsx:20
-msgid "dark"
-msgstr ""
+#~ msgid "dark"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/features/SettingsPage/SettingsPage.jsx:27
-msgid "kilograms"
-msgstr ""
+#~ msgid "kilograms"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/features/SettingsPage/SettingsPage.jsx:31
-msgid "pounds"
-msgstr ""
+#~ msgid "pounds"
+#~ msgstr ""
 
-#: src/features/SettingsPage/SettingsPage.jsx:74
+#: src/features/RegistrationPage/RegistrationPage.jsx:72
+msgid "account:"
+msgstr "アカウント:"
+
+#: src/features/MainPage/components/Pets/Pets.jsx:17
+msgid "Add your first tail here:"
+msgstr "最初のテールをここに追加："
+
+#: src/features/RegistrationPage/RegistrationPage.jsx:124
+msgid "Already have an account?"
+msgstr "既にアカウントをお持ちですか？"
+
+#: src/features/PetPage/components/PetInfo/PetInfo.jsx:116
+msgid "Are you fucking sure?"
+msgstr "本当にいいの？"
+
+#: src/features/SettingsPage/SettingsPage.jsx:73
 msgid "Choose app color-theme:"
 msgstr "アプリの色テーマを選択:"
 
-#: src/features/SettingsPage/SettingsPage.jsx:104
+#: src/features/SettingsPage/SettingsPage.jsx:103
 msgid "Choose page language:"
 msgstr "ページ言語を選択:"
 
-#: src/features/SettingsPage/SettingsPage.jsx:88
+#: src/features/SettingsPage/SettingsPage.jsx:87
 msgid "Choose your preferred measure:"
 msgstr "お好みの測定値を選択してください:"
+
+#: src/features/RegistrationPage/RegistrationPage.jsx:70
+msgid "Create your "
+msgstr "あなたのアカウントを作成する "
+
+#: src/features/PetPage/components/PetInfo/PetInfo.jsx:110
+msgid "Delete Tail"
+msgstr "尾を削除"
+
+#: src/features/PetPage/components/PetInfo/PetInfo.jsx:107
+msgid "Edit Tail"
+msgstr "尾を編集"
+
+#: src/features/AddPetForm/AddPetForm.jsx:119
+msgid "Is neutured?"
+msgstr "好意的ですか?"
 
 #: src/components/Header/Header.jsx:33
 msgid "log out"
 msgstr "ログアウト"
 
-#: src/features/LoginPage/LoginPage.jsx:81
+#: src/features/LoginPage/LoginPage.jsx:83
 msgid "Login"
 msgstr "ログイン"
+
+#: src/features/LoginPage/LoginPage.jsx:47
+msgid "Login to your <0> Pet Care </0> accont:"
+msgstr "<0>ペットケア </0>accontにログインします:"
 
 #: src/components/Header/Header.jsx:21
 msgid "main page"
 msgstr "メインページ"
 
+#: src/features/MainPage/components/Pets/Pets.jsx:21
+msgid "My tails:"
+msgstr "自分の尻尾:"
+
+#: src/components/ConfirmationModal/ConfirmationModal.jsx:35
+msgid "no"
+msgstr "いいえ"
+
+#: src/features/PetPage/components/PetMedicalInfo/PetMedicalInfo.jsx:12
+msgid "Pet medical info:"
+msgstr "ペット医療情報:"
+
+#: src/features/RegistrationPage/RegistrationPage.jsx:121
+msgid "Registration"
+msgstr "登録"
+
+#: src/features/EditUserForm/EditUserForm.jsx:67
+msgid "Save changes"
+msgstr "変更を保存"
+
 #: src/components/Header/Header.jsx:30
 msgid "settings"
 msgstr "設定"
 
-#: src/features/LoginPage/LoginPage.jsx:84
+#: src/features/RegistrationPage/RegistrationPage.jsx:126
+msgid "Sign in"
+msgstr "サインイン"
+
+#: src/features/LoginPage/LoginPage.jsx:86
 msgid "Still don't have an account in Pet Care? "
 msgstr "ペットケアにアカウントがありませんか？ "
+
+#: src/features/MainPage/components/Notification/Notification.jsx:40
+msgid "Upcoming events:"
+msgstr "今後の予定："
+
+#: src/components/ConfirmationModal/ConfirmationModal.jsx:28
+msgid "yes"
+msgstr "はい"
+

@@ -1,1 +1,91 @@
-{"messages":{"/RhvUo":["Réglages"],"5YzYlx":["Choisir le thème de couleur de l'application :"],"6z5jE4":["déconnexion"],"CtZ3jJ":["Vous n'avez toujours pas de compte dans Pet Care ? "],"aiyJcK":["Choisissez la langue de la page :"],"dark":["dark"],"hAq7I4":["Choisissez votre mesure préférée :"],"kilograms":["kilograms"],"light":["light"],"pV69OY":["page principale"],"pounds":["pounds"],"z0t9bb":["Se connecter"]}}
+{
+    "messages": {
+        "/RhvUo": [
+            "Réglages"
+        ],
+        "3d1wCB": [
+            "Oui"
+        ],
+        "5YzYlx": [
+            "Choisir le thème de couleur de l'application :"
+        ],
+        "5lWFkC": [
+            "Se connecter"
+        ],
+        "69vkBp": [
+            "non"
+        ],
+        "6z5jE4": [
+            "déconnexion"
+        ],
+        "8wYDMp": [
+            "Vous avez déjà un compte ?"
+        ],
+        "AXsLDt": [
+            "Informations médicales sur les animaux de compagnie :"
+        ],
+        "BQK3TF": [
+            "Est neutre ?"
+        ],
+        "CtZ3jJ": [
+            "Vous n'avez toujours pas de compte dans Pet Care ? "
+        ],
+        "FiVbIw": [
+            "Modifier la queue"
+        ],
+        "Fs2FEn": [
+            "Créez votre "
+        ],
+        "HOqAOa": [
+            "Supprimer la queue"
+        ],
+        "NGo7o/": [
+            "Inscription"
+        ],
+        "VUwLnB": [
+            "Êtes-vous sûr de vouloir baiser ?"
+        ],
+        "aiyJcK": [
+            "Choisissez la langue de la page :"
+        ],
+        "dark": [
+            "foncé"
+        ],
+        "dzOpDU": [
+            "compte :"
+        ],
+        "hAq7I4": [
+            "Choisissez votre mesure préférée :"
+        ],
+        "jgaEN0": [
+            "Connectez-vous à votre <0> Pet Care </0> accont:"
+        ],
+        "kilograms": [
+            "kilogrammes"
+        ],
+        "light": [
+            "Lumière"
+        ],
+        "pV69OY": [
+            "page principale"
+        ],
+        "pounds": [
+            "livres"
+        ],
+        "qrHK1u": [
+            "Mes queues :"
+        ],
+        "s/6nNW": [
+            "Événements à venir :"
+        ],
+        "tAt6p7": [
+            "Ajoutez votre première queue ici:"
+        ],
+        "y3aU20": [
+            "Enregistrer les modifications"
+        ],
+        "z0t9bb": [
+            "Se connecter"
+        ]
+    }
+}

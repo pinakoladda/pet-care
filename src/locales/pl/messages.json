@@ -1,1 +1,91 @@
-{"messages":{"/RhvUo":["ustawienia"],"5YzYlx":["Wybierz kolor motywu:"],"6z5jE4":["wyloguj się"],"CtZ3jJ":["Nadal nie posiadasz konta w Karcie Zwierza? "],"aiyJcK":["Wybierz język strony:"],"dark":["dark"],"hAq7I4":["Wybierz preferowany środek:"],"kilograms":["kilograms"],"light":["light"],"pV69OY":["strona główna"],"pounds":["pounds"],"z0t9bb":["Logowanie"]}}
+{
+    "messages": {
+        "/RhvUo": [
+            "ustawienia"
+        ],
+        "3d1wCB": [
+            "Tak"
+        ],
+        "5YzYlx": [
+            "Wybierz kolor motywu:"
+        ],
+        "5lWFkC": [
+            "Zaloguj się"
+        ],
+        "69vkBp": [
+            "nie"
+        ],
+        "6z5jE4": [
+            "wyloguj się"
+        ],
+        "8wYDMp": [
+            "Masz już konto?"
+        ],
+        "AXsLDt": [
+            "Informacje medyczne dla zwierząt:"
+        ],
+        "BQK3TF": [
+            "Czy jest zapalenie płuc?"
+        ],
+        "CtZ3jJ": [
+            "Nadal nie posiadasz konta w Karcie Zwierza? "
+        ],
+        "FiVbIw": [
+            "Edytuj ogon"
+        ],
+        "Fs2FEn": [
+            "Utwórz swój "
+        ],
+        "HOqAOa": [
+            "Usuń ogon"
+        ],
+        "NGo7o/": [
+            "Rejestracja"
+        ],
+        "VUwLnB": [
+            "Jesteś pewien?"
+        ],
+        "aiyJcK": [
+            "Wybierz język strony:"
+        ],
+        "dark": [
+            "ciemny"
+        ],
+        "dzOpDU": [
+            "Konto:"
+        ],
+        "hAq7I4": [
+            "Wybierz preferowany środek:"
+        ],
+        "jgaEN0": [
+            "Zaloguj się do swojego <0> Pet Care </0> kontakt:"
+        ],
+        "kilograms": [
+            "kilogramy"
+        ],
+        "light": [
+            "światło"
+        ],
+        "pV69OY": [
+            "strona główna"
+        ],
+        "pounds": [
+            "funty"
+        ],
+        "qrHK1u": [
+            "Moje ogony:"
+        ],
+        "s/6nNW": [
+            "Nadchodzące wydarzenia:"
+        ],
+        "tAt6p7": [
+            "Dodaj swój pierwszy ogon tutaj:"
+        ],
+        "y3aU20": [
+            "Zapisz zmiany"
+        ],
+        "z0t9bb": [
+            "Logowanie"
+        ]
+    }
+}

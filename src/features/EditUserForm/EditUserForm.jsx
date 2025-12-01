@@ -6,6 +6,7 @@ import { Input } from '@/components/Input'
 import { useEditUserForm } from './hooks/useEditUserForm'
 import { Select } from '@/components/Select'
 import { ErrorMessage } from '@/components/ErrorMessage'
+import { Trans } from '@lingui/react/macro'
 
 const GENDER = [
     {
@@ -63,7 +64,7 @@ export const EditUserForm = ({ visible, onPopupClose, userData }) => {
                         className={styles.button}
                         type="submit"
                     >
-                        Save changes
+                        <Trans>Save changes</Trans>
                     </Button>
                     <ErrorMessage errorMessage={errorMessage} />
                 </Form>

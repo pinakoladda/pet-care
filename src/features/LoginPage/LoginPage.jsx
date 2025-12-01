@@ -44,9 +44,11 @@ export const LoginPage = () => {
             className={styles.form}
             header={
                 <>
-                    Login to your{' '}
-                    <span className={styles.headerAccent}> Pet Care </span>{' '}
-                    accont:
+                    <Trans>
+                        Login to your{' '}
+                        <span className={styles.headerAccent}> Pet Care </span>{' '}
+                        accont:
+                    </Trans>
                 </>
             }
         >

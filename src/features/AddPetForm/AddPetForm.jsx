@@ -9,6 +9,7 @@ import { useAddPetForm } from './hooks/useAddPetForm'
 import { Suggest } from '@/components/Suggest'
 import styles from './index.module.css'
 import { ErrorMessage } from '@/components/ErrorMessage'
+import { Trans } from '@lingui/react/macro'
 
 const PET_TYPE = [
     {
@@ -115,7 +116,7 @@ export const AddPetForm = ({
                         {...fields.breed}
                     />
                     <legend className={styles.radioQuestion}>
-                        Is neutured?
+                        <Trans>Is neutured?</Trans>
                     </legend>
                     <section className={styles.radioSection}>
                         <RadioGroup

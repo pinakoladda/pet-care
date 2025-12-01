@@ -14,58 +14,127 @@ msgstr ""
 "X-Crowdin-File-ID: 10\n"
 "Project-Id-Version: buddies\n"
 "Language-Team: French\n"
-"PO-Revision-Date: 2025-11-29 15:22\n"
+"PO-Revision-Date: 2025-12-01 14:52\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 
 #. js-lingui-explicit-id
 #: src/features/SettingsPage/SettingsPage.jsx:16
-msgid "light"
-msgstr ""
+#~ msgid "light"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/features/SettingsPage/SettingsPage.jsx:20
-msgid "dark"
-msgstr ""
+#~ msgid "dark"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/features/SettingsPage/SettingsPage.jsx:27
-msgid "kilograms"
-msgstr ""
+#~ msgid "kilograms"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/features/SettingsPage/SettingsPage.jsx:31
-msgid "pounds"
-msgstr ""
+#~ msgid "pounds"
+#~ msgstr ""
 
-#: src/features/SettingsPage/SettingsPage.jsx:74
+#: src/features/RegistrationPage/RegistrationPage.jsx:72
+msgid "account:"
+msgstr "compte :"
+
+#: src/features/MainPage/components/Pets/Pets.jsx:17
+msgid "Add your first tail here:"
+msgstr "Ajoutez votre première queue ici:"
+
+#: src/features/RegistrationPage/RegistrationPage.jsx:124
+msgid "Already have an account?"
+msgstr "Vous avez déjà un compte ?"
+
+#: src/features/PetPage/components/PetInfo/PetInfo.jsx:116
+msgid "Are you fucking sure?"
+msgstr "Êtes-vous sûr de vouloir baiser ?"
+
+#: src/features/SettingsPage/SettingsPage.jsx:73
 msgid "Choose app color-theme:"
 msgstr "Choisir le thème de couleur de l'application :"
 
-#: src/features/SettingsPage/SettingsPage.jsx:104
+#: src/features/SettingsPage/SettingsPage.jsx:103
 msgid "Choose page language:"
 msgstr "Choisissez la langue de la page :"
 
-#: src/features/SettingsPage/SettingsPage.jsx:88
+#: src/features/SettingsPage/SettingsPage.jsx:87
 msgid "Choose your preferred measure:"
 msgstr "Choisissez votre mesure préférée :"
+
+#: src/features/RegistrationPage/RegistrationPage.jsx:70
+msgid "Create your "
+msgstr "Créez votre "
+
+#: src/features/PetPage/components/PetInfo/PetInfo.jsx:110
+msgid "Delete Tail"
+msgstr "Supprimer la queue"
+
+#: src/features/PetPage/components/PetInfo/PetInfo.jsx:107
+msgid "Edit Tail"
+msgstr "Modifier la queue"
+
+#: src/features/AddPetForm/AddPetForm.jsx:119
+msgid "Is neutured?"
+msgstr "Est neutre ?"
 
 #: src/components/Header/Header.jsx:33
 msgid "log out"
 msgstr "déconnexion"
 
-#: src/features/LoginPage/LoginPage.jsx:81
+#: src/features/LoginPage/LoginPage.jsx:83
 msgid "Login"
 msgstr "Se connecter"
+
+#: src/features/LoginPage/LoginPage.jsx:47
+msgid "Login to your <0> Pet Care </0> accont:"
+msgstr "Connectez-vous à votre <0> Pet Care </0> accont:"
 
 #: src/components/Header/Header.jsx:21
 msgid "main page"
 msgstr "page principale"
 
+#: src/features/MainPage/components/Pets/Pets.jsx:21
+msgid "My tails:"
+msgstr "Mes queues :"
+
+#: src/components/ConfirmationModal/ConfirmationModal.jsx:35
+msgid "no"
+msgstr "non"
+
+#: src/features/PetPage/components/PetMedicalInfo/PetMedicalInfo.jsx:12
+msgid "Pet medical info:"
+msgstr "Informations médicales sur les animaux de compagnie :"
+
+#: src/features/RegistrationPage/RegistrationPage.jsx:121
+msgid "Registration"
+msgstr "Inscription"
+
+#: src/features/EditUserForm/EditUserForm.jsx:67
+msgid "Save changes"
+msgstr "Enregistrer les modifications"
+
 #: src/components/Header/Header.jsx:30
 msgid "settings"
 msgstr "Réglages"
 
-#: src/features/LoginPage/LoginPage.jsx:84
+#: src/features/RegistrationPage/RegistrationPage.jsx:126
+msgid "Sign in"
+msgstr "Se connecter"
+
+#: src/features/LoginPage/LoginPage.jsx:86
 msgid "Still don't have an account in Pet Care? "
 msgstr "Vous n'avez toujours pas de compte dans Pet Care ? "
+
+#: src/features/MainPage/components/Notification/Notification.jsx:40
+msgid "Upcoming events:"
+msgstr "Événements à venir :"
+
+#: src/components/ConfirmationModal/ConfirmationModal.jsx:28
+msgid "yes"
+msgstr "Oui"
+

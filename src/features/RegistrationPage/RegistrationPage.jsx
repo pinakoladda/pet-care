@@ -6,6 +6,7 @@ import { Input } from '@/components/Input'
 import { useTokenCheck } from '@/hooks/useTokenCheck'
 import styles from './index.module.css'
 import { ErrorMessage } from '@/components/ErrorMessage'
+import { Trans } from '@lingui/react/macro'
 
 export const RegistrationPage = () => {
     useTokenCheck()
@@ -66,9 +67,9 @@ export const RegistrationPage = () => {
             className={styles.form}
             header={
                 <>
-                    Create your{' '}
+                    <Trans>Create your </Trans>
                     <span className={styles.headerAccent}> Pet Care </span>{' '}
-                    account:
+                    <Trans>account:</Trans>
                 </>
             }
         >
@@ -117,10 +118,13 @@ export const RegistrationPage = () => {
                 type="submit"
                 className={styles.submitButton}
             >
-                Registration
+                <Trans>Registration</Trans>
             </Button>
             <p className={styles.paragraph}>
-                Already have an account? <a href="/login">Sign in</a>
+                <Trans>Already have an account?</Trans>
+                <a href="/login">
+                    <Trans>Sign in</Trans>
+                </a>
             </p>
         </Form>
     )
