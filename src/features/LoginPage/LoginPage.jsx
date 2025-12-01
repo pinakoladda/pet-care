@@ -44,11 +44,9 @@ export const LoginPage = () => {
             className={styles.form}
             header={
                 <>
-                    <Trans>
-                        Login to your{' '}
-                        <span className={styles.headerAccent}> Pet Care </span>{' '}
-                        accont:
-                    </Trans>
+                    <Trans>Login to your </Trans>
+                    <span className={styles.headerAccent}> Pet Care </span>{' '}
+                    <Trans>accont:</Trans>
                 </>
             }
         >
@@ -56,7 +54,7 @@ export const LoginPage = () => {
                 label="Login:"
                 id="login"
                 name="login"
-                maxLength={20}
+                maxLength={40}
                 required
                 value={loginValue}
                 onChange={onLoginChange}
@@ -66,7 +64,6 @@ export const LoginPage = () => {
                 id="password"
                 name="password"
                 type="password"
-                // minLength={6}
                 maxLength={20}
                 required
                 value={passwordValue}

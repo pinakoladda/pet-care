@@ -33,6 +33,10 @@ msgstr ""
 #~ msgid "pounds"
 #~ msgstr ""
 
+#: src/features/LoginPage/LoginPage.jsx:49
+msgid "accont:"
+msgstr ""
+
 #: src/features/RegistrationPage/RegistrationPage.jsx:72
 msgid "account:"
 msgstr ""
@@ -81,13 +85,17 @@ msgstr ""
 msgid "log out"
 msgstr ""
 
-#: src/features/LoginPage/LoginPage.jsx:83
+#: src/features/LoginPage/LoginPage.jsx:81
 msgid "Login"
 msgstr ""
 
 #: src/features/LoginPage/LoginPage.jsx:47
-msgid "Login to your <0> Pet Care </0> accont:"
+msgid "Login to your "
 msgstr ""
+
+#: src/features/LoginPage/LoginPage.jsx:47
+#~ msgid "Login to your <0> Pet Care </0> accont:"
+#~ msgstr ""
 
 #: src/components/Header/Header.jsx:21
 msgid "main page"
@@ -121,7 +129,7 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: src/features/LoginPage/LoginPage.jsx:86
+#: src/features/LoginPage/LoginPage.jsx:84
 msgid "Still don't have an account in Pet Care? "
 msgstr ""
 

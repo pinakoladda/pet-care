@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File-ID: 10\n"
 "Project-Id-Version: buddies\n"
 "Language-Team: Russian\n"
-"PO-Revision-Date: 2025-12-01 14:52\n"
+"PO-Revision-Date: 2025-12-01 15:36\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 

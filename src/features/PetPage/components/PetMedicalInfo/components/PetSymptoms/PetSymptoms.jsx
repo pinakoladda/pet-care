@@ -17,7 +17,7 @@ export const PetSymptoms = ({ name }) => {
                 <Button className={cn(styles.button, styles.buttonTransparent)}>
                     Symptoms history
                 </Button>
-                <Button className={styles.button}>Add symptom+</Button>
+                <Button className={styles.button}>Add symptom +</Button>
             </div>
         </main>
     )
