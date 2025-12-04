@@ -1,0 +1,47 @@
+.main {
+     padding: 32px 28px 28px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    margin: 0 0 20px;
+    border-bottom: 1px dashed var(--color-primary);
+}
+
+.container:last-of-type {
+    margin: 0;
+}
+
+.container:hover .deleteButton {
+    opacity: 1;
+    visibility: visible;
+}
+
+.symptomName {
+    margin: 0;
+    font-size: 16px;
+    max-width: 200px;
+    width: 100%;
+    word-break: break-word;
+}
+
+.paragraph {
+    margin: 0;
+    font-size: 16px;
+}
+
+.header {
+    font-size: 18px;
+    margin: 0 0 28px;
+    color: var(--text-color-accent);
+}
+
+.deleteButton {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 16px;
+    color: var(--text-color-secondary);
+}

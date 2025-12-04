@@ -14,7 +14,7 @@ export const PetMedicalInfo = ({ petId, name }) => {
             <div className={styles.container}>
                 <PetWeight petId={petId} name={name} />
                 <PetFood petId={petId} name={name} />
-                <PetSymptoms name={name} />
+                <PetSymptoms petId={petId} name={name} />
             </div>
             <PetTreatment name={name} petId={petId} />
         </main>
