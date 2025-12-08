@@ -1,11 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { api } from '.'
 
-const addSymptomFn = async ({ petId, symptom, date }) => {
-    const response = await api.post(`/symptoms`, {
+const addSymptomFn = async ({ petId, text, date, type }) => {
+    const response = await api.post(`/notes`, {
         petId,
-        symptom,
+        text,
         date,
+        type,
     })
 
     return response.data
@@ -22,21 +23,21 @@ export const useAddSymptom = () => {
     })
 }
 
-const getSymptoms = async (petId) => {
-    const response = await api.get(`/symptoms/?petId=${petId}`)
+const getSymptoms = async (petId, type) => {
+    const response = await api.get(`/notes/?petId=${petId}&type=${type}`)
 
     return response.data
 }
 
-export const useSymptoms = (petId) => {
+export const useSymptoms = (petId, type) => {
     return useQuery({
-        queryKey: ['getSymptoms', petId],
+        queryKey: ['getSymptoms', petId, type],
         queryFn: () => getSymptoms(petId),
     })
 }
 
 const deleteSymptomFn = async (symptomId) => {
-    const response = await api.delete(`/symptoms/${symptomId}`)
+    const response = await api.delete(`/notes/${symptomId}`)
 
     return response.data
 }

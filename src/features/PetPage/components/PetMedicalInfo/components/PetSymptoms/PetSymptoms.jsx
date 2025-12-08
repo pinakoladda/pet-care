@@ -10,13 +10,16 @@ export const PetSymptoms = ({ name, petId }) => {
     const popupAddSymptomProps = usePopupProps()
     const popupSymptomsHistoryProps = usePopupProps()
 
-    const { data } = useSymptoms(petId)
+    const type = 'symphtoms'
+
+    const { data } = useSymptoms(petId, type)
+    console.log(data)
 
     return (
         <main className={styles.petSymptoms}>
             <div>
                 <h3 className={styles.header}>Add {name}'s today symptoms</h3>
-                {data ? (
+                {data?.length > 0 ? (
                     <ul className={styles.container}>
                         <p className={styles.paragraphDate}>21.09.2025</p>
                         <li className={styles.paragraph}>
@@ -44,7 +47,11 @@ export const PetSymptoms = ({ name, petId }) => {
                 </Button>
             </div>
 
-            <PopupAddSymptom {...popupAddSymptomProps} petId={petId} />
+            <PopupAddSymptom
+                {...popupAddSymptomProps}
+                petId={petId}
+                type={type}
+            />
             <PopupSymptomsHistory
                 {...popupSymptomsHistoryProps}
                 petId={petId}

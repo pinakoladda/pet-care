@@ -5,11 +5,13 @@ import { TextArea } from '@/components/TextArea'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { useAddPetSymptom } from '../../hooks/useAddSymptom'
+import { ErrorMessage } from '@/components/ErrorMessage'
 
-export const PopupAddSymptom = ({ petId, ...props }) => {
-    const { fields, onSubmit } = useAddPetSymptom({
+export const PopupAddSymptom = ({ petId, type, ...props }) => {
+    const { fields, onSubmit, errorMessage } = useAddPetSymptom({
         petId,
         onPopupClose: props.onPopupClose,
+        type,
     })
     return (
         <Popup {...props}>
@@ -20,6 +22,7 @@ export const PopupAddSymptom = ({ petId, ...props }) => {
                 <Button type="submit" styleType="primary">
                     Save
                 </Button>
+                <ErrorMessage errorMessage={errorMessage} />
             </Form>
         </Popup>
     )
