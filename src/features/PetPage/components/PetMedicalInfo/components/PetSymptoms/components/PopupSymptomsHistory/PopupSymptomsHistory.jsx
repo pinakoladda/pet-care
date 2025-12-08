@@ -1,37 +1,33 @@
 import { Popup } from '@/components/Popup'
 import styles from './index.module.css'
 import { Button } from '@/components/Button'
+import { format } from 'date-fns'
+import { useSymptomsHistory } from '../../hooks/useSymptomsHistory'
 
-const SYMPTOMS = [
-    {
-        text: 'farting, farting, farting, farting, farting,farting',
-        date: '18.09.2025',
-    },
-    { text: 'vomiting', date: '09.09.2025' },
-    { text: 'dizzy', date: '01.12.2025' },
-    { text: 'sick', date: '03.11.2025' },
-]
-
-export const PopupSymptomsHistory = ({ ...props }) => {
+export const PopupSymptomsHistory = ({ data, ...props }) => {
+    const { onDeleteSymptom } = useSymptomsHistory()
     return (
         <Popup {...props}>
             <main className={styles.main}>
-                {SYMPTOMS.length > 0 ? (
+                {data?.length > 0 ? (
                     <>
                         <h4 className={styles.header}>Symptoms history:</h4>
-                        {SYMPTOMS.map((symptom) => {
+                        {data?.map((symptom) => {
                             return (
                                 <section
                                     className={styles.container}
-                                    key={symptom.text}
+                                    key={symptom._id}
                                 >
                                     <p className={styles.symptomName}>
                                         {symptom.text}
                                     </p>
                                     <p className={styles.paragraph}>
-                                        {symptom.date}
+                                        {format(symptom.date, 'MM.dd.yyyy')}
                                     </p>
-                                    <Button className={styles.deleteButton}>
+                                    <Button
+                                        className={styles.deleteButton}
+                                        onClick={onDeleteSymptom(symptom._id)}
+                                    >
                                         Delete
                                     </Button>
                                 </section>

@@ -32,7 +32,7 @@ const getSymptoms = async (petId, type) => {
 export const useSymptoms = (petId, type) => {
     return useQuery({
         queryKey: ['getSymptoms', petId, type],
-        queryFn: () => getSymptoms(petId),
+        queryFn: () => getSymptoms(petId, type),
     })
 }
 

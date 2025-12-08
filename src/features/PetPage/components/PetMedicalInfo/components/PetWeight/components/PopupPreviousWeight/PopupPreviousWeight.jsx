@@ -1,10 +1,10 @@
-import { usePrewiousWeight } from '@/features/PetPage/components/PetMedicalInfo/components/PetWeight/hooks/usePreviousWeight'
 import { Button } from '@/components/Button'
 import { Popup } from '@/components/Popup'
 import { convertWeight } from '@/lib/helpers'
 import { format } from 'date-fns'
 import styles from './index.module.css'
 import { useGlobalContext } from '@/contexts/GlobalContext'
+import { usePrewiousWeight } from '../../hooks/usePreviousWeight'
 
 export const PopupPreviousWeight = ({ data, name, ...props }) => {
     const {

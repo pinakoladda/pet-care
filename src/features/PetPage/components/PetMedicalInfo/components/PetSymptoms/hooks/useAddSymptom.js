@@ -47,5 +47,6 @@ export const useAddPetSymptom = ({ onPopupClose, petId, type }) => {
         },
         onSubmit,
         errorMessage,
+        setSymptom,
     }
 }

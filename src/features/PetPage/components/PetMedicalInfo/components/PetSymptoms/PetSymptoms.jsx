@@ -5,15 +5,14 @@ import { PopupAddSymptom } from './components/PopupAddSymptom'
 import { usePopupProps } from '@/hooks/usePopupProps'
 import { PopupSymptomsHistory } from './components/PopupSymptomsHistory'
 import { useSymptoms } from '@/lib/api/symptoms'
+import { format } from 'date-fns'
 
 export const PetSymptoms = ({ name, petId }) => {
     const popupAddSymptomProps = usePopupProps()
     const popupSymptomsHistoryProps = usePopupProps()
-
-    const type = 'symphtoms'
+    const type = 'symptoms'
 
     const { data } = useSymptoms(petId, type)
-    console.log(data)
 
     return (
         <main className={styles.petSymptoms}>
@@ -21,10 +20,10 @@ export const PetSymptoms = ({ name, petId }) => {
                 <h3 className={styles.header}>Add {name}'s today symptoms</h3>
                 {data?.length > 0 ? (
                     <ul className={styles.container}>
-                        <p className={styles.paragraphDate}>21.09.2025</p>
-                        <li className={styles.paragraph}>
-                            Farting all the time
-                        </li>
+                        <p className={styles.paragraphDate}>
+                            {format(data[0].date, 'MM.dd.yyyy')}
+                        </p>
+                        <li className={styles.paragraph}>{data[0].text}</li>
                     </ul>
                 ) : (
                     <p className={styles.paragraph}>
@@ -55,6 +54,7 @@ export const PetSymptoms = ({ name, petId }) => {
             <PopupSymptomsHistory
                 {...popupSymptomsHistoryProps}
                 petId={petId}
+                data={data}
             />
         </main>
     )
