@@ -4,3 +4,15 @@
     max-width: 1024px;
     margin: 0 auto;
 }
+
+@media screen and (max-width: 590px) {
+    .mainPage {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .mainPage {
+        padding: 12px;
+    }
+}

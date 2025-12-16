@@ -3,3 +3,9 @@
     color: var(--text-color-primary);
     margin: 12px 0;
 }
+
+@media screen and (max-width: 860px) {
+    .header {
+        font-size: 18px;
+    } 
+}

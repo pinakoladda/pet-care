@@ -7,6 +7,8 @@ import { useDeleteMedicine } from '@/lib/api/medicine'
 import cn from 'classnames'
 import styles from './index.module.css'
 import { PopupAddTreatment } from '../PopupAddTreatment'
+import { useMediaQuery } from '@uidotdev/usehooks'
+import { TreatmentsSectionSmall } from './components/TreatmentsSectionSmall'
 
 export const TreatmentSection = ({ data, petId, type, header }) => {
     const { mutateAsync: deleteMedicineFn } = useDeleteMedicine()
@@ -17,8 +19,26 @@ export const TreatmentSection = ({ data, petId, type, header }) => {
         setExpanded((v) => !v)
     }
 
+    const dataExpandedSort = data.slice(0, expanded ? data.length : 3)
+
     const onMedicineDelete = (medicineId, date) => () => {
         deleteMedicineFn({ medicineId, date })
+    }
+    const isSmallDevice = useMediaQuery('only screen and (max-width : 768px)')
+
+    if (isSmallDevice) {
+        return (
+            <TreatmentsSectionSmall
+                data={data}
+                onMedicineDelete={onMedicineDelete}
+                header={header}
+                expanded={expanded}
+                toggleClick={toggleClick}
+                petId={petId}
+                type={type}
+                dataExpandedSort={dataExpandedSort}
+            />
+        )
     }
 
     return (
@@ -48,7 +68,7 @@ export const TreatmentSection = ({ data, petId, type, header }) => {
                             Delete
                         </p>
                     </div>
-                    {data.slice(0, expanded ? data.length : 3).map((item) => {
+                    {dataExpandedSort.map((item) => {
                         return (
                             <div
                                 className={styles.treatmentContainer}
@@ -56,11 +76,11 @@ export const TreatmentSection = ({ data, petId, type, header }) => {
                             >
                                 <p className={styles.paragraph}>{item.name}</p>
                                 <p className={styles.paragraphDate}>
-                                    {format(item.date, 'dd/MM/yyyy')}
+                                    {format(item.date, 'dd.MM.yyyy')}
                                 </p>
                                 <p className={styles.paragraphDate}>
                                     {item.nextDate
-                                        ? format(item.nextDate, 'dd/MM/yyyy')
+                                        ? format(item.nextDate, 'dd.MM.yyyy')
                                         : 'X'}
                                 </p>
                                 <p className={styles.paragraph}>{item.notes}</p>

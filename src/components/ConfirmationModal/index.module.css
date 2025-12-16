@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 0 auto;
 }
 
 .container {
@@ -33,4 +34,10 @@
 
 .confirmButton {
     background-color: var(--color-primary);
+}
+
+@media screen and (max-width: 470px) {
+    .main {
+        width: 100%;
+    }
 }

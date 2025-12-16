@@ -53,6 +53,7 @@
 .example {
     color: var(--text-color-accent);
     font-size: 14px;
+    text-wrap: wrap;
 }
 
 .paragraphEmpty {
@@ -81,4 +82,43 @@
 .moreButton {
     font-size: 16px;
     color: var(--text-color-accent);
+}
+
+@media screen and (max-width: 860px) {
+    .header {
+        font-size: 16px;
+    } 
+    .sectionTreatment {
+        padding: 16px;
+        margin-bottom: 16px;
+        gap: 8px;
+    }
+    .treatmentContainer {
+        gap: 12px;
+    }
+    .paragraph {
+        font-size: 14px;
+    }
+    .paragraphDate {
+        font-size: 12px;
+    }
+    .paragraphDelete {
+        font-size: 12px;
+    }
+    .paragraphEmpty {
+        font-size: 14px;
+    }
+    .buttonContainer {
+        margin: 10px 0 0;
+    }
+    .addButton {
+        font-size: 14px;
+        padding: 4px;
+    }
+    .addBtnCenter {
+        margin: 0 auto;
+    }
+    .moreButton {
+        font-size: 14px;
+    }
 }

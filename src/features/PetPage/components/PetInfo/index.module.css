@@ -20,9 +20,10 @@
 
 .petName {
     margin: 0;
-    font-size: 28px;
+    font-size: 32px;
     text-align: center;
     font-weight: bold;
+    color: var(--text-color-accent)
 }
 
 .infoParagraph {
@@ -69,4 +70,21 @@
     font-size: 18px;
     padding: 8px;
     background-color: var(--color-primary);
+}
+
+@media screen and (max-width: 860px) {
+    .petInfo {
+        flex-direction: column;
+        padding: 18px;
+    }
+    .avatarContainer {
+        margin: 0 auto;
+    }
+    .infoParagraph {
+        font-size: 16px;
+    }
+    .container {
+        gap: 12px;
+        margin-top: 12px;
+    }
 }

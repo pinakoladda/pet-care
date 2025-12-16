@@ -19,6 +19,7 @@
 .addButton {
     background-color: unset;
     border-color: transparent;
+    width: 200px;
 }
 
 .header {

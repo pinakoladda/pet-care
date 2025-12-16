@@ -22,7 +22,7 @@ export const PopupSymptomsHistory = ({ data, ...props }) => {
                                         {symptom.text}
                                     </p>
                                     <p className={styles.paragraph}>
-                                        {format(symptom.date, 'MM.dd.yyyy')}
+                                        {format(symptom.date, 'dd.MM.yyyy')}
                                     </p>
                                     <Button
                                         className={styles.deleteButton}
@@ -35,7 +35,7 @@ export const PopupSymptomsHistory = ({ data, ...props }) => {
                         })}
                     </>
                 ) : (
-                    <h4 className={styles.header}>Symptoms history is empty</h4>
+                    <h4 className={styles.epmtyHeader}>No simptoms history</h4>
                 )}
             </main>
         </Popup>

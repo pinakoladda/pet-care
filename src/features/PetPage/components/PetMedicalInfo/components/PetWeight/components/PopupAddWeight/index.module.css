@@ -5,12 +5,10 @@
     background-color: var(--color-primary);
 }
 
-
 .container {
     display: flex;
     flex-direction: column;
     gap: 18px;
-    width: fit-content;
 }
 
 .header {

@@ -20,3 +20,10 @@
 .inputDetails {
     margin-top: 8px;
 }
+
+@media screen and (max-width: 590px) {
+    .input {
+    padding: 4px;
+    font-size: 16px;
+}
+}

@@ -21,9 +21,9 @@ export const PetSymptoms = ({ name, petId }) => {
                 {data?.length > 0 ? (
                     <ul className={styles.container}>
                         <p className={styles.paragraphDate}>
-                            {format(data[0].date, 'MM.dd.yyyy')}
+                            {format(data[0].date, 'yyyy-MM-dd')}
                         </p>
-                        <li className={styles.paragraph}>{data[0].text}</li>
+                        <li className={styles.symptom}>{data[0].text}</li>
                     </ul>
                 ) : (
                     <p className={styles.paragraph}>

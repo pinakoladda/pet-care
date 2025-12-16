@@ -25,3 +25,31 @@
     color: var(--text-color-primary);
     margin: 8px 0;
 }
+
+
+@media screen and (max-width: 860px) {
+    .settingsPage {
+        padding: 20px;
+    }
+    .passwordForm {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .button {
+        height: fit-content;
+        font-size: 16px;
+        padding: 6px;
+        margin-top: 12px;
+    }
+    .buttonContainer {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .passwordForm {
+        width: 100%;
+    }
+}

@@ -30,3 +30,12 @@
     gap: 8px;
     margin: 0 0 16px;
 }
+
+@media screen and (max-width: 690px) {
+    .petPage {
+        padding: 20px 0;
+        max-width: 100%;
+    }
+}
+
+

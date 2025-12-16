@@ -38,3 +38,26 @@
     border: none;
     color: var(--text-color-primary);
 }
+
+
+@media screen and (max-width: 590px) {
+
+.buttonPrimary {
+    height: fit-content;
+    font-size: 16px;
+    padding: 6px;
+}
+
+.buttonTransparent {
+    height: fit-content;
+    font-size: 16px;
+    padding: 6px;
+}
+
+.buttonLink {
+    background-color: unset;
+    border: none;
+    color: var(--text-color-primary);
+}
+
+}

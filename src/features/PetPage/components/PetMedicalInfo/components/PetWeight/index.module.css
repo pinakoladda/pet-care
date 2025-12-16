@@ -14,7 +14,7 @@
 }
 
 .paragraph {
-    margin: 6px 0 12px;
+    margin: 6px 0;
     font-size: 16px;
     color: var(--text-color-secondary);
 }
@@ -37,90 +37,16 @@
     border-radius: 8px;
 }
 
-.popupContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    width: fit-content;
-}
-
-.popupHeaderAddWeight {
-    margin: 0;
-    font-size: 18px;
-    color: var(--text-color-prinary);
-}
-
-.popupWeihtContainer {
-    display: flex;
-    gap: 8px;
-}
-
-.inputPopupContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.popupInput {
-    font-size: 16px;
-    max-width: 150px;
-    height: 32px;
-    padding: 4px;
-}
-
-.popupSelect {
-    font-size: 16px;
-    height: 32px;
-    padding: 0 0 0 4px;
-}
-
-.popupInputDate {
-    font-size: 16px;
-    height: 32px;
-}
-
-.popupPreviousContainer {
-    padding: 32px 28px 28px;
-    color: var(--text-color-secondary);
-}
-
-.popupPreviousWeight {
-    display: flex;
-    justify-content: space-between;
-    gap: 60px;
-    margin: 0 0 20px;
-    border-bottom: 1px dashed var(--color-primary);
-}
-
-.popupPreviousWeight:last-of-type {
-    margin: 0;
-}
-
-.popupPreviousWeight:hover .popupDeleteButton {
-    opacity: 1;
-    visibility: visible;
-}
-
-.popupParagraph {
-    margin: 0;
-    font-size: 16px;
-}
-
-.popupHeader {
-    font-size: 18px;
-    margin: 0 0 28px;
-}
-
-.popupHeaderEmpty {
-    font-size: 16px;
-    margin: 38px;
-
-}
-
-.popupDeleteButton {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    font-size: 16px;
-    color: var(--text-color-secondary);
+@media screen and (max-width: 860px) {
+    .header {
+        font-size: 16px;
+    } 
+   .petWeight {
+        padding: 16px;
+        max-width: 100%;
+    }
+    .buttonContainer {
+        margin-top: 18px;
+        justify-content: space-between;
+    }
 }

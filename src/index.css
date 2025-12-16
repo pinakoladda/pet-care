@@ -21,10 +21,11 @@ html[data-theme='dark'] {
   --text-color-primary: #dedede;
   --text-color-secondary: #c2c2c2;
   --text-color-error: rgb(236, 54, 54);
-  --text-color-accent: oklch(79.398% 0.09152 305.71);
+  --text-color-accent: rgb(202, 173, 235);
+  
 
   --color-surface: rgb(27, 30, 30);
-  --color-primary: #6D4886;
+  --color-primary: rgb(109, 72, 134);
   --background-color-main: rgb(18, 18, 18);
   --color-attention: rgb(122, 28, 28);
 }
@@ -40,4 +41,10 @@ html[data-theme='light'] {
   --background-color-main: #452c57;
   --color-attention: rgb(236, 54, 54);
 
+}
+
+@media screen and (max-width: 690px) {
+    html {
+      padding: 0 12px; 
+    }
 }

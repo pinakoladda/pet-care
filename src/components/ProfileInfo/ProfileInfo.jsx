@@ -21,7 +21,7 @@ export const ProfileInfo = ({ children, userData }) => {
                     className={styles.avatar}
                     isEditable
                     onUpload={patchUserAvatar}
-                    src={userData?.avatarUrl?.lg}
+                    src={userData?.avatarUrl?.lg || '/defaultAvatar.webp'}
                 />
                 <div className={styles.containerInfo}>
                     {userData?.name && (

@@ -31,7 +31,7 @@ export const PopupPreviousWeight = ({ data, name, ...props }) => {
                                 {convertWeight(item.weight, measure)} {measure}
                             </p>
                             <p className={styles.paragraph}>
-                                {format(item.date, 'dd/MM/yyyy')}
+                                {format(item.date, 'dd.MM.yyyy')}
                             </p>
                             <Button
                                 onClick={onDeleteWeight(item._id)}

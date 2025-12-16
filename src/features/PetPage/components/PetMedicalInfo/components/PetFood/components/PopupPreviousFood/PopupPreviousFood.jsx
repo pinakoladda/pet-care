@@ -24,7 +24,7 @@ export const PopupPreviousFood = ({ data, ...props }) => {
                             >
                                 <p className={styles.foodName}>{item.name}</p>
                                 <p className={styles.paragraph}>
-                                    {format(item.startDate, 'dd/MM/yyyy')}
+                                    {format(item.startDate, 'dd.MM.yyyy')}
                                 </p>
                                 <p className={styles.comment}>
                                     {item.comment

@@ -19,8 +19,15 @@
     font-size: 16px;
 }
 
-.paragraph {
+.symptom {
     margin: 0 0 0 12px;
+    padding: 0;
+    font-size: 16px;
+    color: var(--text-color-secondary);
+}
+
+.paragraph {
+    margin: 6px 0;
     padding: 0;
     font-size: 16px;
     color: var(--text-color-secondary);
@@ -48,4 +55,18 @@
     background-color: transparent;
     border: 1px solid var(--color-primary);
     border-radius: 8px;
+}
+
+@media screen and (max-width: 860px) {
+    .header {
+        font-size: 16px;
+    } 
+   .petSymptoms {
+        padding: 16px;
+        max-width: 100%;
+    }
+    .buttonContainer {
+        margin-top: 18px;
+        justify-content: space-between;
+    }
 }

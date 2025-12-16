@@ -30,7 +30,6 @@ export const PopupAddWeight = ({ petId, ...props }) => {
                                 name="current-weight"
                                 className={styles.input}
                                 {...fields.currentWeight}
-                                type="number"
                                 min={0}
                             />
                             <Select
