@@ -52,3 +52,8 @@
 .btnPlusIcon {
     color: var(--text-color-accent);
 }
+
+.moreButton {
+    font-size: 16px;
+    color: var(--text-color-accent);
+}

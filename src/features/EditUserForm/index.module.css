@@ -29,7 +29,6 @@
 
 @media screen and (max-width: 590px) {
     .button {
-        height: fit-content;
         margin: 8px 0 4px;
         font-size: 16px;
     }
