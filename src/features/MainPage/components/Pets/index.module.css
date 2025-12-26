@@ -27,3 +27,9 @@
     margin: 0 0 12px 10px;
     font-size: 18px;
 }
+
+@media screen and (max-width: 450px) {
+    .cardContainer {
+        justify-content: center;
+    }
+}

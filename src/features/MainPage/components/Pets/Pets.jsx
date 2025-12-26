@@ -31,7 +31,7 @@ export const Pets = ({ ownerId, onAddPet }) => {
                 >
                     {data?.map(({ name, age, breed, _id, avatarUrl }) => (
                         <PetCard
-                            avatar={avatarUrl.md}
+                            avatar={avatarUrl.lg}
                             key={_id}
                             name={name}
                             age={age}

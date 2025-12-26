@@ -1,10 +1,11 @@
 import { Pencil } from 'lucide-react'
 import styles from './index.module.css'
 import cn from 'classnames'
-import React from 'react'
+import React, { useId } from 'react'
 import { useUploadAvatar } from '@/lib/api/avatar'
 
 export const Avatar = ({ className, src, glowing, isEditable, onUpload }) => {
+    const id = useId()
     const inputRef = React.useRef()
     const { mutateAsync: uploadAvatar } = useUploadAvatar()
 
@@ -23,7 +24,7 @@ export const Avatar = ({ className, src, glowing, isEditable, onUpload }) => {
         <label
             className={styles.container}
             data-is-editable={isEditable}
-            htmlFor="file"
+            htmlFor={id}
         >
             {isEditable && (
                 <Pencil
@@ -40,13 +41,15 @@ export const Avatar = ({ className, src, glowing, isEditable, onUpload }) => {
                     glowing ? styles.glowing : ''
                 )}
             />
-            <input
-                type="file"
-                id="file"
-                className={styles.input}
-                onChange={onChange}
-                ref={inputRef}
-            />
+            {isEditable && (
+                <input
+                    type="file"
+                    id={id}
+                    className={styles.input}
+                    onChange={onChange}
+                    ref={inputRef}
+                />
+            )}
         </label>
     )
 }
