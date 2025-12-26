@@ -18,9 +18,9 @@
     margin-bottom: 12px;
 }
 
-.petName {
+p.petName {
     margin: 0;
-    font-size: 32px;
+    font-size: 28px;
     text-align: center;
     font-weight: bold;
     color: var(--text-color-accent)
